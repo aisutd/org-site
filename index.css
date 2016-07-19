@@ -1,0 +1,20 @@
+body {
+	background-color: black;
+	background-image: url("media/1.h (finalist).png");
+	background-position: 50% 10%;
+	background-size: 60%;
+	background-repeat: no-repeat;
+	color: white;
+}
+
+p {
+	font-size: 2vw;
+	text-align: center;
+}
+
+#description {
+	position: fixed;
+	width: 50%;
+	left: 25%;
+	top: 45%;
+}
