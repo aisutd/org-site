@@ -2,12 +2,18 @@ body {
 	background-color: black;
 	background-image: url("media/1.h (finalist).png");
 	background-position: 50% 10%;
-	background-size: 60%;
+	background-size: 50%;
 	background-repeat: no-repeat;
 	color: white;
 }
 
+/* Hyperlink color */
+a {
+	color: #3884BA;
+}
+
 p {
+	font-family: Verdana, Geneva, sans-serif;
 	font-size: 2vw;
 	text-align: center;
 }
@@ -16,5 +22,5 @@ p {
 	position: fixed;
 	width: 50%;
 	left: 25%;
-	top: 45%;
+	top: 35%;
 }
