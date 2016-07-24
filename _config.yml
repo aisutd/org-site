@@ -1,0 +1,19 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: Artificial Intelligence Society
+email: utd.ais@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Welcome to the official website of the AIS. We are a student organization at UT Dallas with a mission to increase knowledge of, and greater interest in, artificial intelligence within the UT Dallas and local communities.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://aisutd.org" # the base hostname & protocol for your site
+twitter_username: ais_utd
+github_username:  aisutd
+
+# Build settings
+markdown: kramdown

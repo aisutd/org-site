@@ -1,32 +1,23 @@
-<!doctype html>
-<html lang="en">
-	<head>
-	    <meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="Welcome to the official website of the AIS. We are a student organization at UT Dallas with a mission to increase knowledge of, and greater interest in, artificial intelligence within the UT Dallas and local communities.">
-		
-		<title>AIS - The Artificial Intelligence Society</title>
-		
-		<link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32">
-		<link rel="stylesheet" href="css/index.css"/>
-	</head>
-	<body>
-		<header>
-			<img id="logo" src="img/logo.png" alt="The Artificial Intelligence Society"/>
-		</header>
-		
-		<section>
-			<p>Welcome to the official website of the AIS. We are a student organization at UT Dallas with a mission to increase knowledge of,
-			and greater interest in, artificial intelligence within the UT Dallas and local communities.</p>
-			<br>
-			<p>Website under construction. Please check back later for updates.</p>
-			<br>
-		</section>
-		
-		<footer>
-			<p>Follow us on <a href="https://www.facebook.com/groups/1551548501821102/" target="_blank">Facebook</a> 
-			and <a href="https://twitter.com/ais_utd" target="_blank">Twitter</a>!</p>
-		</footer>
-	</body>
-</html>
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>

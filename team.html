@@ -1,0 +1,23 @@
+---
+layout: default
+title: Team
+permalink: /team
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+	</head>
+	<body>
+		<ul>
+			{% for officer in site.data.officers %}
+			<li>
+				<img src="{{ officer.photo }}" alt="{{ officer.name }}" target="_blank"/>
+				<a href="{{ officer.link }}">{{ officer.name }}</a>
+				<p>{{ officer.role }}</p>
+			</li>
+			
+			{% endfor %}
+		</ul>
+	</body>
+</html>
