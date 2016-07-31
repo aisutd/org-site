@@ -1,0 +1,25 @@
+# main links links
+main:
+  - title: "About"
+    url: /about.html
+
+  - title: "Apply"
+    url: /apply.html
+
+  - title: "Blog"
+    url: /blog.html
+
+  - title: "Contact"
+    url: /contact.html
+
+  - title: "Events"
+    url: /events.html
+
+  - title: "Join"
+    url: /join.html
+
+  - title: "Papers"
+    url: /papers.html
+
+  - title: "Team"
+    url: /team.html
