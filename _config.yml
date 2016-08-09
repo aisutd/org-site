@@ -6,14 +6,14 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "en"
+locale                   : "en-US"
 title                    : "AIS - The Artificial Intelligence Society"
 title_separator          : "-"
-name                     : "Your Name"
+name                     : "Artificial Intelligence Society"
 description              : "Welcome to the official website of the AIS. We are a student organization at UT Dallas with a mission to increase knowledge of, and greater interest in, artificial intelligence within the UT Dallas and local communities."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-gh_repo                  :
+repository               : "aisutd/aisutd.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
@@ -57,10 +57,6 @@ analytics:
   provider               : false # false (default), "google", "google-universal", "custom"
   google:
     tracking_id          :
-
-# Google AdSense
-google_ad_client         :
-google_ad_slot           :
 
 
 # Site Author
@@ -149,6 +145,12 @@ kramdown:
   enable_coderay: false
 
 
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+  style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
+
 # Outputting
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
@@ -208,16 +210,3 @@ compress_html:
   clippings: all
   ignore:
     envs: development
-
-defaults:
-# _posts
-- scope:
-  path: ""
-  type: posts
-values:
-  layout: single
-  read_time: true
-  comments: true
-  share: true
-  related: true
-
