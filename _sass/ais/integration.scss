@@ -1,0 +1,40 @@
+﻿/*
+ * Used for integrating conflicting SCSS selctors from Minimal Mistakes and Bootstrap 
+ *
+ * Tags with commented out code can be found by searching for #integration#
+*/
+
+// TODO: Integrate "body" and "a" selectors
+
+// Conflict: _base.scss and _scaffolding.scss
+html {
+  //sticky footer fix
+  position: relative;
+  min-height: 100%;
+
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $text-color;
+  font-family: $global-font-family;
+  line-height: 1.5;
+
+  &.overflow--hidden {
+    //when primary navigation is visible, the content in the background won't scroll
+    overflow: hidden;
+  }
+
+}
+
+a {
+  &:focus {
+    @extend %tab-focus;
+  }
+
+  &:hover,
+  &:active {
+    outline: 0;
+  }
+}
