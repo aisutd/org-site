@@ -1,23 +1,35 @@
 ---
-layout: single
+layout: default
 title: Team
 permalink: /team
 ---
-
+ 
 <!doctype html>
 <html lang="en">
-	<head>
-	</head>
-	<body>
-		<ul>
-			{% for officer in site.data.officers %}
-			<li>
-				<img src="{{ officer.photo }}" alt="{{ officer.name }}" target="_blank"/>
-				<a href="{{ officer.link }}">{{ officer.name }}</a>
-				<p>{{ officer.role }}</p>
-			</li>
-			
-			{% endfor %}
-		</ul>
-	</body>
+
+<body>
+    <div id="main">
+        <h2>AIS Team</h2>
+        <br />
+
+        <div id="officer-table" class="container">
+            <div class="row">
+                {% for officer in site.data.officers %}
+
+                <div class="col-lg-3 officer-col-fix col-md-4 col-sm-6 col-xs-12">
+                    <!-- Index 0 is name of file, index 1 is data -->
+                    <div class="officer-image-div">
+                        <a href="{{ officer[1].link }}" target="_blank"><img class="officer-image" alt="{{ officer[1].name }}" src="{{ officer[1].photo }}" /></a>
+                    </div>
+
+                    <a href="{{ officer[1].link }}" target="_blank">{{ officer[1].name }}</a>
+                    <p>{{ officer[1].role }}</p>
+                    <p>{{ officer[1].bio }}</p>
+                </div>
+
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
 </html>
