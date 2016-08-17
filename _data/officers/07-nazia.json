@@ -1,7 +1,7 @@
 {
-	"name" : "Nazia Ahmed",
-	"role" : "Director of Educational Outreach",
-	"bio"  : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis volutpat arcu, et feugiat risus. Sed et porttitor massa. Suspendisse id nisi ut libero consectetur suscipit. Integer tincidunt fermentum orci a congue. Quisque lacinia justo in ipsum auctor, a tristique est fermentum. Nulla mattis congue pharetra. Suspendisse quis dictum turpis. Nam sit amet enim in arcu scelerisque ultricies. Vivamus porttitor.",
-	"photo" : "img/officers/nazia.png",
-	"link" : "http://aisutd.org"
+	"name"	: "Nazia Ahmed",
+	"role"	: "Director of Educational Outreach",
+	"bio"	: "Nazia is a sophomore majoring in Neuroscience at the UT Dallas. Aside from being an officer in AIS, she also works as a research assistant in the Thompson lab and is a medical scribe at the Baylor University Medical Center. She also worked at the Robotics Institute at Carnegie Mellon University, and spent several years volunteering as a math tutor to youth in the Dallas area. As a neuroscience major with experience in computer science, Nazia aspires to contribute a biological perspective to provide a more comprehensive understanding of AI. Nazia has a passion for inspiring youth to pursue fields in artificial intelligence, computer science and STEM in general.",
+	"photo"	: "img/officers/nazia.png",
+	"link"	: ""
 }

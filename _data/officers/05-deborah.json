@@ -1,7 +1,7 @@
 {
-	"name" : "Deborah Pehr",
-	"role" : "Director of Industry & Events",
-	"bio"  : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eget ante a odio porttitor facilisis. Aliquam rhoncus sapien in quam dictum tincidunt. Mauris accumsan enim nec porttitor dignissim. Sed lectus massa, gravida tincidunt urna vel, pretium pretium nulla. Suspendisse eget diam a dui placerat fringilla. Proin lorem lorem, volutpat vitae purus eget, elementum blandit est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec eu nibh mattis, aliquet purus et.",
-	"photo" : "img/officers/deborah.png",
-	"link" : "http://aisutd.org"
+	"name"	: "Debbie Pehr",
+	"role"	: "Director of Industry & Events",
+	"bio"	: "Debbie Pehr is a freshman from Austin studying Neuroscience, preparing to go into medical research. In high school, she served as the President of her local Jewish youth group. During this time, she planned events for groups as small as 4 and as big as 150. Debbie spends time writing letters, travelling, being a political activist, and telling people customer horror stories from her time working at Whataburger. Eager to share her passion about the potential of AI, Debbie is excited to be your Director of Industry and Events!",
+	"photo"	: "img/officers/deborah.png",
+	"link"	: ""
 }

@@ -16,20 +16,29 @@ permalink: /team
             <div class="row">
                 {% for officer in site.data.officers %}
 
-                <div class="col-lg-3 officer-col-fix col-md-4 col-sm-6 col-xs-12">
+                <div class="officer-col-fix col-md-4 col-sm-6 col-xs-12 officer-col-height">
                     <!-- Index 0 is name of file, index 1 is data -->
                     <div class="officer-image-div">
+                        {% if officer[1].link == "" %}
+                        <img class="officer-image" alt="{{ officer[1].name }}" src="{{ officer[1].photo }}" />
+                        {% else %}
                         <a href="{{ officer[1].link }}" target="_blank"><img class="officer-image" alt="{{ officer[1].name }}" src="{{ officer[1].photo }}" /></a>
+                        {% endif %}
                     </div>
 
-                    <a href="{{ officer[1].link }}" target="_blank">{{ officer[1].name }}</a>
-                    <p>{{ officer[1].role }}</p>
+                    <h3 class="officer-name">{{ officer[1].name }}</h3>
+                    <i><p class="officer-role">{{ officer[1].role }}</p></i>
                     <p>{{ officer[1].bio }}</p>
                 </div>
 
                 {% endfor %}
             </div>
         </div>
+
+        <!-- Bootstrap grids have a hidden overflow and of right now the last entry is the longest. This fixes the formatting -->
+        <br />
+        <br />
+        <br />
     </div>
 </body>
 </html>
