@@ -27,6 +27,9 @@ permalink: /team
                     </div>
 
                     <h3 class="officer-name">{{ officer[1].name }}</h3>
+                    {% if officer[1].link != "" %}
+                    <a href="{{ officer[1].link }}" target="_blank"><span class="glyphicon glyphicon-link officer-link" aria-hidden="true"></span></a>
+                    {% endif %}
                     <i><p class="officer-role">{{ officer[1].role }}</p></i>
                     <p>{{ officer[1].bio }}</p>
                 </div>

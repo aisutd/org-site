@@ -30,6 +30,11 @@
     margin: 4px 4px;
 }
 
+.officer-link {
+    float: left;
+    color: $text-color;
+}
+
 // Manual grid breakpoint adjustments
 
 @media screen and (min-width: $screen-md-min) {
