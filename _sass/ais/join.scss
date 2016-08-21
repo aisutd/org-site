@@ -1,6 +1,18 @@
 ﻿
+#grid-container {
+    width: 100%;
+}
+
 #mc_embed_signup {
     background: $background-color; 
-    clear:left; 
     font:14px Helvetica,Arial,sans-serif;
+
+    position: relative;
+    top: -20px;
+}
+
+#mc-embedded-subscribe {
+    // Override MailChimp style
+    color: $text-color !important;
+    background: $cp-blue !important;
 }
