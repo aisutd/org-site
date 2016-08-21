@@ -3,14 +3,6 @@
     width: 100%;
 }
 
-.officer-name {
-    text-align: center;
-}
-
-.officer-role {
-    text-align: center;
-}
-
 .officer-image-div {
     margin: 2px auto;
 
@@ -30,8 +22,15 @@
     margin: 4px 4px;
 }
 
+.officer-role-center {
+    text-align: center;
+    position: relative;
+}
+
 .officer-link {
     float: left;
+    position: absolute;
+    left: 0;
     color: $text-color;
 }
 

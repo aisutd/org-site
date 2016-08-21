@@ -7,36 +7,37 @@ permalink: /team
 <!doctype html>
 <html lang="en">
 <body>
+    <div id="officer-table" class="container">
+        <div class="row">
+            {% for officer in site.data.officers %}
 
-        <div id="officer-table" class="container">
-            <div class="row">
-                {% for officer in site.data.officers %}
+            <div class="officer-col-fix col-md-4 col-sm-6 col-xs-12 officer-col-height">
+                <!-- Index 0 is name of file, index 1 is data -->
+                <div class="officer-image-div">
+                    {% if officer[1].link == "" %}
+                    <img class="officer-image" alt="{{ officer[1].name }}" src="{{ officer[1].photo }}" />
+                    {% else %}
+                    <a href="{{ officer[1].link }}" target="_blank"><img class="officer-image" alt="{{ officer[1].name }}" src="{{ officer[1].photo }}" /></a>
+                    {% endif %}
+                </div>
 
-                <div class="officer-col-fix col-md-4 col-sm-6 col-xs-12 officer-col-height">
-                    <!-- Index 0 is name of file, index 1 is data -->
-                    <div class="officer-image-div">
-                        {% if officer[1].link == "" %}
-                        <img class="officer-image" alt="{{ officer[1].name }}" src="{{ officer[1].photo }}" />
-                        {% else %}
-                        <a href="{{ officer[1].link }}" target="_blank"><img class="officer-image" alt="{{ officer[1].name }}" src="{{ officer[1].photo }}" /></a>
-                        {% endif %}
-                    </div>
-
-                    <h3 class="officer-name">{{ officer[1].name }}</h3>
+                <h3 class="text-center">{{ officer[1].name }}</h3>
+                <div class="officer-role-center">
                     {% if officer[1].link != "" %}
                     <a href="{{ officer[1].link }}" target="_blank"><span class="glyphicon glyphicon-link officer-link" aria-hidden="true"></span></a>
                     {% endif %}
-                    <i><p class="officer-role">{{ officer[1].role }}</p></i>
-                    <p>{{ officer[1].bio }}</p>
+                    <p><i>{{ officer[1].role }}</i></p>
                 </div>
-
-                {% endfor %}
+                <p>{{ officer[1].bio }}</p>
             </div>
 
-        <!-- Bootstrap grids have a hidden overflow and of right now the last entry is the longest. This fixes the formatting -->
-        <br />
-        <br />
-        <br />
+            {% endfor %}
+        </div>
     </div>
+
+    <!-- Bootstrap grids have a hidden overflow and of right now the last entry is the longest. This fixes the formatting -->
+    <br />
+    <br />
+    <br />
 </body>
 </html>
