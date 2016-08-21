@@ -10,7 +10,9 @@
     position: relative;
     top: -20px;
 }
-
+#form-input {
+color: black !important;
+}
 #mc-embedded-subscribe {
     // Override MailChimp style
     color: $text-color !important;
