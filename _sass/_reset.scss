@@ -26,12 +26,12 @@ body { margin: 0; }
 
 ::-moz-selection {
   color: #fff;
-  background: #000;
+  background: $cp-blue;
 }
 
 ::selection {
   color: #fff;
-  background: #000;
+  background: $cp-blue;
 }
 
 /* Display HTML5 elements in IE6-9 and FF3 */
