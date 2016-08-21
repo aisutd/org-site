@@ -38,3 +38,9 @@ a {
     outline: 0;
   }
 }
+
+// Conflict: _base.scss and _type.scss
+p {
+    margin: 0 0 1.3em;
+    padding-bottom: 0.2em;
+}

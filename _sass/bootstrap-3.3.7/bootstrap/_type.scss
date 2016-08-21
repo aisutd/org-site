@@ -55,9 +55,13 @@ h6, .h6 { font-size: $font-size-h6; }
 // Body text
 // -------------------------
 
+// #integration# Merged with integration.scss
+/*
+
 p {
   margin: 0 0 ($line-height-computed / 2);
 }
+*/
 
 .lead {
   margin-bottom: $line-height-computed;
