@@ -1,0 +1,20 @@
+﻿
+#footer-container {
+    width: 100%;
+}
+
+@media screen and (max-width: $screen-sm-max) {
+    .footer-quote-block {
+        margin-top: 20px;
+    }
+}
+
+#footer-quote {
+    text-align: justify;
+    font-family: $serif;
+}
+
+#footer-quote-author {
+    font-family: $serif;
+    margin-top: -16px;
+}
