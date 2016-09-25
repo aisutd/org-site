@@ -1,0 +1,19 @@
+﻿.legal-text {
+  font-size: $type-size-7 !important;
+  text-align: center;
+  margin-bottom: -25px;
+}
+
+.nav-tabs > li {
+    a:hover {
+      background-color: $cp-gray !important;
+    }
+
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        background-color: $cp-gray;
+      }
+    }
+}

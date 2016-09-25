@@ -4,9 +4,14 @@ title: Apply
 permalink: /apply
 ---
 
-<!doctype html>
-<html lang="en">
-	<body>
-		<br><p>Thank you for your interest, but unfortunately there are no available officer openings at this time. However, if you are subscribed to our mailing list or following us on Facebook or Twitter, then you will be the first to know about future opportunities to become an officer.</p>
-	</body>
-</html>
+<br>
+
+{% for opening in site.data.applications %}
+  <h2 class="category-style">{{ opening[1].category }}</h2>
+
+  {% if opening[1].open == true %}
+    <p>We have openings available! You may visit our <a href="{{ opening[1].link }}" target="_blank">application</a> form to see available positions.</p>
+  {% else %}
+    <p>Thank you for your interest, but unfortunately there are no available officer openings at this time. However, if you are subscribed to our mailing list or following us on Facebook or Twitter, then you will be the first to know about future opportunities to become an officer.</p>
+  {% endif %}
+{% endfor %}
