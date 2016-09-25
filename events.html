@@ -6,17 +6,17 @@ permalink: /events
 
 <br>
 <ul class="nav nav-tabs" data-tabs="tabs">
-  <li class="active"><a class="tab-color" href="#talks" data-toggle="tab">Talks</a></li>
-  <li><a class="tab-color" href="#outreach" data-toggle="tab">Outreach</a></li>
+  <li class="active"><a class="tab-color" href="#talks-workshops" data-toggle="tab">Talks &amp Workshops</a></li>
+  <li><a class="tab-color" href="#k12-outreach" data-toggle="tab">K-12 Outreach</a></li>
   <li><a class="tab-color" href="#competitions-hackathons" data-toggle="tab">Competitions &amp Hackathons</a></li>
   <li><a class="tab-color" href="#projects" data-toggle="tab">Projects</a></li>
 </ul>
 
 
 <div class="tab-content">
-  <div class="tab-pane fade in active" id="talks">
-    {% if site.data.events.16F.talks.size > 0 %}
-      {% for event in site.data.events.16F.talks %}
+  <div class="tab-pane fade in active" id="talks-workshops">
+    {% if site.data.events.16F.talks-workshops.size > 0 %}
+      {% for event in site.data.events.16F.talks-workshops %}
         {% include ais/event-listing.html variable-param=event %}
       {% endfor %}
     {% else %}
@@ -25,9 +25,9 @@ permalink: /events
     {% endif %}
   </div>
 
-  <div class="tab-pane fade" id="outreach">
-    {% if site.data.events.16F.outreach.size > 0 %}
-      {% for event in site.data.events.16F.outreach %}
+  <div class="tab-pane fade" id="k12-outreach">
+    {% if site.data.events.16F.k12-outreach.size > 0 %}
+      {% for event in site.data.events.16F.k12-outreach %}
         {% include ais/event-listing.html variable-param=event %}
       {% endfor %}
     {% else %}
@@ -62,7 +62,7 @@ permalink: /events
 <br />
 <br />
 <p class="legal-text">
-  This promotion is published by the Artificial Intelligence Society, is not an official publication of UT Dallas, and does not represent the view of the university or its officers.
+  This promotion is published by The Artificial Intelligence Society, is not an official publication of UT Dallas, and does not represent the view of the university or its officers.
   <br />
   The University of Texas at Dallas is an Equal Opportunity/Affirmative Action University. Students with disabilities needing special assistance to attend, please call 972-883-2946. Texas Relay Operator: 1-800-RELAYTX
 </p>
