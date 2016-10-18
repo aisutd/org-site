@@ -1,12 +1,12 @@
 {
 	"name"	: "Brandon Ferrell",
 	"role"	: "Outreach Instructor",
-	"bio"	: "Brandon is a senior studying Software Engineering with a domain of AI. He has experience presenting 
-	          to the youth, and he brings this background to the AIS in order to present AI in an interactive manner to students. 
-	          Brandon has full-stack experience, however he is now focusing on back end development in order to solidify the 
-	          fundamentals needed to build robust/scalable AI. When he is not studying or coding on the side, you can find him 
-	          building PC's, walking dogs, or playing D&D. He looks forward to collaborating with others during the coding 
+	"bio"	: "Brandon is a senior studying Software Engineering with a domain of AI. He has experience presenting
+	          to the youth, and he brings this background to the AIS in order to present AI in an interactive manner to students.
+	          Brandon has full-stack experience, however he is now focusing on back end development in order to solidify the
+	          fundamentals needed to build robust/scalable AI. When he is not studying or coding on the side, you can find him
+	          building PC's, walking dogs, or playing D&D. He looks forward to collaborating with others during the coding
 	          workshops and hackathons!",
 	"photo"	: "img/officers/brandon.jpg",
-	"link"	: "linkedin.com/in/brandonferrell"
+	"link"	: "http://www.linkedin.com/in/brandonferrell"
 }
