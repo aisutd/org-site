@@ -1,11 +1,12 @@
 {
 	"name"	: "Brian Hoang",
 	"role"	: "President",
-	"bio"	: "Brian is a junior studying Software Engineering, with the intention of contributing
-			  towards the field of artificial intelligence. He is a Research Assistant in the PAIR Lab and 
-			  the Human Language Technology Research Institute, and has held software engineering internships 
-			  at IntelliEpi and Raytheon. During his spare time, Brian can be found playing sports, rocking a piano, 
-			  or watching horror movies with his eyes closed.",
+	"bio"	: "Brian is a sophomore majoring in Software Engineering and minoring in 
+			  Entrepreneurship. He is a Research Assistant in the Human Language Technology 
+			  Research Institute, and has held software engineering internships at IntelliEpi 
+			  and Raytheon. He will be interning at Credera during summer '17. During his spare 
+			  time, Brian can be found playing sports, rocking a piano, or watching horror movies 
+			  with his eyes closed.",
 	"photo"	: "img/officers/brian.jpg",
 	"link"	: "http://www.linkedin.com/in/brianqhoang"
 }

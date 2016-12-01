@@ -1,12 +1,10 @@
 {
 	"name"	: "Mazen Lawand",
 	"role"	: "Outreach Instructor",
-	"bio"	: "Mazen was born and raised in Dallas, where he went to high school at Plano Senior High. He is a senior 
-	          majoring in Software Engineering with a focus in computer networks and information assurance. He has a lot 
-	          of experience with computer networking, web technologies, app development, and algorithm analysis. Some of 
+	"bio"	: "Mazen is a senior majoring in Software Engineering with a focus in Computer Networks and Information Assurance. 
+			  He has a lot of experience with computer networking, web technologies, app development, and algorithm analysis. Some of 
 	          his hobbies are hanging out with friends, reading, watching movies, mountain and road biking, weight lifting, 
-	          and being a nerd in general through coding or doing something with some kind of technology. Mazen is always 
-	          seeking new challenges and meeting new people.",
+	          and being a nerd in general through coding or doing something with some kind of technology.",
 	"photo"	: "img/officers/mazen.jpg",
 	"link"	: ""
 }
