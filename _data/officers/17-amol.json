@@ -1,13 +1,12 @@
 {
 	"name"	: "Amol Mavuduru",
 	"role"	: "Tech Coordinator",
-	"bio"	: "Amol Mavuduru is a freshman majoring in Computer Science and minoring in 
-			  Mathematics. He competed in 
-			  mathematics competitions in high school, as well as
-			  state, national, and scholastic chess tournaments since elementary school. He is interested in 
-			  the application of AI to a wide variety of areas, such as the development of chess engines. In his 
-			  free time, Amol can be found playing guitar, playing speed chess, or looking 
-			  for a strange math or programming problem to solve.",
+	"bio"	: "Amol is a freshman majoring in Computer Science and minoring in Mathematics. 
+			  In high school he was a member of the FIRST Robotics team, the Vice President 
+			  of the chess team, and a participant in the M3 Challenge. He has experience 
+			  in iOS development and aims to create intelligent iPhone apps using machine-learning 
+			  techniques. In his free time, he likes to play guitar, play speed chess, and 
+			  search for interesting math or programming problems to solve.",
 	"photo"	: "img/officers/amol.jpg",
 	"link"	: ""
 }
