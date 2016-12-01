@@ -6,7 +6,7 @@ permalink: /events
 
 <br>
 <ul class="nav tab-style" data-tabs="tabs">
-  <li class="active"><a class="tab-color" href="#talks-workshops" data-toggle="tab">Talks &amp Workshops</a></li>
+  <li class="active"><a class="tab-color" href="#events" data-toggle="tab">Events</a></li>
   <li><a class="tab-color" href="#k12-outreach" data-toggle="tab">K-12 Outreach</a></li>
   <li><a class="tab-color" href="#competitions-hackathons" data-toggle="tab">Competitions &amp Hackathons</a></li>
   <li><a class="tab-color" href="#projects" data-toggle="tab">Projects</a></li>
@@ -14,9 +14,9 @@ permalink: /events
 
 
 <div class="tab-content">
-  <div class="tab-pane fade in active" id="talks-workshops">
-    {% if site.data.events.16F.talks-workshops.size > 0 %}
-      {% for event in site.data.events.16F.talks-workshops %}
+  <div class="tab-pane fade in active" id="events">
+    {% if site.data.events.16F.general.size > 0 %}
+      {% for event in site.data.events.16F.general %}
         {% include ais/event-listing.html variable-param=event %}
       {% endfor %}
     {% else %}
