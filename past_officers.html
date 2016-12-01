@@ -1,15 +1,18 @@
 ---
 layout: page
-title: Meet Our Team
-permalink: /team
+title: Past Officers
+permalink: /past_officers
 ---
  
 <!doctype html>
 <html lang="en">
 <body>
+    <p>These are the officers who have previously served in the AIS. We are grateful for their contributions, and would like to honor them here.
+    <br>Please note that these bios have not been updated since the officers left office.<br><br>
+    </p>
     <div id="officer-table" class="container">
         <div class="row">
-            {% assign officerList = site.data.officers | sort %}
+            {% assign officerList = site.data.past_officers | sort %}
             {% for officer in officerList %}
 
             <div class="officer-col-fix col-md-3 col-sm-6 col-xs-12 officer-col-height">
@@ -40,10 +43,5 @@ permalink: /team
     <br />
     <br />
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <p>You can find the gallery of our past officers <a href="aisutd.org/past_officers.html">here</a>.</p>
 </body>
 </html>
