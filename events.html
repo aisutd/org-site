@@ -15,8 +15,10 @@ permalink: /events
 
 <div class="tab-content">
   <div class="tab-pane fade in active" id="events">
-    {% if site.data.events.16F.general.size > 0 %}
-      {% for event in site.data.events.16F.general %}
+    {% if site.data.events.Fall_16.general.size > 0 %}
+      {% assign eventsList = site.data.events.Fall_16.general | sort %}
+
+      {% for event in eventsList %}
         {% include ais/event-listing.html variable-param=event %}
       {% endfor %}
     {% else %}
@@ -26,8 +28,10 @@ permalink: /events
   </div>
 
   <div class="tab-pane fade" id="k12-outreach">
-    {% if site.data.events.16F.k12-outreach.size > 0 %}
-      {% for event in site.data.events.16F.k12-outreach %}
+    {% if site.data.events.Fall_16.k12-outreach.size > 0 %}
+      {% assign eventsList = site.data.events.Fall_16.k12-outreach | sort %}
+
+      {% for event in eventsList %}
         {% include ais/event-listing.html variable-param=event %}
       {% endfor %}
     {% else %}
@@ -37,8 +41,10 @@ permalink: /events
   </div>
 
   <div class="tab-pane fade" id="competitions-hackathons">
-    {% if site.data.events.16F.competitions-hackathons.size > 0 %}
-      {% for event in site.data.events.16F.competitions-hackathons %}
+    {% if site.data.events.Fall_16.competitions-hackathons.size > 0 %}
+      {% assign eventsList = site.data.events.Fall_16.competitions-hackathons | sort %}
+
+      {% for event in eventsList %}
         {% include ais/event-listing.html variable-param=event %}
       {% endfor %}
     {% else %}
@@ -48,8 +54,10 @@ permalink: /events
   </div>
 
   <div class="tab-pane fade" id="projects">
-    {% if site.data.events.16F.projects.size > 0 %}
-      {% for event in site.data.events.16F.projects %}
+    {% if site.data.events.Fall_16.projects.size > 0 %}
+      {% assign eventsList = site.data.events.Fall_16.projects | sort %}
+
+      {% for event in eventsList %}
         {% include ais/event-listing.html variable-param=event %}
       {% endfor %}
     {% else %}

@@ -6,7 +6,8 @@ permalink: /apply
 
 <br>
 
-{% for opening in site.data.applications | sort %}
+{% assign applications = site.data.applications | sort %}
+{% for opening in applications %}
   <h2 class="category-style">{{ opening[1].category }}</h2>
 
   {% if opening[1].open == true %}
