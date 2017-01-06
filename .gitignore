@@ -8,3 +8,7 @@ _site
 codekit-config.json
 node_modules
 npm-debug.log*
+
+# Remove alternate build directories
+build
+serve
