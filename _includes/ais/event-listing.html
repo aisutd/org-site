@@ -4,7 +4,12 @@
   <p>
     {{ event[1].date }} - {{ event[1].time }}
     <br />
-    <a href="{{ event[1].location_link }}" target="_blank">{{ event[1].location }}</a>
+    {% assign location_link = event[1].location_link %}
+    {% if location_link %}
+      <a href="{{ event[1].location_link }}" target="_blank">{{ event[1].location }}</a>
+    {% else %}
+      {{ event[1].location }}
+    {% endif %}
   </p>
   <p>{{ event[1].description }}</p>
 </div>
