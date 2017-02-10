@@ -1,21 +1,22 @@
 # main links links
 main:
-  - title: "Events"
-    url: /events.html
-
   - title: "About"
     url: /about.html
 
+  - title: "Events"
+    url: /events.html
+
   - title: "Outreach"
     url: /outreach.html
+    
   - title: "Team"
     url: /team.html
 
+  - title: "Join"
+    url: /join.html    
+    
   - title: "Apply"
     url: /apply.html
-
-  - title: "Join"
-    url: /join.html
 
   - title: "Contact"
     url: /contact.html
