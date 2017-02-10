@@ -6,6 +6,8 @@ main:
   - title: "About"
     url: /about.html
 
+  - title: "Outreach"
+    url: /outreach.html
   - title: "Team"
     url: /team.html
 
