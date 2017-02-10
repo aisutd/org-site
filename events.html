@@ -9,7 +9,6 @@ permalink: /events
   <li class="active"><a class="tab-color" href="#talks" data-toggle="tab">Talks</a></li>
   <li><a class="tab-color" href="#workshops" data-toggle="tab">Workshops</a></li>
   <li><a class="tab-color" href="#competitions" data-toggle="tab">Competitions</a></li>
-  <li><a class="tab-color" href="#outreach" data-toggle="tab">K-12 Outreach</a></li>
   <li><a class="tab-color" href="#projects" data-toggle="tab">Projects</a></li>
 </ul>
 
@@ -31,19 +30,6 @@ permalink: /events
   <div class="tab-pane fade" id="workshops">
     {% if site.data.events.16_17.workshops.size > 0 %}
       {% assign eventsList = site.data.events.16_17.workshops | sort %}
-
-      {% for event in eventsList %}
-        {% include ais/event-listing.html variable-param=event %}
-      {% endfor %}
-    {% else %}
-      <br />
-      <p>Please check back later for upcoming events!</p>
-    {% endif %}
-  </div>
-
-  <div class="tab-pane fade" id="outreach">
-    {% if site.data.events.16_17.outreach.size > 0 %}
-      {% assign eventsList = site.data.events.16_17.outreach | sort %}
 
       {% for event in eventsList %}
         {% include ais/event-listing.html variable-param=event %}
