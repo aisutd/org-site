@@ -2,13 +2,18 @@
 <div>
   <h3 class="event-heading">{{ event[1].name }}</h3>
   <p>
-    {{ event[1].date }} - {{ event[1].time }}
+    {% assign eventTimeExists = event[1].time %}
+    {% if eventTimeExists %}
+      {{ event[1].date }} - {{ event[1].time }}
+    {% else %}
+      {{ event[1].date }}
+    {% endif %}
     <br />
     {% assign location_link = event[1].location_link %}
     {% if location_link %}
-      <a href="{{ event[1].location_link }}" target="_blank">{{ event[1].location }}</a>
+    <a href="{{ event[1].location_link }}" target="_blank">{{ event[1].location }}</a>
     {% else %}
-      {{ event[1].location }}
+    {{ event[1].location }}
     {% endif %}
   </p>
   <p>{{ event[1].description }}</p>
