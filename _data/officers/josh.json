@@ -1,0 +1,12 @@
+{
+	"name"	: "Josh Baker",
+	"role"	: "Director of Public Relations",
+	"bio"	: "Joshua is a junior majoring in Computer Science and is currently interning at
+			   Enseo, Inc. in the quality assurance department. He has a natural interest in AI,
+			   as it relates to many of his most significant interests, including technology,
+			   philosophy, and politics. In his free time, he likes to write code, play videogames
+			   , debate strangers on the internet, and hang out with friends.",
+	"photo"	: "img/officers/josh.jpg",
+	"link"	: "",
+	"index" : 5
+}

@@ -9,30 +9,41 @@ permalink: /team
 <body>
     <div id="officer-table" class="container">
         <div class="row">
-            {% assign officerList = site.data.officers | sort %}
-            {% for officer in officerList %}
+          <!-- For some reason, the sort filter is needed for array indexing... -->
+          {% assign officerList = site.data.officers | sort %}
 
-            <div class="officer-col-fix col-md-3 col-sm-6 col-xs-12 officer-col-height">
-                <!-- Index 0 is name of file, index 1 is data -->
-                <div class="officer-image-div">
-                    {% if officer[1].link == "" %}
-                    <img class="officer-image" alt="{{ officer[1].name }}" src="{{ officer[1].photo }}" />
+          <!-- Sort officers based upon index field in the JSON file -->
+          {%for i in (0..officerList.size) %}
+            {%for j in (0..officerList.size) %}
+
+              <!-- officerList[j] is the JSON file, officerList[j][0] is the JSON file name, and officerList[j][1] is the JSON data -->
+              {% if officerList[j][1].index == i %}
+                <div class="officer-col-fix col-md-3 col-sm-6 col-xs-12 officer-col-height">
+
+                  <div class="officer-image-div">
+                    {% if officerList[j][1].link == "" %}
+                      <img class="officer-image" alt="{{ officerList[j][1].name }}" src="{{ officerList[j][1].photo }}" />
                     {% else %}
-                    <a href="{{ officer[1].link }}" target="_blank"><img class="officer-image" alt="{{ officer[1].name }}" src="{{ officer[1].photo }}" /></a>
+                      <a href="{{ officerList[j][1].link }}" target="_blank"><img class="officer-image" alt="{{ officerList[j][1].name }}" src="{{ officerList[j][1].photo }}" /></a>
                     {% endif %}
+                  </div>
+
+                  <h3 class="text-center">{{ officerList[j][1].name }}</h3>
+                  <div class="officer-role-center">
+                    {% if officerList[j][1].link != "" %}
+                      <a href="{{ officerList[j][1].link }}" target="_blank"><span class="glyphicon glyphicon-link officer-link" aria-hidden="true"></span></a>
+                    {% endif %}
+
+                    <p><i>{{ officerList[j][1].role }}</i></p>
+                  </div>
+
+                  <p>{{ officerList[j][1].bio }}</p>
                 </div>
 
-                <h3 class="text-center">{{ officer[1].name }}</h3>
-                <div class="officer-role-center">
-                    {% if officer[1].link != "" %}
-                    <a href="{{ officer[1].link }}" target="_blank"><span class="glyphicon glyphicon-link officer-link" aria-hidden="true"></span></a>
-                    {% endif %}
-                    <p><i>{{ officer[1].role }}</i></p>
-                </div>
-                <p>{{ officer[1].bio }}</p>
-            </div>
-
+                {% break %}
+              {% endif %}
             {% endfor %}
+          {% endfor %}
         </div>
     </div>
 
