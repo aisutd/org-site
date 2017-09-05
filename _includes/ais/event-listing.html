@@ -1,20 +1,24 @@
 ﻿
 <div>
-  <h3 class="event-heading">{{ event[1].name }}</h3>
+  <h3 class="event-heading">{{ include.list[include.index][1].name }}</h3>
+
   <p>
-    {% assign eventTimeExists = event[1].time %}
+    {% assign eventTimeExists = include.list[include.index][1].time %}
+
     {% if eventTimeExists %}
-      {{ event[1].date }} - {{ event[1].time }}
+      {{ include.list[include.index][1].date }} - {{ include.list[include.index][1].time }}
     {% else %}
-      {{ event[1].date }}
+      {{ include.list[include.index][1].date }}
     {% endif %}
     <br />
-    {% assign location_link = event[1].location_link %}
+
+    {% assign location_link = include.list[include.index][1].location_link %}
     {% if location_link %}
-    <a href="{{ event[1].location_link }}" target="_blank">{{ event[1].location }}</a>
+      <a href="{{ include.list[include.index][1].location_link }}" target="_blank">{{ include.list[include.index][1].location }}</a>
     {% else %}
-    {{ event[1].location }}
+      {{ include.list[include.index][1].location }}
     {% endif %}
   </p>
-  <p>{{ event[1].description }}</p>
+
+  <p>{{ include.list[include.index][1].description }}</p>
 </div>

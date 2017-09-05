@@ -9,17 +9,28 @@ permalink: /events
   <li class="active"><a class="tab-color" href="#talks" data-toggle="tab">Talks</a></li>
   <li><a class="tab-color" href="#workshops" data-toggle="tab">Workshops</a></li>
   <li><a class="tab-color" href="#competitions" data-toggle="tab">Competitions</a></li>
-  <li><a class="tab-color" href="#projects" data-toggle="tab">Projects</a></li>
 </ul>
 
 
 <div class="tab-content">
   <div class="tab-pane fade in active" id="talks">
-    {% if site.data.events.16_17.talks.size > 0 %}
-      {% assign eventsList = site.data.events.16_17.talks | sort %}
+    {% if site.data.events.talks.size > 0 %}
+      <!-- For some reason, the sort filter is needed for array indexing... -->
+      {% assign eventsList = site.data.events.talks | sort %}
 
-      {% for event in eventsList %}
-        {% include ais/event-listing.html variable-param=event %}
+      <!-- Sort officers based upon index field in the JSON file -->
+      {%for i in (0..eventsList.size) %}
+        {%for j in (0..eventsList.size) %}
+
+          <!-- officerList[j] is the JSON file, officerList[j][0] is the JSON file name, and officerList[j][1] is the JSON data -->
+          <!-- Display in reverse order -->
+          {% assign reverseIndex = eventsList.size | minus: i | minus: 1 %}
+          {% if eventsList[j][1].index == reverseIndex %}
+            {% include ais/event-listing.html list=eventsList index=j %}
+
+            {% break %}
+          {% endif %}
+        {% endfor %}
       {% endfor %}
     {% else %}
     <br />
@@ -28,11 +39,23 @@ permalink: /events
   </div>
 
   <div class="tab-pane fade" id="workshops">
-    {% if site.data.events.16_17.workshops.size > 0 %}
-      {% assign eventsList = site.data.events.16_17.workshops | sort %}
+    {% if site.data.events.workshops.size > 0 %}
+      <!-- For some reason, the sort filter is needed for array indexing... -->
+      {% assign eventsList = site.data.events.workshops | sort %}
 
-      {% for event in eventsList %}
-        {% include ais/event-listing.html variable-param=event %}
+      <!-- Sort officers based upon index field in the JSON file -->
+      {%for i in (0..eventsList.size) %}
+        {%for j in (0..eventsList.size) %}
+
+          <!-- officerList[j] is the JSON file, officerList[j][0] is the JSON file name, and officerList[j][1] is the JSON data -->
+          <!-- Display in reverse order -->
+          {% assign reverseIndex = eventsList.size | minus: i | minus: 1 %}
+          {% if eventsList[j][1].index == reverseIndex %}
+            {% include ais/event-listing.html list=eventsList index=j %}
+
+            {% break %}
+          {% endif %}
+        {% endfor %}
       {% endfor %}
     {% else %}
       <br />
@@ -41,11 +64,23 @@ permalink: /events
   </div>
 
   <div class="tab-pane fade" id="competitions">
-    {% if site.data.events.16_17.competitions.size > 0 %}
-      {% assign eventsList = site.data.events.16_17.competitions | sort %}
+    {% if site.data.events.competitions.size > 0 %}
+      <!-- For some reason, the sort filter is needed for array indexing... -->
+      {% assign eventsList = site.data.events.competitions | sort %}
 
-      {% for event in eventsList %}
-        {% include ais/event-listing.html variable-param=event %}
+      <!-- Sort officers based upon index field in the JSON file -->
+      {%for i in (0..eventsList.size) %}
+        {%for j in (0..eventsList.size) %}
+
+          <!-- officerList[j] is the JSON file, officerList[j][0] is the JSON file name, and officerList[j][1] is the JSON data -->
+          <!-- Display in reverse order -->
+          {% assign reverseIndex = eventsList.size | minus: i | minus: 1 %}
+          {% if eventsList[j][1].index == reverseIndex %}
+            {% include ais/event-listing.html list=eventsList index=j %}
+
+            {% break %}
+          {% endif %}
+        {% endfor %}
       {% endfor %}
     {% else %}
       <br />
@@ -53,18 +88,6 @@ permalink: /events
     {% endif %}
   </div>
 
-  <div class="tab-pane fade" id="projects">
-    {% if site.data.events.16_17.projects.size > 0 %}
-      {% assign eventsList = site.data.events.16_17.projects | sort %}
-
-      {% for event in eventsList %}
-        {% include ais/event-listing.html variable-param=event %}
-      {% endfor %}
-    {% else %}
-      <br />
-      <p>Please check back later for upcoming events!</p>
-    {% endif %}
-  </div>
 </div>
 
 <br />
