@@ -52,10 +52,22 @@ permalink: /outreach
 <h2 id="outreach-events-heading">Events</h2>
 
 {% if site.data.outreach.size > 0 %}
+  <!-- For some reason, the sort filter is needed for array indexing... -->
   {% assign eventsList = site.data.outreach | sort %}
 
-  {% for event in eventsList %}
-    {% include ais/event-listing.html variable-param=event %}
+  <!-- Sort officers based upon index field in the JSON file -->
+  {%for i in (0..eventsList.size) %}
+    {%for j in (0..eventsList.size) %}
+
+      <!-- officerList[j] is the JSON file, officerList[j][0] is the JSON file name, and officerList[j][1] is the JSON data -->
+      <!-- Display in reverse order -->
+      {% assign reverseIndex = eventsList.size | minus: i | minus: 1 %}
+      {% if eventsList[j][1].index == reverseIndex %}
+        {% include ais/event-listing.html list=eventsList index=j %}
+
+        {% break %}
+      {% endif %}
+    {% endfor %}
   {% endfor %}
 {% else %}
   <br />

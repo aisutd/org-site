@@ -4,6 +4,7 @@ time: 10:30 AM to 2:00 PM
 location: The University of Texas at Dallas
 location_link: http://www.utdallas.edu/
 category: workshop
+index: 1
 description: "
 In collaboration with UT Dallas Computer Science Outreach, we are hosting AI workshop series for high school students at UT Dallas. Our workshops will cover general concepts in machine learning, neural networks, image recognition, and natural language processing. Students will also learn how to implement the concepts covered in Python.
 
