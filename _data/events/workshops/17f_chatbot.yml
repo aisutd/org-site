@@ -1,0 +1,8 @@
+name: Creating Chatbots with AWS Lex & Lambda Workshop
+date: October 12, 2017
+time: 8:30 PM
+location: ECSS 2.410
+location_link: https://www.utdallas.edu/locator/ECSS_2#!/ECSS_2.410
+category: workshop
+index: 2
+description: Join us the learn about the basics of how to create chatbots for specific use cases. You will have the chance to leverage AWS Lex & Lambda to create your own restaurant locator chatbot!</br></br>If you would like to follow along, please create an Amazon Web Services free tier account. Bring your laptop with Python and boto3 & python-google-places libraries installed. Pizza will be served as well!
