@@ -9,6 +9,23 @@
   border-bottom: 1px solid $cp-blue;
 }
 
+.event-table {
+    display: table;
+}
+
+.event-image {
+    display: table-cell;
+    float: right;
+    width: 35%;
+}
+
+.event-description {
+    display: table-cell;
+    float: left;
+    width: 65%;
+    padding-right: 15px;
+}
+
 // Refractor soon to remove duplicate CSS of .nav-tabs, .nav-pills, .nav-stacked, nav-justified, and nav-tabs-justified 
 .tab-style {
   border-bottom: 1px solid $nav-tabs-border-color;

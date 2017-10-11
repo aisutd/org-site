@@ -20,5 +20,17 @@
     {% endif %}
   </p>
 
-  <p>{{ include.list[include.index][1].description }}</p>
+  {% if include.list[include.index][1].image %}
+    <div class="event-table">
+      <div class="event-image">
+        <img alt="" src="{{ include.list[include.index][1].image }}" />
+      </div>
+      <div class="event-description">
+        <p>{{ include.list[include.index][1].description }}</p>
+      </div>
+    </div>
+  {% else %}
+    <p>{{ include.list[include.index][1].description }}</p>
+  {% endif%}
 </div>
+
