@@ -1,12 +1,7 @@
 {
 	"name"	: "Amol Mavuduru",
-	"role"	: "Technical Lead",
-	"bio"	: "Amol is a sophomore majoring in Computer Science and minoring in Mathematics. 
-			  In high school he was a member of the FIRST Robotics team, the Vice President 
-			  of the chess team, and a participant in the M3 Challenge. He has experience 
-			  in iOS development and aims to create intelligent iPhone apps using machine-learning 
-			  techniques. In his free time, he likes to play guitar, play speed chess, and 
-			  search for interesting math or programming problems to solve.",
+	"role"	: "Vice President and Technical Lead",
+	"bio"	: "Amol is a sophomore majoring in Computer Science and minoring in Mathematics. In high school he was a member of the FIRST Robotics team, the Vice President of the chess team, and a participant in the M3 Challenge. He has experience in iOS development and aims to create intelligent iPhone apps using machine-learning techniques. In his free time, he likes to play guitar, play speed chess, and search for interesting math or programming problems to solve.",
 	"photo"	: "img/officers/amol.jpg",
 	"link"	: "https://www.linkedin.com/in/amol-mavuduru-815736129",
 	"index" : 16
