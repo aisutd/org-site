@@ -1,4 +1,7 @@
-﻿
+﻿.col-md-3, .col-sm-6, .col-xs-12 {
+    height: 400px;
+}
+
 #officer-table {
     width: 100%;
 }
@@ -38,7 +41,7 @@
 
 @media screen and (min-width: $screen-md-min) {
     .officer-col-height {
-        height: 760px;
+        height: 800px;
     }
 }
 
