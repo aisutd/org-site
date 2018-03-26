@@ -1,8 +1,8 @@
 {
-	"name"	: "Mahim Nalluri",
-	"role"	: "Operations Coordinator",
-	"bio"	: "Mahim is a freshman majoring in Computer Science. Despite his major, his interests span from business to medicine. Mahim is involved with Business Professionals of America’s UTD chapter and the CometX program at Blackstone. He has aspirations to use AI to help bring about positive change in society. Outside of class, he enjoys exercising, DIY projects, entrepreneurship endeavors and travelling.",
-	"photo"	: "img/officers/mahim.jpg",
-	"link"	: "",
-	"index" : 4
+  "name": "Mahim Nalluri",
+  "role": "Operations Coordinator",
+  "bio": "Mahim is a freshman majoring in Computer Science. Despite his major, his interests span from business to medicine. Mahim is involved with Business Professionals of America’s UTD chapter and the CometX program at Blackstone. He has aspirations to use AI to help bring about positive change in society. Outside of class, he enjoys exercising, DIY projects, entrepreneurship endeavors and travelling.",
+  "photo": "img/officers/mahim.jpg",
+  "link": "",
+  "index": 12
 }

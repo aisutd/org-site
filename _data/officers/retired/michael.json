@@ -1,8 +1,8 @@
 {
-	"name"	: "Michael Hollister",
-	"role"	: "VP, President, 16F-18S",
-	"bio"	: "Michael is a junior majoring in Computer Science. He has interned at Texas Instruments in a software R&D group and has been nominated for the ACE awards with a patent pending. In his spare time, he also teaches K-12 students about digital circuits and programming in Java, Lua, and Python using the Minecraft game. As someone who is passionate about programming and is an aspiring polymath, Michael enjoys taking online university courses in his spare time and prefers to speak in Java rather than English.",
-	"photo"	: "img/past_officers/michael.jpg",
-	"link"	: "http://www.linkedin.com/in/michaelshollister",
-	"index" : 12
+  "name": "Michael Hollister",
+  "role": "VP, President, 16F-18S",
+  "bio": "Michael is a junior majoring in Computer Science. He has interned at Texas Instruments in a software R&D group and has been nominated for the ACE awards with a patent pending. In his spare time, he also teaches K-12 students about digital circuits and programming in Java, Lua, and Python using the Minecraft game. As someone who is passionate about programming and is an aspiring polymath, Michael enjoys taking online university courses in his spare time and prefers to speak in Java rather than English.",
+  "photo": "img/past_officers/michael.jpg",
+  "link": "http://www.linkedin.com/in/michaelshollister",
+  "index": 11
 }

@@ -1,8 +1,8 @@
 {
-	"name"	: "Ilan Buzzetti",
-	"role"	: "Tech Coordinator",
-	"bio"	: "Ilan is a UTD senior studying Computer Science with a passion for education. Inspired early by the likes of Khan Academy, Codeacademy, and independent YouTube tutorials, he hopes to one day aid human learning via machine learning.",
-	"photo"	: "img/officers/ilan.jpg",
-	"link"	: "",
-	"index" : 18
+  "name": "Ilan Buzzetti",
+  "role": "Tech Coordinator",
+  "bio": "Ilan is a UTD senior studying Computer Science with a passion for education. Inspired early by the likes of Khan Academy, Codeacademy, and independent YouTube tutorials, he hopes to one day aid human learning via machine learning.",
+  "photo": "img/officers/ilan.jpg",
+  "link": "",
+  "index": 8
 }

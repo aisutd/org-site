@@ -1,8 +1,8 @@
 {
-	"name"	: "Sharad Shekar",
-	"role"	: "Tech Coordinator",
-	"bio"	: "Sharad is a senior majoring in Electrical Engineering at UNT. Although  relatively new to the field of AI, he is eager to dive in and expand his knowledge. In his free time, he enjoys reading, exploring art and film, and making music on his laptop.",
-	"photo"	: "img/officers/sharad.jpg",
-	"link"	: "",
-	"index" : 17
+  "name": "Sharad Shekar",
+  "role": "Tech Coordinator",
+  "bio": "Sharad is a senior majoring in Electrical Engineering at UNT. Although  relatively new to the field of AI, he is eager to dive in and expand his knowledge. In his free time, he enjoys reading, exploring art and film, and making music on his laptop.",
+  "photo": "img/officers/sharad.jpg",
+  "link": "",
+  "index": 16
 }

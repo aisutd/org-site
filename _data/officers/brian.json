@@ -1,8 +1,8 @@
 {
-	"name"	: "Brian Hoang",
-	"role"	: "Executive Director",
-	"bio"	: "Brian is a junior exploring Software Engineering and Entrepreneurship. He has held software engineering internships at Raytheon and Credera, founded the Virtual Reality Society at UTD, and is currently leading Immosis LLC, an immersive reality startup. He also manages the nonprofit extension of the AIS. During his spare time, Brian can be found playing piano, writing blog posts, or watching horror movies with his eyes closed.",
-	"photo"	: "img/officers/brian.jpg",
-	"link"	: "http://www.brianhoang.me",
-	"index" : 0
+  "name": "Brian Hoang",
+  "role": "Executive Director",
+  "bio": "Brian is a junior exploring Software Engineering and Entrepreneurship. He has held software engineering internships at Raytheon and Credera, founded the Virtual Reality Society at UTD, and is currently leading Immosis LLC, an immersive reality startup. He also manages the nonprofit extension of the AIS. During his spare time, Brian can be found playing piano, writing blog posts, or watching horror movies with his eyes closed.",
+  "photo": "img/officers/brian.jpg",
+  "link": "http://www.brianhoang.me",
+  "index": 0
 }
