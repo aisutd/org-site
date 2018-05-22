@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/bin/bash
+
+cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 help() {
     echo 'You may need to install dependencies.'
