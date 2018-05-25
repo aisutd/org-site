@@ -4,8 +4,9 @@ cd "$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 help() {
     echo 'You may need to install dependencies.'
-    echo 'Try executing the following command:'
-    echo 'sudo apt install ruby ruby-bundler ruby-dev zlib1g zlib1g-dev && bundle install'
+    echo 'Try executing the following commands:'
+    echo -e '\tcd "'"$(pwd)"'"'
+    echo -e '\tsudo apt install ruby ruby-bundler ruby-dev zlib1g zlib1g-dev && bundle install'
     echo
     echo 'If you run into an error about permission denied, try `sudo chmod -R a+w /var/lib/gems/*` and then try `bundle install` again.'
 }
