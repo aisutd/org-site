@@ -7,6 +7,25 @@ Any file you put in this repository (unless its name starts with a dot) will be 
 
 Furthermore, this repository is **PUBLIC!!!** Even if you take care to prevent files being accessible from aisutd.org, anyone who finds this repo can download any files stored here, so don't put anything in this repo that needs to be kept private.
 
+# Jekyll options (in \_config.yml)
+Some Jekyll options get overwritten by GitHub Pages when publishing the site. Therefore, it is dangerous to define these settings locally because doing so will cause Jekyll to compile differently locally than it compiles on the server.
+
+Avoid defining these Jekyll settings (ESPECIALLY SOURCE!)
+```yml
+ lsi: false
+ safe: true
+ source: [your repo's top level directory]
+ incremental: false
+ highlighter: rouge
+ gist:
+   noscript: false
+ kramdown:
+   math_engine: mathjax
+   syntax_highlighter: rouge
+```
+
+For more information, visit <https://help.github.com/articles/configuring-jekyll/>.
+
 # HTTPS certificate
 We have a free certificate from Let's Encrypt, who've partnered with GitHub to support HTTPS for GitHub Pages with custom domains.
 Renewals are also free, and the certificate must be renewed every 90 days.
