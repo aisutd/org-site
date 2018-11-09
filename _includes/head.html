@@ -15,6 +15,12 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
+    {% if page.scripts %}
+        {% for script in page.scripts %}
+            <script src="{{ script }}"></script>
+        {% endfor %}
+    {% endif %}
+
 <!-- For all browsers -->
 <link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
 
