@@ -7,6 +7,16 @@ Any file you put in this repository (unless its name starts with a dot) will be 
 
 Furthermore, this repository is **PUBLIC!!!** Even if you take care to prevent files being accessible from aisutd.org, anyone who finds this repo can download any files stored here, so don't put anything in this repo that needs to be kept private.
 
+# Branches
+This repository has 2 primary branches: master and development. The tip of the master branch is what GitHub publishes to aisutd.org. Therefore, all development work should be done on the development branch. After some number of commits, once the development branch is considered stable, publish it like so:
+
+ - _(Make sure your local copy of the repo is up to date with origin)_
+ - `git checkout master`
+ - `git merge --no-ff development`
+ - `git push`
+
+Feel free to create additional branches off of development for specific tasks or specific contributors. For each sub-branch, incorporate new commits into the parent branch with `git merge --no-ff <sub-branch>` from the parent branch.
+
 # Jekyll options (in \_config.yml)
 Some Jekyll options get overwritten by GitHub Pages when publishing the site. Therefore, it is dangerous to define these settings locally because doing so will cause Jekyll to compile differently locally than it compiles on the server.
 
