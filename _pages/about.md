@@ -3,8 +3,6 @@ layout: single
 title: About
 sitemap: false
 permalink: /about
-quote: "When I found out that UTD didn’t have a student organization for AI, I had to change that. I wanted to not only give opportunities for students to learn more about the academic principles behind AI, but to also inspire them to pursue it further. At the end of the day, however, if people at least become more appreciative of the AI that surrounds us in our day-to-day lives, then we’d still be headed in the right direction."
-quote_author: Brian Hoang (SE '18), Founder
 ---
 
 <br />
@@ -21,3 +19,7 @@ From the nuts-and-bolts of AI, such as Bayesian logic in Markov assumptions, to 
 We understand that much of what's been discussed here seems complex and maybe even intimidating. However, if you stick with us throughout your time at UT Dallas, we promise to replace your fear with passion, and the complexity with simplicity.
 
 Welcome to the future.
+
+> When I found out that UTD didn’t have a student organization for AI, I had to change that. I wanted to not only give opportunities for students to learn more about the academic principles behind AI, but to also inspire them to pursue it further. At the end of the day, however, if people at least become more appreciative of the AI that surrounds us in our day-to-day lives, then we’d still be headed in the right direction.
+
+<div style="text-align: right"><strong><em>Brian Hoang (SE '18), Founder</em></strong></div>
