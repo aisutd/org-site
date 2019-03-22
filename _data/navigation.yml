@@ -6,8 +6,8 @@ main:
   - title: "Events"
     url: /events.html
 
-  - title: "Outreach"
-    url: /outreach.html
+  # - title: "Outreach"
+  #   url: /outreach.html
     
   - title: "Team"
     url: /team.html
