@@ -9,13 +9,16 @@
 .officer-image-div {
     margin: 2px auto;
 
+    position: relative;
     max-height: 200px;
     max-width: 200px;
 }
 
 .officer-image {
+
     width: 200px;
     height: 200px;
+    position: relative;
     @include border-radius(200px);
 }
 
