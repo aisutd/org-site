@@ -41,7 +41,7 @@
 
 @media screen and (min-width: $screen-md-min) {
     .officer-col-height {
-        height: 800px;
+        height: 1000px;
     }
 }
 
@@ -75,4 +75,3 @@
         @include make-sm-column(12, 30px);
     }
 }
-
