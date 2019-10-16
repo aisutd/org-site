@@ -28,7 +28,7 @@ select opt in "${eventTypes[@]}"; do
 done
 read -p 'Filename (avoid spaces) (without extension): ' filename
 
-index=$(( 1 + $(grep -R 'index: ' "$DIR/${eventType}s/"* | cut -d: -f3 | sort -rn | head -n 1) ))
+index=$(( 1 + $({ grep -R 'index: ' "$DIR/${eventType}s/"* || echo 'index: -1'; } | cut -d: -f3 | sort -rn | head -n 1) ))
 
 (
     echo 'name: "'"$name"'"'
