@@ -15,5 +15,8 @@ permalink: /apply
   Officer: <a href="{{ opening[1].link }}" target="_blank">Apply Here</a>
   <br>
   HackAI: <a href="{{ opening[1].hackai }}" target="_blank">Apply Here</a>
+{% else %}
+  <p>{{opening[1].closed_text }}</p>
+
   {% endif %}
   {% endfor %}
