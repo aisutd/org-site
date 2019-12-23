@@ -14,7 +14,7 @@ body {
 }
 
 #teaser {
-  height: 410px;
+  height: auto;
   background-color: #9ba1a6;
   position: relative;
   overflow: hidden;
@@ -49,6 +49,11 @@ h2 {
   width: 120px;
   border-radius: 120px;
   margin-bottom: 10px;
+}
+.responsive {
+  max-width: 100%;
+  height: auto;
+  margin: auto;
 }
 .instructor {
   display: inline-block;
