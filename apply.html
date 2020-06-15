@@ -4,19 +4,20 @@ title: Apply
 permalink: /apply
 ---
 
-<br>
+<br />
 
-{% assign applications = site.data.applications | sort %}
-{% for opening in applications %}
+{% assign applications = site.data.applications | sort %} {% for opening in
+applications %}
 <h2 class="category-style">{{ opening[1].category }}</h2>
 {% if opening[1].open == true %}
-<p>We have AIS officer and HackAI coordinator applications open!
-  <br>
-  Officer: <a href="{{ opening[1].link }}" target="_blank">Apply Here</a>
-  <br>
-  HackAI: <a href="{{ opening[1].hackai }}" target="_blank">Apply Here</a>
-{% else %}
-  <p>{{opening[1].closed_text }}</p>
+<p>
+  AIS officer applications are now open!
+  <a href="{{ opening[1].link }}" target="_blank">Apply Here</a>
+  <!-- <br>
+  HackAI: <a href="{{ opening[1].hackai }}" target="_blank">Apply Here</a> -->
+  {% else %}
+</p>
 
-  {% endif %}
-  {% endfor %}
+<p>{{opening[1].closed_text }}</p>
+
+{% endif %} {% endfor %}
