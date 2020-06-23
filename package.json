@@ -1,7 +1,7 @@
 {
-  "name": "material-kit-react",
-  "version": "1.8.0",
-  "description": "Material Kit React. Coded by Creative Tim",
+  "name": "ais-react",
+  "version": "1.0.0",
+  "description": "Artificial Intelligence Society @ UTD",
   "private": true,
   "main": "dist/index.js",
   "dependencies": {
