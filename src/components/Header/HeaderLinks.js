@@ -36,11 +36,14 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={Apps}
           dropdownList={[
-            <Link to="/" className={classes.dropdownLink}>
+            <Link to="/aim" className={classes.dropdownLink}>
               AIM
             </Link>,
             <Link to="/" className={classes.dropdownLink}>
               HackAI
+            </Link>,
+            <Link to="/concepts" className={classes.dropdownLink}>
+              Concepts
             </Link>,
           ]}
         />
@@ -48,6 +51,11 @@ export default function HeaderLinks(props) {
       <ListItem className={classes.listItem}>
         <Link to="/events" className={classes.navLink}>
           Events
+        </Link>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Link to="/about" className={classes.navLink}>
+          About
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>

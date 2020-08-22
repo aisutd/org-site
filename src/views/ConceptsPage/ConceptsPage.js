@@ -39,25 +39,11 @@ export default function TeamSection() {
         }}
       />
       <div className={classes.section}>
-        <h2 className={classes.title}>Our Upcoming Events</h2>
+        <h2 className={classes.title}>Concepts</h2>
         <div>
           <GridContainer alignItems="center">
-            <GridItem xs={12} sm={12} md={6}>
-              <Card plain>
-                <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                  <img src={kickoff} alt="..." className={imageClasses} />
-                </GridItem>
-                <h4 className={classes.cardTitle}>
-                  AI Society Kickoff
-                  <br />
-                  <small className={classes.smallTitle}>8/26/2020, 7:00 PM</small>
-                </h4>
-                <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                  <Button round color="info" href="https://aisutd.org/live" size="lg" rel="noopener noreferrer">
-                    Join Meeting
-                  </Button>
-                </GridItem>
-              </Card>
+            <GridItem xs={12} sm={12} md={12}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
             </GridItem>
           </GridContainer>
         </div>
