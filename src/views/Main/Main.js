@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
-import renderHTML from "react-render-html";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react components for routing our app without refresh
