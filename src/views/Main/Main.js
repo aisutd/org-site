@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Col, Row } from "react-bootstrap";
+import renderHTML from "react-render-html";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react components for routing our app without refresh
@@ -17,7 +18,8 @@ import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Carousel from "./Sections/SectionCarousel";
-import WhyJoinAISSection from "./Sections/WhyJoinAISSection"
+import WhyJoinAISSection from "./Sections/WhyJoinAISSection";
+import JoinPage from "views/JoinPage/JoinList";
 
 import styles from "assets/jss/material-kit-react/views/components.js";
 
@@ -54,10 +56,12 @@ export default function Components(props) {
                 </h3>
               </div>
               <br />
-              <Button round color="info" size="lg" rel="noopener noreferrer">
-                <i className="fas fa-envelope" />
-                &nbsp; Join us!
-              </Button>
+              <a href="#join">
+                <Button round color="info" size="lg" rel="noopener noreferrer">
+                  <i className="fas fa-envelope" />
+                  &nbsp; Join us
+                </Button>
+              </a>
             </GridItem>
           </GridContainer>
         </div>
@@ -74,6 +78,9 @@ export default function Components(props) {
             <div className={classNames(classes.main, classes.mainRaised)}>
               <div className={classes.container}>
                 <WhyJoinAISSection />
+                <div id="join">
+                  <JoinPage />
+                </div>
               </div>
             </div>
           </Col>

@@ -13,6 +13,7 @@ import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
+import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
 
@@ -22,10 +23,7 @@ const useStyles = makeStyles(styles);
 
 export default function TeamSection() {
   const classes = useStyles();
-  const imageClasses = classNames(
-    classes.imgRaised,
-    classes.imgFluid
-  );
+  const imageClasses = classNames(classes.imgRaised, classes.imgFluid);
   return (
     <div>
       <Header
@@ -38,8 +36,10 @@ export default function TeamSection() {
           color: "white",
         }}
       />
+      <Parallax
+        image={require("assets/img/landing-page-slideshow/hackai-1.jpg")}
+      ></Parallax>
       <div className={classes.section}>
-        <h2 className={classes.title}>Our Upcoming Events</h2>
         <div>
           <GridContainer alignItems="center">
             <GridItem xs={12} sm={12} md={6}>
@@ -50,10 +50,18 @@ export default function TeamSection() {
                 <h4 className={classes.cardTitle}>
                   AI Society Kickoff
                   <br />
-                  <small className={classes.smallTitle}>8/26/2020, 7:00 PM</small>
+                  <small className={classes.smallTitle}>
+                    8/26/2020, 7:00 PM
+                  </small>
                 </h4>
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                  <Button round color="info" href="https://aisutd.org/live" size="lg" rel="noopener noreferrer">
+                  <Button
+                    round
+                    color="info"
+                    href="https://aisutd.org/live"
+                    size="lg"
+                    rel="noopener noreferrer"
+                  >
                     Join Meeting
                   </Button>
                 </GridItem>

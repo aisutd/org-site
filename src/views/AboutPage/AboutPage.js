@@ -19,7 +19,7 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
 import HistorySection from "./Sections/HistorySection.js";
-import ContactSection from "./Sections/ContactSection";
+import ContactSection from "../JoinPage/JoinList";
 
 const dashboardRoutes = [];
 
@@ -45,9 +45,7 @@ export default function LandingPage(props) {
           <GridContainer>
             <GridItem xs={12} sm={12} md={6}>
               <h1 className={classes.title}>About Us</h1>
-              <h4>
-                The Artificial Intelligence Society at UT-Dallas
-              </h4>
+              <h4>The Artificial Intelligence Society at UT-Dallas</h4>
             </GridItem>
           </GridContainer>
         </div>
@@ -55,7 +53,7 @@ export default function LandingPage(props) {
       <div className={classNames(classes.main, classes.mainRaised)}>
         <div className={classes.container}>
           <HistorySection />
-          <ContactSection />
+          {/* <ContactSection /> */}
         </div>
       </div>
       <Footer />
