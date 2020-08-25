@@ -16,7 +16,8 @@ import Button from "components/CustomButtons/Button.js";
 import Parallax from "components/Parallax/Parallax.js";
 // sections for this page
 import HeaderLinks from "components/Header/HeaderLinks.js";
-import Carousel from "views/Components/Sections/SectionCarousel";
+import Carousel from "./Sections/SectionCarousel";
+import WhyJoinAISSection from "./Sections/WhyJoinAISSection"
 
 import styles from "assets/jss/material-kit-react/views/components.js";
 
@@ -65,10 +66,16 @@ export default function Components(props) {
       <Container>
         <Row>
           <Col>
-            <h4 className={classes.subtitle}>We are insane</h4>
-          </Col>
-          <Col>
             <Carousel />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <div className={classNames(classes.main, classes.mainRaised)}>
+              <div className={classes.container}>
+                <WhyJoinAISSection />
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>
