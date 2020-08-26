@@ -29,6 +29,27 @@ ReactDOM.render(
       />
       <Route
         exact
+        path="/fb"
+        component={() => {
+          window.location = "https://www.facebook.com/groups/aisutd";
+        }}
+      />
+      <Route
+        exact
+        path="/insta"
+        component={() => {
+          window.location = "https://www.instagram.com/utdais/";
+        }}
+      />
+      <Route
+        exact
+        path="/linkedin"
+        component={() => {
+          window.location = "https://www.linkedin.com/company/ais-utd/";
+        }}
+      />
+      <Route
+        exact
         path="/discord"
         component={() => {
           window.location = "https://discord.gg/7fZQZyP";
