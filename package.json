@@ -2,7 +2,7 @@
   "name": "ais-react",
   "version": "1.0.0",
   "description": "Artificial Intelligence Society @ UTD",
-  "homepage": "http://aisutd.github.io",
+  "homepage": "http://aisutd.org",
   "private": true,
   "main": "dist/index.js",
   "dependencies": {
