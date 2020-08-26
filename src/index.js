@@ -24,7 +24,7 @@ ReactDOM.render(
         exact
         path="/live"
         component={() => {
-          window.location = "https://google.com";
+          window.location = "https://meet.google.com/tgr-gqfm-rva";
         }}
       />
       <Route exact path="/team" component={TeamPage} />
