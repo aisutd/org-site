@@ -27,6 +27,13 @@ ReactDOM.render(
           window.location = "https://meet.google.com/tgr-gqfm-rva";
         }}
       />
+      <Route
+        exact
+        path="/discord"
+        component={() => {
+          window.location = "https://discord.gg/7fZQZyP";
+        }}
+      />
       <Route exact path="/team" component={TeamPage} />
       <Route exact path="/events" component={EventsPage} />
       <Route exact path="/about" component={AboutPage} />
