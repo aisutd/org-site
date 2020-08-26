@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AIS - The Artificial Intelligence Society</title>
+    <description>Welcome to the official website of the AIS. We are a student organization at UT Dallas with a mission to increase knowledge of, and greater interest in, artificial intelligence within the UT Dallas and local communities.</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 19 Aug 2020 11:50:45 -0500</pubDate>
+    <lastBuildDate>Wed, 19 Aug 2020 11:50:45 -0500</lastBuildDate>
+    <generator>Jekyll v3.8.5</generator>
+    
+  </channel>
+</rss>

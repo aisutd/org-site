@@ -1,33 +1,66 @@
 {
-  "name": "minimal-mistakes",
-  "version": "3.3.7",
-  "description": "Minimal Mistakes Jekyll theme npm build scripts",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mmistakes/minimal-mistakes.git"
-  },
-  "keywords": [
-    "jekyll",
-    "theme",
-    "minimal"
-  ],
-  "author": "Michael Rose",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
-  },
-  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
-  "engines": {
-    "node": ">= 0.10.0"
+  "name": "ais-react",
+  "version": "1.0.0",
+  "description": "Artificial Intelligence Society @ UTD",
+  "homepage": "http://aisutd.github.io",
+  "private": true,
+  "main": "dist/index.js",
+  "dependencies": {
+    "@material-ui/core": "4.3.2",
+    "@material-ui/icons": "4.2.1",
+    "classnames": "2.2.6",
+    "history": "4.9.0",
+    "moment": "2.24.0",
+    "node-sass": "4.14.1",
+    "nouislider": "14.0.2",
+    "prop-types": "15.7.2",
+    "react": "16.9.0",
+    "react-bootstrap": "^1.0.1",
+    "react-datetime": "2.16.3",
+    "react-dom": "16.9.0",
+    "react-router-dom": "5.0.1",
+    "react-scripts": "3.1.0",
+    "react-slick": "0.25.2",
+    "react-swipeable-views": "0.13.3"
   },
   "devDependencies": {
-    "npm-run-all": "^1.7.0",
-    "onchange": "^2.2.0",
-    "uglify-js": "^2.6.1"
+    "@babel/cli": "7.5.5",
+    "@babel/plugin-proposal-class-properties": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "@babel/preset-react": "7.0.0",
+    "eslint-config-prettier": "6.0.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "eslint-plugin-react": "7.14.3",
+    "gh-pages": "^3.1.0",
+    "gulp": "4.0.2",
+    "gulp-append-prepend": "1.0.8",
+    "prettier": "1.18.2"
+  },
+  "optionalDependencies": {
+    "typescript": "3.5.3"
   },
   "scripts": {
-    "uglify": "uglifyjs assets/js/vendor/jquery/jquery-1.12.4.min.js assets/js/plugins/jquery.fitvids.js assets/js/plugins/jquery.greedy-navigation.js assets/js/plugins/jquery.magnific-popup.js assets/js/plugins/jquery.smooth-scroll.min.js assets/js/plugins/stickyfill.min.js assets/js/_main.js -c -m -o assets/js/main.min.js",
-    "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
-    "build:js": "npm run uglify"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build && gulp licenses",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint:check": "eslint . --ext=js,jsx;  exit 0",
+    "lint:fix": "eslint . --ext=js,jsx --fix;  exit 0",
+    "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm start",
+    "build-package-css": "node-sass src/assets/scss/material-kit-react.scss dist/material-kit-react.css",
+    "build-package": "npm run build-package-css && babel src --out-dir dist",
+    "compile-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.css",
+    "minify-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.min.css --output-style compressed",
+    "map-sass": "node-sass src/assets/scss/material-kit-react.scss src/assets/css/material-kit-react.css --source-map true"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": []
   }
 }
