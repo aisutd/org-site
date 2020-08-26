@@ -18,7 +18,7 @@ import ErrorPage from "views/ErrorPage/ErrorPage";
 var hist = createBrowserHistory();
 
 ReactDOM.render(
-  <Router history={hist}>
+  <Router basename={process.env.PUBLIC_URL} history={hist}>
     <Switch>
       <Route
         exact
