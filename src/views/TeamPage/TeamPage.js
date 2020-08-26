@@ -49,9 +49,7 @@ export default function TeamSection() {
           color: "white",
         }}
       />
-      <Parallax
-        image={require("assets/img/landing-page-slideshow/sep27-1.jpg")}
-      ></Parallax>
+      <Parallax image={require("assets/img/team.jpg")}></Parallax>
       <div className={classes.section}>
         <div>
           <GridContainer>
