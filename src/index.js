@@ -20,6 +20,13 @@ var hist = createBrowserHistory();
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
+      <Route
+        exact
+        path="/live"
+        component={() => {
+          window.location = "https://google.com";
+        }}
+      />
       <Route exact path="/team" component={TeamPage} />
       <Route exact path="/events" component={EventsPage} />
       <Route exact path="/about" component={AboutPage} />
