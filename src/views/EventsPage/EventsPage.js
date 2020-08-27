@@ -58,11 +58,11 @@ export default function TeamSection() {
                   <Button
                     round
                     color="info"
-                    href="https://aisutd.org/live"
+                    href="https://docs.google.com/presentation/d/1K5-pLQNjmrzfgGJo3LP07Lh4ynrS6O1iwhOsv3WDV6s/edit?usp=sharing"
                     size="lg"
                     rel="noopener noreferrer"
                   >
-                    Join Meeting
+                    View Slides
                   </Button>
                 </GridItem>
               </Card>
