@@ -64,7 +64,7 @@ export default function HeaderLinks(props) {
         </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Link to="/" className={classes.navLink}>
+        <Link to="/apply" className={classes.navLink}>
           Apply
         </Link>
       </ListItem>

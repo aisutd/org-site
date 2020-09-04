@@ -29,6 +29,13 @@ ReactDOM.render(
       />
       <Route
         exact
+        path="/apply"
+        component={() => {
+          window.location = "https://aisutd.typeform.com/to/T6nSZ2";
+        }}
+      />
+      <Route
+        exact
         path="/fb"
         component={() => {
           window.location = "https://www.facebook.com/groups/aisutd";
