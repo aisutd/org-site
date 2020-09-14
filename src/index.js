@@ -27,13 +27,13 @@ ReactDOM.render(
           window.location = "https://meet.google.com/tgr-gqfm-rva";
         }}
       />
-      <Route
+      {/* <Route
         exact
         path="/apply"
         component={() => {
           window.location = "https://aisutd.typeform.com/to/T6nSZ2";
         }}
-      />
+      /> */}
       <Route
         exact
         path="/fb"
