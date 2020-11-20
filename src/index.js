@@ -24,7 +24,7 @@ ReactDOM.render(
         exact
         path="/live"
         component={() => {
-          window.location = "https://meet.google.com/tgr-gqfm-rva";
+          window.location = "https://youtu.be/pPNQoA1OpNQ";
         }}
       />
       {/* <Route
