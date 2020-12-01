@@ -27,13 +27,13 @@ ReactDOM.render(
           window.location = "https://youtu.be/pPNQoA1OpNQ";
         }}
       />
-      {/* <Route
+      <Route
         exact
         path="/apply"
         component={() => {
-          window.location = "https://aisutd.typeform.com/to/T6nSZ2";
+          window.location = "https://aisutd.typeform.com/to/nSDVzzan";
         }}
-      /> */}
+      />
       <Route
         exact
         path="/fb"
