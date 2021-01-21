@@ -62,6 +62,13 @@ ReactDOM.render(
           window.location = "https://discord.gg/7fZQZyP";
         }}
       />
+      <Route
+        exact
+        path="/kickoff"
+        component={() => {
+          window.location = "https://youtu.be/YP9pgvId_ZU";
+        }}
+      />
       <Route exact path="/team" component={TeamPage} />
       <Route exact path="/events" component={EventsPage} />
       <Route exact path="/about" component={AboutPage} />

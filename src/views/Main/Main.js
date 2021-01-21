@@ -55,10 +55,10 @@ export default function Components(props) {
                 </h3>
               </div>
               <br />
-              <a href="#join">
+              <a href="https://youtu.be/YP9pgvId_ZU">
                 <Button round color="info" size="lg" rel="noopener noreferrer">
-                  <i className="fas fa-envelope" />
-                  &nbsp; Join us
+                  {/* <i className="fas fa-envelope" /> */}
+                  Watch our kickoff
                 </Button>
               </a>
             </GridItem>
