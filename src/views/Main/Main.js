@@ -55,7 +55,7 @@ export default function Components(props) {
                 </h3>
               </div>
               <br />
-              <a href="https://youtu.be/YP9pgvId_ZU">
+              <a href="https://youtu.be/3SG880T2juQ">
                 <Button round color="info" size="lg" rel="noopener noreferrer">
                   {/* <i className="fas fa-envelope" /> */}
                   Watch our kickoff
