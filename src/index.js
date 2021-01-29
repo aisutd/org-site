@@ -73,7 +73,14 @@ ReactDOM.render(
       <Route exact path="/events" component={EventsPage} />
       <Route exact path="/about" component={AboutPage} />
       {/* <Route exact path="/concepts" component={ConceptsPage} /> */}
-      {/* <Route exact path="/aim" component={AIMPage} /> */}
+      <Route
+        exact
+        path="/aim"
+        component={() => {
+          window.location =
+            "https://coda.io/form/AIM-Spring-2021-Application_dKXcOiiNxUf";
+        }}
+      />
       <Route exact path="/" component={Main} />
       <Route component={ErrorPage} />
     </Switch>
