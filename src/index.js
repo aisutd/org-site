@@ -81,6 +81,13 @@ ReactDOM.render(
             "https://coda.io/form/AIM-Spring-2021-Application_dKXcOiiNxUf";
         }}
       />
+      <Route
+        exact
+        path="/w/intro-to-ai-2021"
+        component={() => {
+          window.location = "https://youtu.be/R3a_k-9TvNA";
+        }}
+      />
       <Route exact path="/" component={Main} />
       <Route component={ErrorPage} />
     </Switch>
