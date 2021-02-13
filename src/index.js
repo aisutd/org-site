@@ -88,6 +88,13 @@ ReactDOM.render(
           window.location = "https://youtu.be/R3a_k-9TvNA";
         }}
       />
+      <Route
+        exact
+        path="/w/movie-review-analysis"
+        component={() => {
+          window.location = "https://youtu.be/iD9fxZUcddc";
+        }}
+      />
       <Route exact path="/" component={Main} />
       <Route component={ErrorPage} />
     </Switch>
