@@ -55,7 +55,7 @@ export default function Components(props) {
                 </h3>
               </div>
               <br />
-              <a href="https://hackai.netlify.app/">
+              <a href="https://hackai.org/">
                 <Button round color="info" size="lg" rel="noopener noreferrer">
                   {/* <i className="fas fa-envelope" /> */}
                   Apply to HackAI
