@@ -95,6 +95,13 @@ ReactDOM.render(
           window.location = "https://youtu.be/iD9fxZUcddc";
         }}
       />
+      <Route
+        exact
+        path="/w/emorecom"
+        component={() => {
+          window.location = "https://youtu.be/4XAO4IOH5ks";
+        }}
+      />
       <Route exact path="/" component={Main} />
       <Route component={ErrorPage} />
     </Switch>
