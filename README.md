@@ -1,28 +1,27 @@
-# The Artificial Intelligence Society
-
-Official website for AIS UTD.
+# AIS Organization Website
+*Everything you want and more about the Artificial Intelligence Society at UTD*
 
 ## Development
+This project is built using [NextJS](https://nextjs.org/), a React framework
+that allows static builds of the website.
 
-Follow these steps to setup the dev environment:
+This repository assumes you already have Node.js and NPM installed. If have not
+installed those in your development environment, [install](https://nodejs.dev/)
+before proceeding.
 
-- `git clone https://github.com/aisutd/aisutd.github.io.git`
-- `cd aisutd.github.io`
-- `npm install`
-- Proceed to make changes to the react code
+To start the local development server, clone the repository and run:
+```shell script
+npm run dev
+```
 
-## Deployment
+To build the website into a bundle that can be deployed on any static hosting
+provider, run:
+```shell script
+npm run build
+```
 
-To deploy locally for development:
+## License
+This project uses the [MIT License](./LICENSE).
 
-- `npm start`
-
-To build locally:
-
-- `npm run build`
-
-To deploy to production (github-pages)
-
-- `npm run deploy`
-
-
+## Contact
+If you have any questions about this source code, reach out to contact@aisutd.org.
