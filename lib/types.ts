@@ -4,6 +4,36 @@
 export type Location = 'physical' | 'youtube' | 'google_meet' | 'ms_teams' | 'virtual';
 
 /**
+ * A SupplementaryMaterial medium.
+ */
+export type SupplementType = 'video' | 'notebook' | 'article' | 'demo';
+
+/**
+ * Additional presentation or reading materials related to an Event.
+ */
+export interface SupplementaryMaterial {
+  title: string;
+  caption: string;
+  link: string;
+  image: string;
+  type: SupplementType;
+}
+
+export interface PresenterInfo {
+  /**
+   * The presenter's preferred name.
+   */
+  name: string;
+
+  /**
+   * If this is an active officer/staff, this should be a link to their profile.
+   *
+   * For guest speakers, this should be a link of their choice, like their website.
+   */
+  link?: string;
+}
+
+/**
  * Information for a live event.
  */
 export interface Event {
@@ -23,7 +53,12 @@ export interface Event {
   description: string;
 
   /**
-   * The 
+   * A list of information for presenters
+   */
+  presenters: PresenterInfo[];
+
+  /**
+   * The place where this event will occur.
    */
   location: Location;
 
@@ -52,6 +87,16 @@ export interface Event {
    * The day and time this event ends.
    */
   endDate: string;
+
+  /**
+   * A timestamp for when this event's information was last updated.
+   */
+  lastUpdated: string;
+
+  /**
+   * Additional resources for this event.
+   */
+  supplements: SupplementaryMaterial[];
 }
 
 /**
@@ -77,4 +122,15 @@ interface Officer {
    * The date this officer left the organization.
    */
   dateDeparted?: string;
+}
+
+/**
+ * A link to a project demo showcase.
+ */
+export interface ProjectDemo {
+  title: string;
+  description: string;
+  imageUrl: string;
+  link: string;
+  lastUpdated: string;
 }
