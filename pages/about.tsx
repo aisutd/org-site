@@ -8,7 +8,10 @@ export default function AboutPage() {
     <div>
       <Head>
         <title>Artificial Intelligence Society - About Us</title>
-        <meta name="description" content="A brief history of the Artficial Intelligence Society at UTD and how we've grown over the years." />
+        <meta
+          name="description"
+          content="A brief history of the Artficial Intelligence Society at UTD and how we've grown over the years."
+        />
       </Head>
       <main className="flex flex-col justify-center min-h-screen">
         <div className="text-center font-bold">Coming soon</div>
