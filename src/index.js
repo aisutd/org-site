@@ -102,6 +102,13 @@ ReactDOM.render(
           window.location = "https://youtu.be/4XAO4IOH5ks";
         }}
       />
+      <Route
+        exact
+        path="/w/nlp-tutorial-1"
+        component={() => {
+          window.location = "https://youtu.be/qTyjPoIfAN0";
+        }}
+      />
       <Route exact path="/" component={Main} />
       <Route component={ErrorPage} />
     </Switch>
