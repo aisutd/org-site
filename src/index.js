@@ -109,6 +109,13 @@ ReactDOM.render(
           window.location = "https://youtu.be/qTyjPoIfAN0";
         }}
       />
+      <Route
+        exact
+        path="/w/genetic-algorithms"
+        component={() => {
+          window.location = "https://youtu.be/FQKvaT-mWOk";
+        }}
+      />
       <Route exact path="/" component={Main} />
       <Route component={ErrorPage} />
     </Switch>
