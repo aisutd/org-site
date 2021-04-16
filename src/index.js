@@ -116,6 +116,13 @@ ReactDOM.render(
           window.location = "https://youtu.be/FQKvaT-mWOk";
         }}
       />
+      <Route
+        exact
+        path="/w/adv-attack"
+        component={() => {
+          window.location = "https://youtu.be/A2TjMoW00sE";
+        }}
+      />
       <Route exact path="/" component={Main} />
       <Route component={ErrorPage} />
     </Switch>
