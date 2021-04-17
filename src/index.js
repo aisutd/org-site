@@ -120,7 +120,7 @@ ReactDOM.render(
         exact
         path="/w/adv-attack"
         component={() => {
-          window.location = "https://youtu.be/A2TjMoW00sE";
+          window.location = "https://youtu.be/gn3q3ro05g4";
         }}
       />
       <Route exact path="/" component={Main} />
