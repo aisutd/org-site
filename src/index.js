@@ -123,6 +123,13 @@ ReactDOM.render(
           window.location = "https://youtu.be/gn3q3ro05g4";
         }}
       />
+      <Route
+        exact
+        path="/w/license-plate-cv"
+        component={() => {
+          window.location = "https://youtu.be/HeARqEDmZC8";
+        }}
+      />
       <Route exact path="/" component={Main} />
       <Route component={ErrorPage} />
     </Switch>
