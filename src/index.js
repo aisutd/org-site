@@ -120,7 +120,8 @@ ReactDOM.render(
         exact
         path="/w/adv-attack"
         component={() => {
-          window.location = "https://youtu.be/gn3q3ro05g4";
+          window.location =
+            "https://teams.microsoft.com/l/meetup-join/19%3Ameeting_ZDdmMjczNDQtZmZiMi00OTllLWJhNDUtZDhjMGY4ZTM5OTI2%40thread.v2/0?context=%7B%22Tid%22%3A%228d281d1d-9c4d-4bf7-b16e-032d15de9f6c%22%2C%22Oid%22%3A%2218e0aff9-3f8a-4b1b-89b4-518d351055ae%22%2C%22MessageId%22%3A%220%22%7D";
         }}
       />
       <Route
