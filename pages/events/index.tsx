@@ -81,7 +81,7 @@ export default function EventsPage({ events }: EventsPageProps) {
  * Fetch event information for the EventsPage.
  */
 export async function getStaticProps() {
-  const allEvents = getAllEvents();
+  const allEvents = await getAllEvents();
   //   [
   //   'title',
   //   'date',

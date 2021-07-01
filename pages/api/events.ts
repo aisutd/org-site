@@ -1,83 +1,77 @@
 import { Event } from '../../lib/types';
+import { Coda } from 'coda-js';
+import { Description } from '@material-ui/icons';
 
 /**
- * A dummy list of events.
+ * Coda API
+ * How to get an API KEY:
+ * 1. Go to https://coda.io/account and scroll down to "Coda API Tokens"
+ * 2. Generate a new API key WITH RESTRICTIONS of read only access to this doc: https://coda.io/d/Event-Tracking_dluD4Jth4qA/Events_suqfB#All-Events_tuipI/r5
+ * 3. Create a file ".env.local" in your project directory
+ * 4. Add the following entry: "CODA_API_KEY='{Your API key}'"
  */
-const EVENTS_MAP: { [key: string]: Event } = {
-  test1: {
-    id: 'test1',
-    title: "What's New in AI?",
-    description:
-      'A brief history of the field, some foundational knowledge of the field, and some demos showing off just exactly what AI can do.',
-    presenters: [
-      {
-        name: 'Willie Chalmers III',
-        link: 'https://williecubed.me',
-      },
-    ],
-    location: 'youtube',
-    joinLink: 'https://youtu.be/R3a_k-9TvNA',
-    startDate: '2021-01-29T17:30-0600',
-    endDate: '2021-01-29T18:45-0600',
-    tags: ['introduction', 'overview'],
-    lastUpdated: new Date().toISOString(),
-    supplements: [],
-  },
-  test2: {
-    id: 'test2',
-    title: 'Analyzing Sentiment of Movie Reviews',
-    description: 'An exploration of sentiment analysis and natural language processing.',
-    presenters: [
-      {
-        name: 'Tahmeed Ahmed',
-      },
-    ],
-    location: 'youtube',
-    joinLink: 'https://youtu.be/iD9fxZUcddc',
-    startDate: '2021-02-12T17:30-0600',
-    endDate: '2021-02-12T18:45-0600',
-    tags: ['natural language processing'],
-    lastUpdated: new Date().toISOString(),
-    supplements: [],
-  },
-  test3: {
-    id: 'test3',
-    title: 'Emotion Recognition in Comics',
-    description:
-      'A brief history of the field, some foundational knowledge of the field, and some demos showing off just exactly what AI can do.',
-    presenters: [
-      {
-        name: 'Eric Ngo',
-      },
-    ],
-    location: 'youtube',
-    joinLink: 'https://youtu.be/4XAO4IOH5ks',
-    startDate: '2021-03-03T17:30-0600',
-    endDate: '2021-03-03T18:45-0600',
-    tags: ['computer vision', 'natural language processing', 'multimodal model'],
-    lastUpdated: new Date().toISOString(),
-    supplements: [],
-  },
-};
+const CodaAPI = new Coda(process.env.CODA_API_KEY);
 
-const ALL_EVENTS = Object.values(EVENTS_MAP);
+/**
+ * List of events
+ */
+const EVENTS_MAP: { [key: string]: Event } = {};
 
 /**
  * Fetch event information.
  *
  * @param eventId The unique identifier for the event
  */
-export function getEventInfo(eventId: string, fields?: string[]): Event {
+export const getEventInfo = async (eventId: string, fields?: string[]): Promise<Event> => {
   // TODO: Return actual event info
+  await getAllEvents();
   return EVENTS_MAP[eventId];
-}
+};
 
 /**
  * Return all past and upcoming events.
  */
-export function getAllEvents(fields?: string[]): Event[] {
-  return ALL_EVENTS;
-}
+export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
+  // If events were updated <1 min ago, return events without updating
+  const lastEvents = Object.keys(EVENTS_MAP);
+  if (lastEvents.length != 0) {
+    const lastUpdate = new Date(EVENTS_MAP[lastEvents[0]]['lastUpdated']);
+    const timeNow = new Date();
+    if (lastUpdate.getMinutes == timeNow.getMinutes) return Object.values(EVENTS_MAP);
+  }
+  // If events were updated >1 min ago, get new events from Coda API
+  const doc = await CodaAPI.getDoc('luD4Jth4qA'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
+  const table = await doc.getTable('All Events'); // Grab the actual table from the doc
+  const rows = await table.listRows({ useColumnNames: true }); // Grab all the event entries in the doc
+
+  for (let i = 0; i < rows.length; i++) {
+    // For each event in the table
+    const eventTags: string[] = rows[i].values['Keywords'].split(', ');
+    const eventPresenters: { name: string; link: string }[] = [];
+    for (const presenterName of rows[i].values['Presenter Names'].split(', ')) {
+      eventPresenters.push({
+        name: presenterName,
+        link: '',
+      });
+    }
+    const eventToAdd: Event = {
+      id: rows[i].values['Shortened Event Title'],
+      title: rows[i].values['Event Title'],
+      description: rows[i].values['Description'],
+      presenters: eventPresenters,
+      location: rows[i].values['Platform'],
+      eventType: rows[i].values['Event Type'],
+      joinLink: 'https://youtu.be/R3a_k-9TvNA',
+      startDate: rows[i].values['Event Date'],
+      endDate: '2021-01-29T18:45-0600',
+      tags: eventTags,
+      lastUpdated: new Date().toISOString(),
+      supplements: [],
+    };
+    EVENTS_MAP[eventToAdd['id']] = eventToAdd;
+  }
+  return Object.values(EVENTS_MAP);
+};
 
 /**
  * Get a shareable URL for an event.

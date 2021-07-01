@@ -148,7 +148,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       },
     };
   }
-  const event = getEventInfo(slug, []);
+  const event = await getEventInfo(slug, []);
 
   return {
     props: {
@@ -158,7 +158,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const events = getAllEvents(['id']);
+  const events = await getAllEvents(['id']);
 
   const paths = events.map((event) => {
     return {

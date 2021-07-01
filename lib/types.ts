@@ -9,6 +9,17 @@ export type Location = 'physical' | 'youtube' | 'google_meet' | 'ms_teams' | 'vi
 export type SupplementType = 'video' | 'notebook' | 'article' | 'demo';
 
 /**
+ * Event Category i.e What type of event
+ */
+export type eventCategory =
+  | 'social'
+  | 'workshop'
+  | 'seminar'
+  | 'presentation'
+  | 'conference'
+  | 'other';
+
+/**
  * Additional presentation or reading materials related to an Event.
  */
 export interface SupplementaryMaterial {
@@ -61,6 +72,11 @@ export interface Event {
    * The place where this event will occur.
    */
   location: Location;
+
+  /**
+   * What type of event it is
+   */
+  eventType: string;
 
   /**
    * If location is 'physical', then this will be the room this event will be
