@@ -136,7 +136,7 @@ export default function EventPage({ event }: InferGetStaticPropsType<typeof getS
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const { slug } = context.params;
+  let { slug } = context.params;
   if (slug === undefined) {
     return {
       props: {
@@ -147,7 +147,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
         permanent: false,
       },
     };
-  }
+  } else if (Array.isArray(slug)) slug = slug[0]; // Type Coercion of Array of Strings to String
+
   const event = await getEventInfo(slug, []);
 
   return {

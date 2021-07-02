@@ -14,9 +14,20 @@ interface EventsPageProps {
  * A page that shows a searchable list of past events.
  */
 export default function EventsPage({ events }: EventsPageProps) {
-  const featuredEvents: Event[] = events.slice(0, 1);
+  const futureEvents: Event[] = [];
+  const onGoingEvents: Event[] = [];
+  const pastEvents: Event[] = [];
 
-  const featuredEventCards = featuredEvents.map((event) => {
+  events.forEach(function (eachEvent) {
+    const startTime = new Date(eachEvent.startDate);
+    const endTime = new Date(eachEvent.endDate);
+    const timeNow = new Date();
+    if (endTime < timeNow) pastEvents.push(eachEvent);
+    else if (startTime < timeNow) onGoingEvents.push(eachEvent);
+    else futureEvents.push(eachEvent);
+  });
+
+  const featuredEventCards = futureEvents.map((event) => {
     const { id, title, description } = event;
     const eventLink = `/events/${event.id}`;
     return (
@@ -35,7 +46,7 @@ export default function EventsPage({ events }: EventsPageProps) {
     );
   });
 
-  const eventCards = events.map((event) => {
+  const eventCards = pastEvents.map((event) => {
     return <EventItem key={event.id} event={event} />;
   });
 

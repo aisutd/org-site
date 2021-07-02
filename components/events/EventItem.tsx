@@ -8,9 +8,9 @@ interface EventItemProps {
  * An item that displays event details
  */
 export default function EventItem({ event }: EventItemProps) {
-  const { title, description, startTime } = event;
+  const { title, description, startDate } = event;
 
-  const displayDate = (new Date(startTime)).toString();
+  const displayDate = new Date(startDate).toString();
   return (
     <div className="m-2">
       <div className="text-xl font-bold">{title}</div>
