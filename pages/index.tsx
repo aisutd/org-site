@@ -15,7 +15,7 @@ export default function HomePage() {
       </Head>
       <main>
         <section id="intro" className="bg-ais-black">
-          <div className="py-40 px-40">
+          <div className="p-10 sm:p-20 md:p-30 lg:p-40">
             <div className="text-white text-5xl font-semibold">
               We are the Artificial Intelligence Society.
             </div>
@@ -28,7 +28,7 @@ export default function HomePage() {
           </div>
         </section>
         <section id="about" className="bg-ais-blue-gray">
-          <div className="py-20 px-40 grid grid-cols-2 gap-12">
+          <div className="px-10 py-20 sm:px-20 md:px-30 lg:px-40 grid grid-cols-2 gap-6 sm:gap-12">
             <div className="">
               <div className="text-4xl font-medium">Projects</div>
               <div className="text-l font-bold py-2">
@@ -39,10 +39,10 @@ export default function HomePage() {
                 The Projects Team organizes technical workshops and showcases their projects.
               </div>
               <div className="text-ais-black font-bold underline pt-4">
-                <Link href="/projects">{/*'>'*/} See projects</Link>
+                {'>'} <Link href="/projects"> See projects</Link>
               </div>
               <div className="text-ais-light-blue font-bold underline pt-2">
-                <Link href="/join">{/*'>'*/} Join the team</Link>
+                {'>'} <Link href="/join"> Join the team</Link>
               </div>
             </div>
             <div className="">
@@ -58,18 +58,58 @@ export default function HomePage() {
                 Have a project idea? Have motivation? We’ll match you with a mentor who can help.
               </div>
               <div className="text-ais-light-blue font-bold underline pt-4">
-                <Link href="/join">{/*'>'*/} Learn More</Link>
+                {'>'} <Link href="/join"> Learn More</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="programs" className="">
+          <div className="px-20 sm:px-20 md:px-30 lg:px-40 bg-transparent">
+            <div className="bg-ais-white -my-10 rounded-lg -mx-12 px-10 py-5 shadow-xl">
+              <div className="text-4xl font-medium">Events</div>
+              <div className="text-l font-bold py-2">
+                AIS hosts many events to expand your knowledge and to keep you connected to the
+                field.
+              </div>
+              <div className="grid grid-cols-3 gap-4 py-2">
+                <div className="bg-gradient-to-r from-blue-700 to-blue-600 rounded-md shadow-xl">
+                  <img src="/hackai.jpg" className="rounded-t-md" />
+                  <div className="text-white text-3xl font-semibold px-4 py-4">HackAI</div>
+                  <div className="font-light text-white text-l px-4 ">
+                    The largest AI hackathon in North Texas.
+                  </div>
+                  <div className="underline text-sm text-white px-4 py-2 rounded-b-md">
+                    <Link href="https://hackai.org/">Learn More</Link>
+                  </div>
+                </div>
+                <div className="bg-gradient-to-r from-indigo-700 to-indigo-600 rounded-md shadow-xl">
+                  <img src="/hackai.jpg" className="rounded-t-md" />
+                  <div className="text-white text-3xl font-semibold px-4 py-4">Workshops</div>
+                  <div className="font-light text-white text-l px-4 ">
+                    Guided talks where we teach you AI fundamentals and more.
+                  </div>
+                  <div className="underline text-sm text-white px-4 py-2">
+                    <Link href="https://hackai.org/">Learn More</Link>
+                  </div>
+                </div>
+                <div className="bg-gradient-to-r from-purple-700 to-purple-600 rounded-md shadow-xl">
+                  <img src="/hackai.jpg" className="rounded-t-md" />
+                  <div className="text-white text-3xl font-semibold px-4 py-4">
+                    Socials {'&'} Seminars
+                  </div>
+                  <div className="font-light text-white text-l px-4 ">
+                    Fun times and great discussions with students and faculty.
+                  </div>
+                  <div className="underline text-sm text-white px-4 py-2">
+                    <Link href="https://hackai.org/">Learn More</Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
         <section id="callToAction" className="flex flex-col justify-center p-8 min-h-screen">
           <div className="text-center">Some photos of the org</div>
-        </section>
-        <section id="programs" className="flex flex-col justify-center p-8 min-h-screen">
-          <div className="text-center">
-            Probably a three-column layout containing workshops, large events like HackAI.
-          </div>
         </section>
       </main>
     </div>
