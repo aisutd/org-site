@@ -89,7 +89,7 @@ export default function HomePage() {
                     Guided talks where we teach you AI fundamentals and more.
                   </div>
                   <div className="underline text-sm text-white px-4 py-2">
-                    <Link href="https://hackai.org/">Learn More</Link>
+                    <Link href="/events">Learn More</Link>
                   </div>
                 </div>
                 <div className="bg-gradient-to-r from-purple-700 to-purple-600 rounded-md shadow-xl">
@@ -101,7 +101,7 @@ export default function HomePage() {
                     Fun times and great discussions with students and faculty.
                   </div>
                   <div className="underline text-sm text-white px-4 py-2">
-                    <Link href="https://hackai.org/">Learn More</Link>
+                    <Link href="/events">Learn More</Link>
                   </div>
                 </div>
               </div>
