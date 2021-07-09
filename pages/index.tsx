@@ -71,7 +71,7 @@ export default function HomePage() {
                 AIS hosts many events to expand your knowledge and to keep you connected to the
                 field.
               </div>
-              <div className="grid grid-cols-3 gap-4 py-2">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 py-2">
                 <div className="bg-gradient-to-r from-blue-700 to-blue-600 rounded-md shadow-xl">
                   <img src="/hackai-3.jpg" className="rounded-t-md" />
                   <div className="text-white text-3xl font-semibold px-4 py-4">HackAI</div>
