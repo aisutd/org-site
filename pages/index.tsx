@@ -73,7 +73,7 @@ export default function HomePage() {
               </div>
               <div className="grid grid-cols-3 gap-4 py-2">
                 <div className="bg-gradient-to-r from-blue-700 to-blue-600 rounded-md shadow-xl">
-                  <img src="/hackai.jpg" className="rounded-t-md" />
+                  <img src="/hackai-3.jpg" className="rounded-t-md" />
                   <div className="text-white text-3xl font-semibold px-4 py-4">HackAI</div>
                   <div className="font-light text-white text-l px-4 ">
                     The largest AI hackathon in North Texas.
@@ -83,7 +83,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="bg-gradient-to-r from-indigo-700 to-indigo-600 rounded-md shadow-xl">
-                  <img src="/hackai.jpg" className="rounded-t-md" />
+                  <img src="/workshops.jpg" className="rounded-t-md" />
                   <div className="text-white text-3xl font-semibold px-4 py-4">Workshops</div>
                   <div className="font-light text-white text-l px-4 ">
                     Guided talks where we teach you AI fundamentals and more.
@@ -93,7 +93,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="bg-gradient-to-r from-purple-700 to-purple-600 rounded-md shadow-xl">
-                  <img src="/hackai.jpg" className="rounded-t-md" />
+                  <img src="/socials.jpg" className="rounded-t-md" />
                   <div className="text-white text-3xl font-semibold px-4 py-4">
                     Socials {'&'} Seminars
                   </div>
