@@ -28,7 +28,7 @@ export default function HomePage() {
           </div>
         </section>
         <section id="about" className="bg-ais-blue-gray">
-          <div className="px-10 py-20 sm:px-20 md:px-30 lg:px-40 grid grid-cols-2 gap-6 sm:gap-12">
+          <div className="px-10 py-40 sm:px-20 md:px-30 lg:px-40 grid grid-cols-2 gap-6 sm:gap-12">
             <div className="">
               <div className="text-4xl font-medium">Projects</div>
               <div className="text-l font-bold py-2">
@@ -65,7 +65,7 @@ export default function HomePage() {
         </section>
         <section id="programs" className="">
           <div className="px-20 sm:px-20 md:px-30 lg:px-40 bg-transparent">
-            <div className="bg-ais-white -my-10 rounded-lg -mx-12 px-10 py-5 shadow-xl">
+            <div className="bg-ais-white -my-10 rounded-lg -mx-12 px-10 py-5 shadow-2xl">
               <div className="text-4xl font-medium">Events</div>
               <div className="text-l font-bold py-2">
                 AIS hosts many events to expand your knowledge and to keep you connected to the

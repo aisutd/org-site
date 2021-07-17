@@ -118,7 +118,7 @@ export interface Event {
 /**
  * Information about an officer.
  */
-interface Officer {
+export interface Officer {
   /**
    * The full, preferred name of this officer.
    */
