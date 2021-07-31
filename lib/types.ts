@@ -130,6 +130,12 @@ export interface Officer {
   title: string;
 
   /**
+   * The team they are part of
+   * @example Finance
+   */
+  team: string;
+
+  /**
    * The date this officer joined the organization.
    */
   dateJoined: string;
@@ -138,6 +144,26 @@ export interface Officer {
    * The date this officer left the organization.
    */
   dateDeparted?: string;
+
+  /**
+   * Officer's AIS email address
+   */
+  email?: string;
+
+  /**
+   * Officer's Github profile if provided
+   */
+  github?: string;
+
+  /**
+   * Officer's LinkedIn profile if provided
+   */
+  linkedInUrl?: string;
+
+  /**
+   * Officer's personal website
+   */
+  personalWeb?: string;
 }
 
 /**

@@ -7,6 +7,31 @@ const OFFICERS_MAP: { [key: string]: Officer } = {
   'Kumail Bukhari': {
     name: 'Kumail Bukhari',
     title: 'Technology Director',
+    team: 'Technology',
+    email: 'kumail.bukhari@aisociety.io',
+    github: 'KumailB',
+    linkedInUrl: 'https://www.linkedin.com/in/kumail-bu/',
+    personalWeb: 'https://kumailb.github.io',
+    dateJoined: new Date('2021-05-21').toISOString(),
+  },
+  'Kumail Bukhari1': {
+    name: 'Kumail Bukhari',
+    title: 'Technology Director',
+    dateJoined: new Date('2021-05-21').toISOString(),
+  },
+  'Kumail Bukhari2': {
+    name: 'Kumail Bukhari',
+    title: 'Technology Director',
+    dateJoined: new Date('2021-05-21').toISOString(),
+  },
+  'Kumail Bukhari3': {
+    name: 'Kumail Bukhari',
+    title: 'Technology Director',
+    dateJoined: new Date('2021-05-21').toISOString(),
+  },
+  'Kumail Bukhari4': {
+    name: 'Kumail Bukhari',
+    title: 'Technology Director',
     dateJoined: new Date('2021-05-21').toISOString(),
   },
 };
