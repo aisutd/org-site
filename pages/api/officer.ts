@@ -33,7 +33,7 @@ const OFFICERS_MAP: { [key: string]: Officer } = {
   'Kumail Bukhari4': {
     name: 'Kumail Bukhari',
     title: 'Technology Director',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.!',
+    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.!',
     dateJoined: new Date('2021-05-21').toISOString(),
   },
 };

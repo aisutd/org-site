@@ -114,7 +114,7 @@ export default function OfficerItem({ officer }: OfficerItemProps) {
   const officerPersonal = personalLink(officer);
   const officerQuote = personalQuote(officer);
   return (
-    <div className="bg-ais-white rounded-lg  h-96 w-72">
+    <div className="bg-ais-white rounded-lg  h-96 w-72  transition duration-400 hover:shadow-xl hover:bg-ais-light-gray">
       <div className="flex justify-center">
         <img src={imgSrc} className="rounded-full p-4" />
       </div>
