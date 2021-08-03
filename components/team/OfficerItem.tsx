@@ -11,13 +11,11 @@ function emailLink(officer: Officer) {
   if (officer.email) {
     return (
       <div className="px-2">
-        <Link href={'mailto: ' + officer.email}>
-          <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-            <a>
-              <Email color="primary" />
-            </a>
-          </button>
-        </Link>
+        <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+          <a href={'mailto: ' + officer.email}>
+            <Email color="primary" />
+          </a>
+        </button>
       </div>
     );
   }
@@ -27,13 +25,11 @@ function githubLink(officer: Officer) {
   if (officer.github) {
     return (
       <div className="px-2">
-        <Link href={'https://github.com/' + officer.github}>
-          <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-            <a target="_blank">
-              <GitHub color="primary" fontSize="small" />
-            </a>
-          </button>
-        </Link>
+        <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+          <a target="_blank" href={'https://github.com/' + officer.github}>
+            <GitHub color="primary" fontSize="small" />
+          </a>
+        </button>
       </div>
     );
   }
@@ -43,13 +39,11 @@ function linkedInLink(officer: Officer) {
   if (officer.linkedInUrl) {
     return (
       <div className="px-2">
-        <Link href={officer.linkedInUrl}>
-          <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-            <a target="_blank">
-              <LinkedIn color="primary" />
-            </a>
-          </button>
-        </Link>
+        <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+          <a target="_blank" href={officer.linkedInUrl}>
+            <LinkedIn color="primary" />
+          </a>
+        </button>
       </div>
     );
   }
@@ -59,13 +53,11 @@ function personalLink(officer: Officer) {
   if (officer.personalWeb) {
     return (
       <div className="px-2">
-        <Link href={officer.personalWeb}>
-          <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-            <a target="_blank">
-              <Language color="primary" />
-            </a>
-          </button>
-        </Link>
+        <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+          <a target="_blank" href={officer.personalWeb}>
+            <Language color="primary" />
+          </a>
+        </button>
       </div>
     );
   }
@@ -96,7 +88,7 @@ function personalQuote(officer: Officer) {
     const HoverCard = () => {
       return (
         <div className="absolute">
-          <div className="bg-ais-white shadow-xl p-4 rounded-xl">{officer.quote}</div>
+          <div className="bg-ais-light-gray shadow-xl p-4 rounded-xl">{officer.quote}</div>
         </div>
       );
     };
