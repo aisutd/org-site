@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { Officer } from '../../lib/types';
-import { Email, GitHub, LinkedIn, Language } from '@material-ui/icons';
+import { Email, GitHub, LinkedIn, Language, FormatQuote } from '@material-ui/icons';
 import Link from 'next/link';
 
 interface OfficerItemProps {
@@ -9,11 +10,15 @@ interface OfficerItemProps {
 function emailLink(officer: Officer) {
   if (officer.email) {
     return (
-      <Link href={'mailto: ' + officer.email}>
-        <a>
-          <Email color="primary" />
-        </a>
-      </Link>
+      <div className="px-2">
+        <Link href={'mailto: ' + officer.email}>
+          <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <a>
+              <Email color="primary" />
+            </a>
+          </button>
+        </Link>
+      </div>
     );
   }
 }
@@ -21,11 +26,15 @@ function emailLink(officer: Officer) {
 function githubLink(officer: Officer) {
   if (officer.github) {
     return (
-      <Link href={'https://github.com/' + officer.github}>
-        <a target="_blank">
-          <GitHub color="primary" fontSize="small" />
-        </a>
-      </Link>
+      <div className="px-2">
+        <Link href={'https://github.com/' + officer.github}>
+          <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <a target="_blank">
+              <GitHub color="primary" fontSize="small" />
+            </a>
+          </button>
+        </Link>
+      </div>
     );
   }
 }
@@ -33,11 +42,15 @@ function githubLink(officer: Officer) {
 function linkedInLink(officer: Officer) {
   if (officer.linkedInUrl) {
     return (
-      <Link href={officer.linkedInUrl}>
-        <a target="_blank">
-          <LinkedIn color="primary" />
-        </a>
-      </Link>
+      <div className="px-2">
+        <Link href={officer.linkedInUrl}>
+          <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <a target="_blank">
+              <LinkedIn color="primary" />
+            </a>
+          </button>
+        </Link>
+      </div>
     );
   }
 }
@@ -45,11 +58,54 @@ function linkedInLink(officer: Officer) {
 function personalLink(officer: Officer) {
   if (officer.personalWeb) {
     return (
-      <Link href={officer.personalWeb}>
-        <a target="_blank">
-          <Language color="primary" />
-        </a>
-      </Link>
+      <div className="px-2">
+        <Link href={officer.personalWeb}>
+          <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
+            <a target="_blank">
+              <Language color="primary" />
+            </a>
+          </button>
+        </Link>
+      </div>
+    );
+  }
+}
+
+function personalQuote(officer: Officer) {
+  if (officer.quote) {
+    const [isHovering, setIsHovering] = useState(false);
+    const handleMouseOver = () => {
+      setIsHovering(true);
+    };
+    const handleMouseOut = () => {
+      setIsHovering(false);
+    };
+    const QuoteIcon = ({ handleMouseOver, handleMouseOut }) => {
+      return (
+        <div className="px-2">
+          <button
+            onMouseEnter={handleMouseOver}
+            onMouseLeave={handleMouseOut}
+            className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+          >
+            <FormatQuote color="primary" />
+          </button>
+        </div>
+      );
+    };
+    const HoverCard = () => {
+      return (
+        <div className="absolute">
+          <div className="bg-ais-white shadow-xl p-4 rounded-xl">{officer.quote}</div>
+        </div>
+      );
+    };
+    return (
+      <div>
+        {/* Hover over this div to hide/show <HoverText /> */}
+        <QuoteIcon handleMouseOver={handleMouseOver} handleMouseOut={handleMouseOut} />
+        {isHovering && <HoverCard />}
+      </div>
     );
   }
 }
@@ -64,6 +120,7 @@ export default function OfficerItem({ officer }: OfficerItemProps) {
   const officerGitHub = githubLink(officer);
   const officerLinkedIn = linkedInLink(officer);
   const officerPersonal = personalLink(officer);
+  const officerQuote = personalQuote(officer);
   return (
     <div className="bg-ais-white rounded-lg  h-96 w-72">
       <div className="flex justify-center">
@@ -74,10 +131,11 @@ export default function OfficerItem({ officer }: OfficerItemProps) {
         <div className="text-lg text-center font-light py-2">{title}</div>
       </div>
       <div className="flex justify-center pt-1">
-        <div className="px-2">{officerEmail}</div>
-        <div className="px-2">{officerGitHub}</div>
-        <div className="px-2">{officerLinkedIn}</div>
-        <div className="px-2">{officerPersonal}</div>
+        {officerEmail}
+        {officerGitHub}
+        {officerLinkedIn}
+        {officerPersonal}
+        {officerQuote}
       </div>
     </div>
   );

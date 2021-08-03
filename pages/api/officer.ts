@@ -12,6 +12,7 @@ const OFFICERS_MAP: { [key: string]: Officer } = {
     github: 'KumailB',
     linkedInUrl: 'https://www.linkedin.com/in/kumail-bu/',
     personalWeb: 'https://kumailb.github.io',
+    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.!',
     dateJoined: new Date('2021-05-21').toISOString(),
   },
   'Kumail Bukhari1': {
@@ -32,6 +33,7 @@ const OFFICERS_MAP: { [key: string]: Officer } = {
   'Kumail Bukhari4': {
     name: 'Kumail Bukhari',
     title: 'Technology Director',
+    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mauris commodo quis imperdiet massa.!',
     dateJoined: new Date('2021-05-21').toISOString(),
   },
 };

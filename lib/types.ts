@@ -164,6 +164,11 @@ export interface Officer {
    * Officer's personal website
    */
   personalWeb?: string;
+
+  /**
+   * Officer's personal quote/blurb
+   */
+  quote?: string;
 }
 
 /**
