@@ -95,6 +95,11 @@ export interface Event {
   tags: string[];
 
   /**
+   * A flyer/cover image for the event
+   */
+  image?: string;
+
+  /**
    * The day and time this event begins.
    */
   startDate: string;
@@ -122,23 +127,23 @@ export interface Officer {
   /**
    * The full, preferred name of this officer.
    */
-  name: string;
+  name?: string;
 
   /**
    * @example Technical Coordinator
    */
-  title: string;
+  title?: string;
 
   /**
    * The team they are part of
    * @example Finance
    */
-  team: string;
+  team?: string;
 
   /**
    * The date this officer joined the organization.
    */
-  dateJoined: string;
+  dateJoined?: string;
 
   /**
    * The date this officer left the organization.
@@ -169,6 +174,11 @@ export interface Officer {
    * Officer's personal quote/blurb
    */
   quote?: string;
+
+  /**
+   * Link to officer's photo
+   */
+  image?: string;
 }
 
 /**

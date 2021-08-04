@@ -7,6 +7,16 @@ interface OfficerItemProps {
   officer: Officer;
 }
 
+function officerImage(officer: Officer) {
+  if (officer.image) {
+    return (
+      <div className="flex justify-center">
+        <img src={officer.image} className="rounded-full p-4" />
+      </div>
+    );
+  }
+}
+
 function emailLink(officer: Officer) {
   if (officer.email) {
     return (
@@ -107,7 +117,8 @@ function personalQuote(officer: Officer) {
  */
 export default function OfficerItem({ officer }: OfficerItemProps) {
   const { name, title } = officer;
-  const imgSrc = '/officers/' + name.replace(' ', '_').toLowerCase() + '.jpg';
+  //const imgSrc = '/officers/' + name.replace(' ', '_').toLowerCase() + '.jpg';
+  const officerImg = officerImage(officer);
   const officerEmail = emailLink(officer);
   const officerGitHub = githubLink(officer);
   const officerLinkedIn = linkedInLink(officer);
@@ -115,9 +126,7 @@ export default function OfficerItem({ officer }: OfficerItemProps) {
   const officerQuote = personalQuote(officer);
   return (
     <div className="bg-ais-white rounded-lg  h-96 w-72  transition duration-400 hover:shadow-xl hover:bg-ais-light-gray">
-      <div className="flex justify-center">
-        <img src={imgSrc} className="rounded-full p-4" />
-      </div>
+      {officerImg}
       <div className="text-2xl font-bold text-center">{name}</div>
       <div className="">
         <div className="text-lg text-center font-light py-2">{title}</div>

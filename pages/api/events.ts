@@ -40,34 +40,47 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
     if (lastUpdate.getMinutes == timeNow.getMinutes) return Object.values(EVENTS_MAP);
   }
   // If events were updated >1 min ago, get new events from Coda API
-  const doc = await CodaAPI.getDoc('luD4Jth4qA'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
+  // Real Event Tracking Doc: luD4Jth4qA
+  // Test Event Tracking Doc: W46Lee3b8Q
+  const doc = await CodaAPI.getDoc('W46Lee3b8Q'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
   const table = await doc.getTable('All Events'); // Grab the actual table from the doc
-  const rows = await table.listRows({ useColumnNames: true }); // Grab all the event entries in the doc
+  const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the event entries in the doc
 
   for (let i = 0; i < rows.length; i++) {
     // For each event in the table
-    const eventTags: string[] = rows[i].values['Keywords'].split(', ');
+    const eventTags: string[] = rows[i].values['Keywords'].replace(/```/gi, '').split(', ');
     const eventPresenters: { name: string; link: string }[] = [];
-    for (const presenterName of rows[i].values['Presenter Names'].split(', ')) {
+    for (const presenterName of rows[i].values['Presenter Names']
+      .replace(/```/gi, '')
+      .split(', ')) {
       eventPresenters.push({
         name: presenterName,
         link: '',
       });
     }
+    let revLink: string;
+    if (typeof rows[i].values['Relevant Link'] == 'string')
+      revLink = rows[i].values['Relevant Link'].replace(/```/gi, '');
+    else revLink = rows[i].values['Relevant Link']['url'];
+
+    if (revLink.search('\\)') != -1)
+      revLink = revLink.substring(revLink.indexOf('(') + 1, revLink.indexOf(')'));
+
     const eventToAdd: Event = {
-      id: rows[i].values['Shortened Event Title'],
-      title: rows[i].values['Event Title'],
-      description: rows[i].values['Description'],
+      id: rows[i].values['Shortened Event Title'].replace(/```/gi, ''),
+      title: rows[i].values['Event Title'].replace(/```/gi, ''),
+      description: rows[i].values['Description'].replace(/```/gi, ''),
       presenters: eventPresenters,
-      location: rows[i].values['Platform'],
-      eventType: rows[i].values['Event Type'],
-      joinLink: rows[i].values['Relevant Link'],
-      startDate: rows[i].values['Event Date'],
-      endDate: rows[i].values['Event End Date'],
+      location: rows[i].values['Platform'].replace(/```/gi, ''),
+      eventType: rows[i].values['Event Type'].replace(/```/gi, ''),
+      joinLink: revLink,
+      startDate: rows[i].values['Event Date'].replace(/```/gi, ''),
+      endDate: rows[i].values['Event End Date'].replace(/```/gi, ''),
       tags: eventTags,
       lastUpdated: new Date().toISOString(),
       supplements: [],
     };
+    //console.log(rows[i].values);
     EVENTS_MAP[eventToAdd['id']] = eventToAdd;
   }
   return Object.values(EVENTS_MAP);

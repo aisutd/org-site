@@ -4,11 +4,16 @@ import { Officer } from '../lib/types';
 import TeamItem from '../components/team/TeamItem';
 import { getAllOfficers, getOfficer } from './api/officer';
 
+interface TeamPageProps {
+  officers: Officer[];
+}
+
 /**
  * A page that displays all officers in the organization.
  */
-export default function TeamPage() {
-  const test: Officer[] = getAllOfficers();
+export default  function TeamPage({ officers }: EventsPageProps) {
+  const test: Officer[] = officers;
+  console.log(test);
   return (
     <div>
       <Head>
@@ -29,7 +34,7 @@ export default function TeamPage() {
         </section>
         <section id="officers">
           <div className="-mt-36 ">
-            <TeamItem officers={test} team={test[0].team} />
+            <TeamItem officers={test} team={"Technology"} />
             <TeamItem officers={test} team={"Finance"} />
             <TeamItem officers={test} team={"Industry"} />
             <TeamItem officers={test} team={"AIM"} />
@@ -39,4 +44,22 @@ export default function TeamPage() {
       </main>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const allOfficers = await getAllOfficers();
+  //   [
+  //   'title',
+  //   'date',
+  //   'slug',
+  //   'author',
+  //   'coverImage',
+  //   'excerpt',
+  // ]
+
+  return {
+    props: {
+      officers: allOfficers,
+    },
+  };
 }
