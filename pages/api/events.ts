@@ -37,7 +37,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
   if (lastEvents.length != 0) {
     const lastUpdate = new Date(EVENTS_MAP[lastEvents[0]]['lastUpdated']);
     const timeNow = new Date();
-    if (lastUpdate.getMinutes == timeNow.getMinutes) return Object.values(EVENTS_MAP);
+    if (lastUpdate.getHours == timeNow.getHours) return Object.values(EVENTS_MAP);
   }
   // If events were updated >1 min ago, get new events from Coda API
   // Real Event Tracking Doc: luD4Jth4qA
@@ -66,6 +66,14 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
     if (revLink.search('\\)') != -1)
       revLink = revLink.substring(revLink.indexOf('(') + 1, revLink.indexOf(')'));
 
+    let imageUrl = rows[i].values['Image'];
+    if (typeof imageUrl == 'string')
+      imageUrl = imageUrl.length != 0 ? imageUrl.replace(/```/gi, '') : null;
+    else if (Array.isArray(imageUrl)) {
+      if (imageUrl.length != 0) imageUrl = imageUrl[0]['url'];
+      else imageUrl = null;
+    } else imageUrl = imageUrl['url'];
+
     const eventToAdd: Event = {
       id: rows[i].values['Shortened Event Title'].replace(/```/gi, ''),
       title: rows[i].values['Event Title'].replace(/```/gi, ''),
@@ -77,6 +85,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
       startDate: rows[i].values['Event Date'].replace(/```/gi, ''),
       endDate: rows[i].values['Event End Date'].replace(/```/gi, ''),
       tags: eventTags,
+      image: imageUrl,
       lastUpdated: new Date().toISOString(),
       supplements: [],
     };
