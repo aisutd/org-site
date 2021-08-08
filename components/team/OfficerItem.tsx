@@ -10,8 +10,14 @@ interface OfficerItemProps {
 function officerImage(officer: Officer) {
   if (officer.image) {
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center h-52">
         <img src={officer.image} className="rounded-full p-4" />
+      </div>
+    );
+  } else {
+    return (
+      <div className="flex justify-center h-52">
+        <img src="/default_photo.svg" className="rounded-full p-4" />
       </div>
     );
   }
@@ -117,7 +123,9 @@ function personalQuote(officer: Officer) {
  */
 export default function OfficerItem({ officer }: OfficerItemProps) {
   const { name, title } = officer;
-  //const imgSrc = '/officers/' + name.replace(' ', '_').toLowerCase() + '.jpg';
+  let directorAtt;
+  if (title.includes('Director') || title.includes('President')) directorAtt = ' order-first ';
+  else if (!title.includes('VP')) directorAtt = ' order-last ';
   const officerImg = officerImage(officer);
   const officerEmail = emailLink(officer);
   const officerGitHub = githubLink(officer);
@@ -125,7 +133,12 @@ export default function OfficerItem({ officer }: OfficerItemProps) {
   const officerPersonal = personalLink(officer);
   const officerQuote = personalQuote(officer);
   return (
-    <div className="bg-ais-white rounded-lg  h-96 w-72  transition duration-400 hover:shadow-xl hover:bg-ais-light-gray">
+    <div
+      className={
+        directorAtt +
+        'h-80 w-64 transition duration-400 hover:shadow-lg hover:bg-ais-blue-gray rounded-xl pb-2'
+      }
+    >
       {officerImg}
       <div className="text-2xl font-bold text-center">{name}</div>
       <div className="">

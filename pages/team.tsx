@@ -11,9 +11,27 @@ interface TeamPageProps {
 /**
  * A page that displays all officers in the organization.
  */
-export default  function TeamPage({ officers }: EventsPageProps) {
-  const test: Officer[] = officers;
-  console.log(test);
+export default function TeamPage({ officers }: TeamPageProps) {
+  const techTeam: Officer[] = [];
+  const financeTeam: Officer[] = [];
+  const industryTeam: Officer[] = [];
+  const marketingTeam: Officer[] = [];
+  const operationsTeam: Officer[] = [];
+  const projectsTeam: Officer[] = [];
+  const AIMTeam: Officer[] = [];
+  const execTeam: Officer[] = [];
+
+  for (const off of officers) {
+    if (off['team'] == 'Executive Board') execTeam.push(off);
+    else if (off['team'] == 'Industry Committee') industryTeam.push(off);
+    else if (off['team'] == 'Marketing Committee') marketingTeam.push(off);
+    else if (off['team'] == 'Operations Committee') operationsTeam.push(off);
+    else if (off['team'] == 'Finance Committee') financeTeam.push(off);
+    else if (off['team'] == 'Projects Team') projectsTeam.push(off);
+    else if (off['team'] == 'Technology Team') techTeam.push(off);
+    else if (off['team'] == 'AIM') AIMTeam.push(off);
+  }
+
   return (
     <div>
       <Head>
@@ -33,12 +51,15 @@ export default  function TeamPage({ officers }: EventsPageProps) {
           </div>
         </section>
         <section id="officers">
-          <div className="-mt-36 ">
-            <TeamItem officers={test} team={"Technology"} />
-            <TeamItem officers={test} team={"Finance"} />
-            <TeamItem officers={test} team={"Industry"} />
-            <TeamItem officers={test} team={"AIM"} />
-            <TeamItem officers={test} team={"Executive"} />
+          <div className="flex flex-grow flex-wrap -mt-36 mx-20 mb-4 gap-4 justify-around">
+            <TeamItem officers={execTeam} team={'Executive'} />
+            <TeamItem officers={financeTeam} team={'Finance'} />
+            <TeamItem officers={AIMTeam} team={'AIM'} />
+            <TeamItem officers={operationsTeam} team={'Operations'} />
+            <TeamItem officers={techTeam} team={'Technology'} />
+            <TeamItem officers={marketingTeam} team={'Marketing'} />
+            <TeamItem officers={industryTeam} team={'Industry'} />
+            <TeamItem officers={projectsTeam} team={'Projects'} />
           </div>
         </section>
       </main>

@@ -28,7 +28,7 @@ export default function HomePage() {
           </div>
         </section>
         <section id="about" className="bg-ais-blue-gray">
-          <div className="px-10 py-40 sm:px-20 md:px-30 lg:px-40 grid grid-cols-2 gap-6 sm:gap-12">
+          <div className="px-10 py-20 md:py-40 sm:px-20 md:px-30 lg:px-40 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
             <div className="">
               <div className="text-4xl font-medium">Projects</div>
               <div className="text-l font-bold py-2">
