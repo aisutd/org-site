@@ -51,12 +51,12 @@ export default function TeamPage({ officers }: TeamPageProps) {
           </div>
         </section>
         <section id="officers">
-          <div className="flex flex-grow flex-wrap -mt-36 mx-20 mb-4 gap-4 justify-around">
+          <div className="flex flex-grow flex-wrap -mt-36 mx-20 mb-4 gap-8 justify-around">
             <TeamItem officers={execTeam} team={'Executive'} />
-            <TeamItem officers={financeTeam} team={'Finance'} />
-            <TeamItem officers={AIMTeam} team={'AIM'} />
             <TeamItem officers={operationsTeam} team={'Operations'} />
+            <TeamItem officers={financeTeam} team={'Finance'} />
             <TeamItem officers={techTeam} team={'Technology'} />
+            <TeamItem officers={AIMTeam} team={'AIM'} />
             <TeamItem officers={marketingTeam} team={'Marketing'} />
             <TeamItem officers={industryTeam} team={'Industry'} />
             <TeamItem officers={projectsTeam} team={'Projects'} />

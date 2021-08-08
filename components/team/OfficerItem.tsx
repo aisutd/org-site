@@ -136,7 +136,7 @@ export default function OfficerItem({ officer }: OfficerItemProps) {
     <div
       className={
         directorAtt +
-        'h-80 w-64 transition duration-400 hover:shadow-lg hover:bg-ais-blue-gray rounded-xl pb-2'
+        'h-80 w-64 transition duration-400 hover:shadow-lg hover:bg-ais-blue-gray rounded-xl  s'
       }
     >
       {officerImg}
