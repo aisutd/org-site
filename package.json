@@ -9,10 +9,14 @@
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.0",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
+    "@types/moment": "^2.13.0",
+    "calendar-link": "^2.1.1",
     "coda-js": "^4.0.1",
-    "next": "^10.2.3",
+    "moment": "^2.29.1",
+    "next": "^11.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },

@@ -2,11 +2,22 @@ import { ArrowBack } from '@material-ui/icons';
 import NotesIcon from '@material-ui/icons/Notes';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import RoomIcon from '@material-ui/icons/Room';
+import DuoIcon from '@material-ui/icons/Duo';
+import PeopleIcon from '@material-ui/icons/People';
+import YouTubeIcon from '@material-ui/icons/YouTube';
+import VideocamIcon from '@material-ui/icons/Videocam';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import AppleIcon from '@material-ui/icons/Apple';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Event } from '../../lib/types';
+import Moment from 'moment';
+import { Event, Officer } from '../../lib/types';
 import { getAllEvents, getEventInfo, getEventLink } from '../api/events';
+import { getOfficer } from '../api/officer';
+import { google, outlook, ics } from 'calendar-link';
+import OfficerItem from '../../components/team/OfficerItem';
+import { Menu } from '@headlessui/react';
 
 function shareEvent(eventUrl: string) {
   if (navigator.share) {
@@ -30,16 +41,19 @@ const ONLINE_MAPPINGS = {
   ms_teams: 'Microsoft Teams',
   virtual: 'Virtual',
 };
-
 /**
  * A page showing event details and other information.
  */
-export default function EventPage({ event }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function EventPage({
+  event,
+  presenterOfficers,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const {
     id,
     title,
     description,
     presenters,
+    eventType,
     location,
     detailedLocation,
     joinLink,
@@ -48,11 +62,24 @@ export default function EventPage({ event }: InferGetStaticPropsType<typeof getS
     endDate,
     lastUpdated,
     supplements,
+    image,
   } = event;
 
-  const isUpcoming = new Date().getMilliseconds() > new Date(endDate).getMilliseconds();
+  const calEvent = {
+    title: title,
+    description: description,
+    start: startDate,
+    end: endDate,
+    location: location === 'In-person' ? joinLink : null,
+    url: location !== 'In-person' ? joinLink : null,
+  };
+  const eventStart = new Date(startDate);
+  const eventEnd = new Date(endDate);
+  const timeNow = new Date();
+  const inFuture = timeNow < eventStart;
+  const inPast = timeNow > eventEnd;
 
-  const linkText = isUpcoming ? (joinLink ? 'Watch recording' : 'Join event') : 'Get reminder'; // TODO
+  let linkText = inPast ? 'Watch recording' : inFuture ? 'Get Link' : 'Join event';
 
   const supplementItems = supplements.map((supplement) => {
     const { title, caption, link, image, type } = supplement;
@@ -67,70 +94,171 @@ export default function EventPage({ event }: InferGetStaticPropsType<typeof getS
     );
   });
 
-  const eventStart = new Date(startDate).toLocaleString('en-US');
-  const eventEnd = new Date(endDate).toLocaleString('en-US');
+  const eventTime = Moment(eventStart).format('MMM D, YYYY @ h:mm a') + ' CST';
 
-  const eventLink = getEventLink('aisutd.org', id);
+  let eventLink = joinLink;
+  const locationText = location;
+  const utdMap = 'https://map.concept3d.com/?id=1772#!s/';
+  let locIcon;
+  if (location == 'In-person') {
+    locIcon = <RoomIcon />;
+    eventLink = utdMap + joinLink;
+    linkText = 'Get Directions';
+  } else if (location === 'Google Meet') locIcon = <DuoIcon />;
+  else if (location === 'Zoom') locIcon = <VideocamIcon />;
+  else if (location === 'Discord')
+    locIcon = <img src="/discord.svg" className="transform scale-90" />;
+  else locIcon = <YouTubeIcon />;
 
-  const locationText = location !== 'physical' ? 'Online' : ONLINE_MAPPINGS[location];
+  let presenterCards;
+  if (eventType !== 'Social') {
+    presenterCards = presenterOfficers.map((officer) => {
+      return <OfficerItem officer={officer} key={officer.name} />;
+    });
+  }
+
+  let presenterDiv;
+  if (presenterCards) {
+    presenterDiv = (
+      <div className="">
+        <div className="py-4 text-2xl font-semibold">Presented by:</div>
+        <div className="flex flex-wrap gap-4 transform scale-85 origin-left -mt-6 -mb-4">
+          {presenterCards}
+        </div>
+      </div>
+    );
+  }
+
+  let imageBox;
+  if (image) {
+    imageBox = (
+      <div className="">
+        <div className="py-4 text-2xl font-semibold">Flyer:</div>
+        <img
+          src={image}
+          className="transition duration-200 ease-in-out transform hover:-translate-y-16  hover:scale-300 rounded-xl h-48 "
+        />
+      </div>
+    );
+  }
+
+  let buttons;
+  if (!inFuture && !inPast) {
+    buttons = (
+      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold relative">
+        <a target="_blank" href={eventLink}>
+          {linkText}
+          <div className="absolute top-0 right-0 -my-1 -mx-1">
+            <span className="flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+            </span>
+          </div>
+        </a>
+      </button>
+    );
+  } else if (inFuture) {
+    buttons = (
+      <div className="flex flex-wrap gap-4">
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+          <a target="_blank" href={eventLink}>
+            {linkText}
+          </a>
+        </button>
+        <Menu as="div" className="relative">
+          <Menu.Button className="inline-flex w-full transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+            Add To Calendar
+            <KeyboardArrowDownIcon />
+          </Menu.Button>
+          <Menu.Items className="origin-top-right absolute right-0 rounded-sm w-full bg-ais-white shadow-xl -mt-3 text-black">
+            <Menu.Item>
+              <a
+                target="_blank"
+                href={ics(calEvent)}
+                className="transition duration-400 group flex gap-2 items-center px-4 py-2 text-sm hover:bg-ais-blue-gray hover:text-black rounded-sm"
+              >
+                <img src="/apple.svg" className="h-5" />
+                Apple
+              </a>
+            </Menu.Item>
+            <Menu.Item>
+              <a
+                target="_blank"
+                href={google(calEvent)}
+                className="transition duration-400 group flex gap-2 items-center px-4 py-2 text-sm hover:bg-ais-blue-gray hover:text-black rounded-sm"
+              >
+                <img src="/google.svg" className="h-4" />
+                Google
+              </a>
+            </Menu.Item>
+            <Menu.Item>
+              <a
+                target="_blank"
+                href={outlook(calEvent)}
+                className="transition duration-400 group flex gap-2 items-center px-4 py-2 text-sm hover:bg-ais-blue-gray hover:text-black rounded-sm"
+              >
+                <img src="/outlook.svg" className="h-4" />
+                Outlook
+              </a>
+            </Menu.Item>
+          </Menu.Items>
+        </Menu>
+      </div>
+    );
+  } else if (inPast && location === 'YouTube') {
+    buttons = (
+      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+        <a target="_blank" href={eventLink}>
+          {linkText}
+        </a>
+      </button>
+    );
+  } else {
+    {
+      /**Empty Div */
+    }
+    buttons = <div className="my-4" />;
+  }
 
   return (
     <div className="p-8">
       <section className="p-4 mx-auto max-w-4xl">
-        <header className="flex">
-          <div
-            tabIndex={0}
-            className="p-2 hover:bg-gray-300 rounded-full focus:bg-gray-400 cursor-pointer"
-          >
-            <Link href="/events">
-              <ArrowBack />
-            </Link>
+        <header className="">
+          <div className="flex items-center -mx-36">
+            <div
+              tabIndex={0}
+              className="p-2 hover:bg-gray-300 rounded-full focus:bg-gray-400 cursor-pointer"
+            >
+              <Link href="/events">
+                <ArrowBack />
+              </Link>
+            </div>
+            <div className="text-lg font-bold">Back</div>
           </div>
-          <div className="flex flex-col justify-center flex-1 text-lg font-bold">Back</div>
+          <div className="font-bold text-ais-dark-blue text-2xl pb-8 -my-10">
+            {eventType.toUpperCase()}
+          </div>
         </header>
         <div className="text-4xl font-bold my-4">{title}</div>
-        {/* Main information */}
-        <aside>
-          <div className="py-2">
-            {/* Linkbox */}
-            <button
-              className="mx-4 m-2 p-2 rounded-md bg-blue-300 font-bold"
-              onClick={() => shareEvent(eventLink)}
-            >
-              Share Link
-            </button>
-            {joinLink && (
-              <a className="mx-4 m-2 p-2 rounded-md bg-blue-300 font-bold" href={joinLink}>
-                {linkText}
-              </a>
-            )}
+        <div className="flex flex-wrap gap-4">
+          <div className="flex items-center">
+            {locIcon}
+            <div className="mx-2 text-xl">{locationText}</div>
           </div>
-          <div className="flex">
-            <div className="px-4 py-2">
-              <ScheduleIcon />
-            </div>
-            <div className="flex-1 my-2 mr-4">
-              {eventStart} - {eventEnd}
-            </div>
+          <div className="flex items-center">
+            <ScheduleIcon />
+            <div className="mx-2 text-xl">{eventTime}</div>
           </div>
-          <div className="flex">
-            <div className="px-4 py-2">
-              <RoomIcon />
-            </div>
-            <div className="flex-1 my-2 mr-4">{locationText}</div>
-          </div>
-          <div className="flex">
-            <div className="px-4 py-2">
-              <NotesIcon />
-            </div>
-            <div className="flex-1 my-2 mr-4">{description}</div>
-          </div>
-        </aside>
+        </div>
+        <div>{buttons}</div>
+        <div className="text-xl">{description}</div>
+        {presenterDiv}
+        {imageBox}
       </section>
-      <section className="p-4 my-4 mx-auto max-w-4xl">
+      {/* <section className="p-4 my-4 mx-auto max-w-4xl">
         <div className="text-3xl font-bold">Supplementary Materials &amp; Resources</div>
         <div className="md:grid md:grid-cols-3">{supplementItems}</div>
-      </section>
+      </section> */}
     </div>
   );
 }
@@ -151,9 +279,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const event = await getEventInfo(slug, []);
 
+  const presenterOfficers: Officer[] = [];
+  for (const presenter of event.presenters) {
+    let officer: Officer = await getOfficer(presenter.name);
+    if (!officer) {
+      officer = { name: presenter.name, title: 'Presenter' };
+    }
+    presenterOfficers.push(officer);
+  }
+
   return {
     props: {
       event,
+      presenterOfficers,
     },
   };
 };

@@ -59,14 +59,15 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
       });
     }
     let revLink: string;
-    if (typeof rows[i].values['Relevant Link'] == 'string')
-      revLink = rows[i].values['Relevant Link'].replace(/```/gi, '');
-    else revLink = rows[i].values['Relevant Link']['url'];
+    if (typeof rows[i].values['Link / Room No.'] == 'string')
+      revLink = rows[i].values['Link / Room No.'].replace(/```/gi, '');
+    else revLink = rows[i].values['Link / Room No.']['url'];
 
     if (revLink.search('\\)') != -1)
       revLink = revLink.substring(revLink.indexOf('(') + 1, revLink.indexOf(')'));
 
     let imageUrl = rows[i].values['Image'];
+
     if (typeof imageUrl == 'string')
       imageUrl = imageUrl.length != 0 ? imageUrl.replace(/```/gi, '') : null;
     else if (Array.isArray(imageUrl)) {
