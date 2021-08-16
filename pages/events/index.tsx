@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Search from '@material-ui/icons/Search';
 import EventItem from '../../components/events/EventItem';
+import FeatureEvent from '../../components/events/FeatureEvent';
 import { Event } from '../../lib/types';
 import { getAllEvents } from '../api/events';
 import { GetStaticPaths } from 'next';
@@ -23,30 +24,41 @@ export default function EventsPage({ events }: EventsPageProps) {
     const endTime = new Date(eachEvent.endDate);
     const timeNow = new Date();
     if (endTime < timeNow) pastEvents.push(eachEvent);
-    else if (startTime < timeNow) onGoingEvents.push(eachEvent);
-    else futureEvents.push(eachEvent);
+    else if (timeNow < startTime) futureEvents.push(eachEvent);
+    else onGoingEvents.push(eachEvent);
   });
 
-  const featuredEventCards = futureEvents.map((event) => {
-    const { id, title, description } = event;
-    const eventLink = `/events/${event.id}`;
-    return (
-      <div
-        key={id}
-        className="inline-block max-w-xl m-2 p-4 bg-white shadow-sm hover:shadow-md focus:shadow-md rounded-md"
-      >
-        <div className="text-xl font-bold">{title}</div>
-        <div>
-          <div>{description}</div>
-        </div>
-        <div>
-          <Link href={eventLink}>&gt; Learn more</Link>
-        </div>
+  const futureEventCards = futureEvents.map((event) => {
+    return <FeatureEvent key={event.id} event={event} />;
+  });
+
+  const onGoingEventCards = onGoingEvents.map((event) => {
+    return <FeatureEvent key={event.id} event={event} onGoing={true} />;
+  });
+
+  let upComingEventDiv;
+  if (futureEvents.length == 0) {
+    upComingEventDiv = <div>No upcoming events as of yet, Please check back again!</div>;
+  } else {
+    upComingEventDiv = (
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start">
+        {futureEventCards}
       </div>
     );
-  });
+  }
 
-  const eventCards = pastEvents.map((event) => {
+  let onGoingEventDiv;
+  if (onGoingEvents.length != 0) {
+    onGoingEventDiv = (
+      <section className="bg-ais-light-gray p-8">
+        <div className="mx-auto max-w-6xl p-2">
+          <div className="text-3xl font-bold">Ongoing Events</div>
+          {onGoingEventCards}
+        </div>
+      </section>
+    );
+  }
+  const pastEventCards = pastEvents.map((event) => {
     return <EventItem key={event.id} event={event} />;
   });
 
@@ -55,10 +67,17 @@ export default function EventsPage({ events }: EventsPageProps) {
       <Head>
         <title>Artificial Intelligence Society at UTD - Events</title>
       </Head>
-      <section className="p-8 bg-gray-400">
+      <section className="p-8 bg-ais-blue-gray">
         {/* Hero */}
-        <div className="mx-auto max-w-3xl p-2">
-          <div className="mt-2 mb-8 text-4xl text-center font-bold">AIS Events</div>
+        <div className="mx-auto max-w-6xl py-8 px-2">
+          <div className="mt-2 mb-8 text-5xl font-bold">Events</div>
+          <div className="text-xl">
+            We host workshops, seminars, and social events to help students learn about artificial
+            intelligence.
+          </div>
+          <div className="text-xl">See upcoming events and look through event archives here.</div>
+          {/* TODO: SEARCH
+          
           <div className="flex rounded-md shadow-md bg-white">
             <input
               className="inline-block flex-1 p-4 rounded-l-md focus:outline-none"
@@ -69,19 +88,20 @@ export default function EventsPage({ events }: EventsPageProps) {
             <button className="inline-block mr-4 my-4">
               <Search />
             </button>
-          </div>
+          </div> */}
         </div>
       </section>
-      <section className="bg-gray-200 p-8">
+      {onGoingEventDiv}
+      <section className="bg-ais-light-gray p-8">
         <div className="mx-auto max-w-6xl p-2">
-          <div className="text-3xl font-bold">Upcoming events</div>
-          <div>{featuredEventCards}</div>
+          <div className="text-3xl font-bold">Upcoming Events</div>
+          {upComingEventDiv}
         </div>
       </section>
-      <section className="bg-gray-200 p-8">
+      <section className="bg-ais-light-gray p-8">
         <div className="mx-auto max-w-6xl p-2">
           <div className="text-3xl font-bold">Event Archive</div>
-          <div>{eventCards}</div>
+          <div>{pastEventCards}</div>
         </div>
       </section>
     </div>

@@ -71,7 +71,7 @@ export interface Event {
   /**
    * The place where this event will occur.
    */
-  location: Location;
+  location: string;
 
   /**
    * What type of event it is

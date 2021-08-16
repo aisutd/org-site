@@ -1,4 +1,5 @@
 import { Event } from '../../lib/types';
+import Link from 'next/link';
 
 interface EventItemProps {
   event: Event;
@@ -9,6 +10,7 @@ interface EventItemProps {
  */
 export default function EventItem({ event }: EventItemProps) {
   const { title, description, startDate } = event;
+  const eventLink = `/events/${event.id}`;
 
   const displayDate = new Date(startDate).toString();
   return (
@@ -16,7 +18,7 @@ export default function EventItem({ event }: EventItemProps) {
       <div className="text-xl font-bold">{title}</div>
       <div>
         <div className="text-lg">{description}</div>
-        <div className="text-md">{displayDate}</div>
+        <Link href={eventLink}>&gt; Learn more</Link>
       </div>
     </div>
   );
