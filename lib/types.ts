@@ -90,6 +90,11 @@ export interface Event {
   joinLink?: string;
 
   /**
+   * A direct link to google slides presentation of an event
+   */
+  slides?: string;
+
+  /**
    * Categorizes used to group this event with other related ones.
    */
   tags: string[];

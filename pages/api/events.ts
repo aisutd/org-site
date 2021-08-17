@@ -66,14 +66,21 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
     if (revLink.search('\\)') != -1)
       revLink = revLink.substring(revLink.indexOf('(') + 1, revLink.indexOf(')'));
 
-    let imageUrl = rows[i].values['Image'];
-
+    let imageUrl = rows[i].values['Flyer'];
     if (typeof imageUrl == 'string')
       imageUrl = imageUrl.length != 0 ? imageUrl.replace(/```/gi, '') : null;
     else if (Array.isArray(imageUrl)) {
       if (imageUrl.length != 0) imageUrl = imageUrl[0]['url'];
       else imageUrl = null;
     } else imageUrl = imageUrl['url'];
+
+    let slideLink = rows[i].values['Slides Link'];
+    if (typeof slideLink == 'string')
+      slideLink = slideLink.length != 0 ? slideLink.replace(/```/gi, '') : null;
+    else if (Array.isArray(slideLink)) {
+      if (slideLink.length != 0) slideLink = slideLink[0]['url'];
+      else slideLink = null;
+    } else slideLink = slideLink['url'];
 
     const eventToAdd: Event = {
       id: rows[i].values['Shortened Event Title'].replace(/```/gi, ''),
@@ -87,6 +94,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
       endDate: rows[i].values['Event End Date'].replace(/```/gi, ''),
       tags: eventTags,
       image: imageUrl,
+      slides: slideLink,
       lastUpdated: new Date().toISOString(),
       supplements: [],
     };

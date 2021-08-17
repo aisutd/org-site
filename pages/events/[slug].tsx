@@ -63,6 +63,7 @@ export default function EventPage({
     lastUpdated,
     supplements,
     image,
+    slides,
   } = event;
 
   const calEvent = {
@@ -142,29 +143,44 @@ export default function EventPage({
     );
   }
 
+  let slidesButton;
+  if (slides) {
+    slidesButton = (
+      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+        <a target="_blank" href={slides} rel="noreferrer">
+          View Slides
+        </a>
+      </button>
+    );
+  }
+
   let buttons;
   if (!inFuture && !inPast) {
     buttons = (
-      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold relative">
-        <a target="_blank" href={eventLink}>
-          {linkText}
-          <div className="absolute top-0 right-0 -my-1 -mx-1">
-            <span className="flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
-            </span>
-          </div>
-        </a>
-      </button>
+      <div className="flex flex-wrap gap-4">
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold relative">
+          <a target="_blank" href={eventLink} rel="noreferrer">
+            {linkText}
+            <div className="absolute top-0 right-0 -my-1 -mx-1">
+              <span className="flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+              </span>
+            </div>
+          </a>
+        </button>
+        {slidesButton}
+      </div>
     );
   } else if (inFuture) {
     buttons = (
       <div className="flex flex-wrap gap-4">
         <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
-          <a target="_blank" href={eventLink}>
+          <a target="_blank" href={eventLink} rel="noreferrer">
             {linkText}
           </a>
         </button>
+        {slidesButton}
         <Menu as="div" className="relative">
           <Menu.Button className="inline-flex w-full transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
             Add To Calendar
@@ -176,6 +192,7 @@ export default function EventPage({
                 target="_blank"
                 href={ics(calEvent)}
                 className="transition duration-400 group flex gap-2 items-center px-4 py-2 text-sm hover:bg-ais-blue-gray hover:text-black rounded-sm"
+                rel="noreferrer"
               >
                 <img src="/apple.svg" className="h-5" />
                 Apple
@@ -186,6 +203,7 @@ export default function EventPage({
                 target="_blank"
                 href={google(calEvent)}
                 className="transition duration-400 group flex gap-2 items-center px-4 py-2 text-sm hover:bg-ais-blue-gray hover:text-black rounded-sm"
+                rel="noreferrer"
               >
                 <img src="/google.svg" className="h-4" />
                 Google
@@ -196,6 +214,7 @@ export default function EventPage({
                 target="_blank"
                 href={outlook(calEvent)}
                 className="transition duration-400 group flex gap-2 items-center px-4 py-2 text-sm hover:bg-ais-blue-gray hover:text-black rounded-sm"
+                rel="noreferrer"
               >
                 <img src="/outlook.svg" className="h-4" />
                 Outlook
@@ -207,11 +226,14 @@ export default function EventPage({
     );
   } else if (inPast && location === 'YouTube') {
     buttons = (
-      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
-        <a target="_blank" href={eventLink}>
-          {linkText}
-        </a>
-      </button>
+      <div className="flex flex-wrap gap-4">
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+          <a target="_blank" href={eventLink} rel="noreferrer">
+            {linkText}
+          </a>
+        </button>
+        {slidesButton}
+      </div>
     );
   } else {
     {
