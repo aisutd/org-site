@@ -3,10 +3,13 @@ import Link from 'next/link';
 export default function SiteFooter() {
   return (
     <footer className="bg-ais-black text-white">
-      <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl grid grid-cols-2 justify-between gap-4 p-4 ">
+      <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl flex justify-around gap-4 p-4 ">
         <div>
           <div className="text-lg font-bold">Sitemap</div>
           <div>
+            <div className="block">
+              <Link href="/">Home</Link>
+            </div>
             <div className="block">
               <Link href="/events">Events</Link>
             </div>
