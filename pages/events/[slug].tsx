@@ -243,7 +243,8 @@ export default function EventPage({
   }
 
   return (
-    <div className="p-8">
+    <div className="mt-8">
+      <main className="min-h-screen">
       <section className="p-4 mx-auto max-w-4xl">
         <header className="">
           <div className="flex items-center -mx-36">
@@ -281,6 +282,7 @@ export default function EventPage({
         <div className="text-3xl font-bold">Supplementary Materials &amp; Resources</div>
         <div className="md:grid md:grid-cols-3">{supplementItems}</div>
       </section> */}
+      </main>
     </div>
   );
 }

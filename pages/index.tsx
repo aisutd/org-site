@@ -13,7 +13,7 @@ export default function HomePage() {
       <Head>
         <title>Artificial Intelligence Society at UTD - Home</title>
       </Head>
-      <main>
+      <main className="min-h-screen bg-ais-light-gray">
         <section id="intro" className="bg-ais-black">
           <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-10 sm:py-20 md:py-30 lg:py-40">
             <div className="text-white text-5xl font-semibold">
@@ -108,7 +108,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        <section id="callToAction" className="flex flex-col justify-center p-8 min-h-screen">
+        <section id="callToAction" className="flex flex-col justify-center p-8">
           <div className="text-center">Some photos of the org</div>
         </section>
       </main>

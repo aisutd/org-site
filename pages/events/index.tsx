@@ -67,16 +67,17 @@ export default function EventsPage({ events }: EventsPageProps) {
       <Head>
         <title>Artificial Intelligence Society at UTD - Events</title>
       </Head>
-      <section className="p-8 bg-ais-blue-gray">
-        {/* Hero */}
-        <div className="mx-auto max-w-6xl py-8 px-2">
-          <div className="mt-2 mb-8 text-5xl font-bold">Events</div>
-          <div className="text-xl">
-            We host workshops, seminars, and social events to help students learn about artificial
-            intelligence.
-          </div>
-          <div className="text-xl">See upcoming events and look through event archives here.</div>
-          {/* TODO: SEARCH
+      <main className="min-h-screen bg-ais-light-gray">
+        <section className="p-8 bg-ais-blue-gray">
+          {/* Hero */}
+          <div className="mx-auto max-w-6xl py-8 px-2">
+            <div className="mt-2 mb-8 text-5xl font-bold">Events</div>
+            <div className="text-xl">
+              We host workshops, seminars, and social events to help students learn about artificial
+              intelligence.
+            </div>
+            <div className="text-xl">See upcoming events and look through event archives here.</div>
+            {/* TODO: SEARCH
           
           <div className="flex rounded-md shadow-md bg-white">
             <input
@@ -89,21 +90,22 @@ export default function EventsPage({ events }: EventsPageProps) {
               <Search />
             </button>
           </div> */}
-        </div>
-      </section>
-      {onGoingEventDiv}
-      <section className="bg-ais-light-gray p-8">
-        <div className="mx-auto max-w-6xl p-2">
-          <div className="text-3xl font-bold">Upcoming Events</div>
-          {upComingEventDiv}
-        </div>
-      </section>
-      <section className="bg-ais-light-gray p-8">
-        <div className="mx-auto max-w-6xl p-2">
-          <div className="text-3xl font-bold">Event Archive</div>
-          <div>{pastEventCards}</div>
-        </div>
-      </section>
+          </div>
+        </section>
+        {onGoingEventDiv}
+        <section className="bg-ais-light-gray p-8">
+          <div className="mx-auto max-w-6xl p-2">
+            <div className="text-3xl font-bold">Upcoming Events</div>
+            {upComingEventDiv}
+          </div>
+        </section>
+        <section className="bg-ais-light-gray p-8">
+          <div className="mx-auto max-w-6xl p-2">
+            <div className="text-3xl font-bold">Event Archive</div>
+            <div>{pastEventCards}</div>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
