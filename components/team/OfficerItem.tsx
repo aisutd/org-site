@@ -42,7 +42,7 @@ function githubLink(officer: Officer) {
     return (
       <div className="px-2">
         <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <a target="_blank" href={'https://github.com/' + officer.github}>
+          <a target="_blank" href={'https://github.com/' + officer.github} rel="noreferrer">
             <GitHub color="primary" fontSize="small" />
           </a>
         </button>
@@ -56,7 +56,7 @@ function linkedInLink(officer: Officer) {
     return (
       <div className="px-2">
         <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <a target="_blank" href={officer.linkedInUrl}>
+          <a target="_blank" href={officer.linkedInUrl} rel="noreferrer">
             <LinkedIn color="primary" />
           </a>
         </button>
@@ -70,7 +70,7 @@ function personalLink(officer: Officer) {
     return (
       <div className="px-2">
         <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <a target="_blank" href={officer.personalWeb}>
+          <a target="_blank" href={officer.personalWeb} rel="noreferrer">
             <Language color="primary" />
           </a>
         </button>
@@ -124,7 +124,8 @@ function personalQuote(officer: Officer) {
 export default function OfficerItem({ officer }: OfficerItemProps) {
   const { name, title } = officer;
   let directorAtt;
-  if (title.includes('Director') || title.includes('President')) directorAtt = ' order-first ';
+  if (title.includes('Director') || title.includes('President') || title.includes('Founder'))
+    directorAtt = ' order-first ';
   else if (!title.includes('VP')) directorAtt = ' order-last ';
   const officerImg = officerImage(officer);
   const officerEmail = emailLink(officer);

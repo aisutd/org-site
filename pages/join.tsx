@@ -51,9 +51,9 @@ export default function JoinPage() {
         <title>Artificial Intelligence Society at UTD - Join</title>
       </Head>
       <main className="min-h-screen bg-ais-light-gray">
-        <section className="p-8 bg-ais-blue-gray">
+        <section className="py-8 bg-ais-blue-gray">
           {/* Hero */}
-          <div className="mx-auto max-w-6xl py-8 px-2">
+          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-8 px-2">
             <div className="mt-2 mb-8 text-5xl font-bold">Join Us</div>
             <div className="text-xl">
               We host workshops, seminars, and social events to help students learn about artificial
@@ -62,8 +62,8 @@ export default function JoinPage() {
             <div className="text-xl">See upcoming events and look through event archives here.</div>
           </div>
         </section>
-        <section className="bg-ais-light-gray p-8">
-          <div className="mx-auto max-w-6xl p-2">
+        <section className="bg-ais-light-gray py-8">
+          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-2">
             <div className="text-3xl font-bold">Mailing List</div>
             <div className="text-lg py-2">
               Join our mailing list to get email reminders about our upcoming events
@@ -71,8 +71,8 @@ export default function JoinPage() {
             {Subscribe()}
           </div>
         </section>
-        <section className="bg-ais-light-gray p-8">
-          <div className="mx-auto max-w-6xl p-2">
+        <section className="bg-ais-light-gray py-8">
+          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-2">
             <div className="text-3xl font-bold">Applications</div>
             <div>{appDivs}</div>
           </div>

@@ -50,9 +50,9 @@ export default function EventsPage({ events }: EventsPageProps) {
   let onGoingEventDiv;
   if (onGoingEvents.length != 0) {
     onGoingEventDiv = (
-      <section className="bg-ais-light-gray p-8">
-        <div className="mx-auto max-w-6xl p-2">
-          <div className="text-3xl font-bold">Ongoing Events</div>
+      <section className="bg-ais-light-gray py-8">
+        <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-2">
+          <div className="text-3xl font-bold mb-4">Ongoing Events</div>
           {onGoingEventCards}
         </div>
       </section>
@@ -68,9 +68,9 @@ export default function EventsPage({ events }: EventsPageProps) {
         <title>Artificial Intelligence Society at UTD - Events</title>
       </Head>
       <main className="min-h-screen bg-ais-light-gray">
-        <section className="p-8 bg-ais-blue-gray">
+        <section className="py-8 bg-ais-blue-gray">
           {/* Hero */}
-          <div className="mx-auto max-w-6xl py-8 px-2">
+          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-8 px-2">
             <div className="mt-2 mb-8 text-5xl font-bold">Events</div>
             <div className="text-xl">
               We host workshops, seminars, and social events to help students learn about artificial
@@ -93,15 +93,15 @@ export default function EventsPage({ events }: EventsPageProps) {
           </div>
         </section>
         {onGoingEventDiv}
-        <section className="bg-ais-light-gray p-8">
-          <div className="mx-auto max-w-6xl p-2">
-            <div className="text-3xl font-bold">Upcoming Events</div>
+        <section className="bg-ais-light-gray py-8">
+          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-2">
+            <div className="text-3xl font-bold mb-4">Upcoming Events</div>
             {upComingEventDiv}
           </div>
         </section>
-        <section className="bg-ais-light-gray p-8">
-          <div className="mx-auto max-w-6xl p-2">
-            <div className="text-3xl font-bold">Event Archive</div>
+        <section className="bg-ais-light-gray py-8">
+          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-2">
+            <div className="text-3xl font-bold mb-4">Event Archive</div>
             <div>{pastEventCards}</div>
           </div>
         </section>
