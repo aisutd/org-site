@@ -1,12 +1,12 @@
 import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import React from 'react';
-import { getDemos } from './api/demos';
+import { getDemos } from './api/projects';
 
 /**
  * A list of demoable projects.
  */
-export default function DemosPage({ demos }) {
+export default function ProjectsPage({ demos }) {
   return (
     <div>
       <Head>

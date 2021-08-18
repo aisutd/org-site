@@ -27,7 +27,7 @@ export default function SiteHeader() {
               <Link href="/events">Events</Link>
             </span>
             <span className="p-2 text-xl font-semibold">
-              <Link href="/demos">Projects</Link>
+              <Link href="/projects">Projects</Link>
             </span>
             <span className="p-2 text-xl font-semibold">
               <Link href="/team">Team</Link>
@@ -84,7 +84,7 @@ export default function SiteHeader() {
                 </Menu.Item>
                 <Menu.Item>
                   <button className="p-4 block hover:bg-ais-blue-gray hover:text-black w-full">
-                    <Link href="/demos">Projects</Link>
+                    <Link href="/projects">Projects</Link>
                   </button>
                 </Menu.Item>
                 <Menu.Item>
