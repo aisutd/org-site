@@ -43,7 +43,7 @@ export default function TeamPage({ officers }: TeamPageProps) {
       </Head>
       <main className="flex flex-col justify-center min-h-screen bg-ais-light-gray">
         <section id="team" className="bg-ais-blue-gray">
-          <div className="p-10 sm:p-20 md:p-30 lg:p-40">
+          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-10 md:py-20 ">
             <div className="text-5xl font-semibold">The AIS Team</div>
             <div className="text-2xl font-thin py-5">
               Meet everyone that helps run the Artificial Intelligence Society at UT Dallas{' '}
@@ -51,7 +51,7 @@ export default function TeamPage({ officers }: TeamPageProps) {
           </div>
         </section>
         <section id="officers">
-          <div className="flex flex-grow flex-wrap -mt-36 mx-20 mb-4 gap-8 justify-around">
+          <div className="flex flex-grow flex-wrap -mt-10 mx-20 mb-4 gap-8 justify-around">
             <TeamItem officers={execTeam} team={'Executive'} />
             <TeamItem officers={operationsTeam} team={'Operations'} />
             <TeamItem officers={financeTeam} team={'Finance'} />

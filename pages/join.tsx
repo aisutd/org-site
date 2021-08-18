@@ -7,7 +7,8 @@ import Link from 'next/link';
  * This page contains an overview of the organization and links to our programs
  * and events.
  */
-export default function HomePage() {
+
+export default function JoinPage() {
   return (
     <div>
       <Head>

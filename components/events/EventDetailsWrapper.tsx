@@ -17,13 +17,9 @@ export default function EventDetailsBlock({ event }: EventDetailsBlockProps) {
       </div>
       <div>
         <div></div>
-        <div className="text-lg">
-        {description}
-        </div>
+        <div className="text-lg">{description}</div>
       </div>
-      <div>
-        Tags
-      </div>
+      <div>Tags</div>
     </article>
     // TODO: Images, other resources below
   );

@@ -10,6 +10,7 @@ module.exports = {
           'light-blue': '#11BBFD',
           'dark-blue': '#4565B8',
           'light-gray': '#f5f5f5',
+          'dark-gray': '#444444',
           white: '#fafafa',
         },
       },
@@ -18,10 +19,14 @@ module.exports = {
         300: '3',
         400: '4',
       },
+      margin: {
+        '73': '18.75rem',
+      },
     },
     fontFamily: {
       sans: ['IBM Plex Sans', 'sans-serif'],
     },
+    
   },
   variants: {
     extend: {},

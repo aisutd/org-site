@@ -58,17 +58,17 @@ export default function FeatureEvent({ event, onGoing }: EventItemProps) {
       </div>
     );
   }
-  console.log(pulsingBG);
+
   return (
     <div
       key={id}
       className={
         pulsingBG +
-        'inline-block max-w-full p-4 m-2 bg-white shadow-sm hover:shadow-md focus:shadow-md rounded-md relative'
+        'inline-block max-w-full p-4 m-2 bg-white shadow-sm transition duration-400 hover:shadow-md focus:shadow-md rounded-md relative'
       }
     >
       {pulsingDiv}
-      <div className="font-bold text-ais-dark-blue text-sm flex justify-between">
+      <div className="font-bold text-ais-dark-blue text-sm flex flex-wrap justify-between gap-2">
         {eventType.toUpperCase()}
         <div className="flex items-center text-gray-600">
           <CalendarTodayIcon style={{ fontSize: 18 }} />
@@ -84,7 +84,7 @@ export default function FeatureEvent({ event, onGoing }: EventItemProps) {
         <Link href={eventLink}>LEARN MORE</Link>
         <Menu as="div" className="relative">
           <Menu.Button className="font-bold">SAVE</Menu.Button>
-          <Menu.Items className="origin-top-left absolute left-0 rounded-md w-28 bg-ais-white shadow-xl  text-black">
+          <Menu.Items className="origin-top-left absolute left-0 rounded-md w-28 bg-ais-white shadow-xl z-10 text-black">
             <Menu.Item>
               <a
                 target="_blank"
