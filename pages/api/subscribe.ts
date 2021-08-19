@@ -7,9 +7,6 @@ mailchimp.setConfig({
 
 export default async (req, res) => {
   const { first, last, email } = req.body;
-  console.log(process.env.MAILCHIMP_API_KEY);
-  console.log(process.env.MAILCHIMP_API_SERVER);
-  console.log(process.env.MAILCHIMP_API_AUDIENCE_ID);
 
   if (!email) return res.status(400).json({ error: 'Please enter your email address' });
 

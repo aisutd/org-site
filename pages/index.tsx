@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+import Subscribe from '../components/join/Subscribe';
 
 /**
  * The root page for the organization website.
@@ -65,7 +66,7 @@ export default function HomePage() {
         </section>
         <section id="programs" className="">
           <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl bg-transparent">
-            <div className="bg-ais-white -my-10 rounded-lg px-10 py-5 shadow-2xl">
+            <div className="bg-ais-white -mt-10 rounded-lg px-10 py-5 shadow-2xl">
               <div className="text-4xl font-medium">Events</div>
               <div className="text-l font-bold py-2">
                 AIS hosts many events to expand your knowledge and to keep you connected to the
@@ -108,8 +109,26 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        <section id="callToAction" className="flex flex-col justify-center p-8">
-          <div className="text-center">Some photos of the org</div>
+        <section id="callToAction" className=" bg-ais-dark-gray text-white mt-16 py-10">
+          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl">
+            <div className="text-4xl font-medium ">Get Involved</div>
+            <div className="py-2 flex gap-16 justify-between items-start">
+              <div className="w-full max-w-2xl">
+                <div className="text-lg py-4">
+                  Join our mailing list to get email reminders about our upcoming events
+                </div>
+                {Subscribe()}
+              </div>
+              <div className="text-2xl font-semibold">
+                Join the team
+                <div className="flex justify-end">
+                  <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 px-6 py-4 rounded-full text-lg font-semibold">
+                    <Link href="/join">Join</Link>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </div>

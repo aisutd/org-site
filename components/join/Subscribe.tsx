@@ -46,7 +46,7 @@ export default function Subscribe() {
         {/* <label htmlFor="email-input">{'Email Address'}</label>
         <label htmlFor="first-name-input">{'First Name'}</label>
         <label htmlFor="last-name-input">{'Last Name'}</label> */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 grid-flow-row gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 grid-flow-row gap-4 text-black">
           <input
             id="first-name-input"
             name="first-name"
@@ -83,7 +83,7 @@ export default function Subscribe() {
             <div className="py-4 px-8">Sign Up</div>
           </button>
 
-          <div className="text-md py-4 text-red-700">{message ? message : null}</div>
+          <div className="text-md py-4 text-red-600">{message ? message : null}</div>
         </div>
       </form>
     </div>
