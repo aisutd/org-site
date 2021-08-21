@@ -42,64 +42,69 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
   // If events were updated >1 min ago, get new events from Coda API
   // Real Event Tracking Doc: luD4Jth4qA
   // Test Event Tracking Doc: W46Lee3b8Q
-  const doc = await CodaAPI.getDoc('W46Lee3b8Q'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
-  const table = await doc.getTable('All Events'); // Grab the actual table from the doc
-  const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the event entries in the doc
+  try {
+    const doc = await CodaAPI.getDoc('W46Lee3b8Q'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
+    const table = await doc.getTable('All Events'); // Grab the actual table from the doc
+    const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the event entries in the doc
 
-  for (let i = 0; i < rows.length; i++) {
-    // For each event in the table
-    const eventTags: string[] = rows[i].values['Keywords'].replace(/```/gi, '').split(', ');
-    const eventPresenters: { name: string; link: string }[] = [];
-    for (const presenterName of rows[i].values['Presenter Names']
-      .replace(/```/gi, '')
-      .split(', ')) {
-      eventPresenters.push({
-        name: presenterName,
-        link: '',
-      });
+    for (let i = 0; i < rows.length; i++) {
+      // For each event in the table
+      const eventTags: string[] = rows[i].values['Keywords'].replace(/```/gi, '').split(', ');
+      const eventPresenters: { name: string; link: string }[] = [];
+      for (const presenterName of rows[i].values['Presenter Names']
+        .replace(/```/gi, '')
+        .split(', ')) {
+        eventPresenters.push({
+          name: presenterName,
+          link: '',
+        });
+      }
+      let revLink: string;
+      if (typeof rows[i].values['Link / Room No.'] == 'string')
+        revLink = rows[i].values['Link / Room No.'].replace(/```/gi, '');
+      else revLink = rows[i].values['Link / Room No.']['url'];
+
+      if (revLink.search('\\)') != -1)
+        revLink = revLink.substring(revLink.indexOf('(') + 1, revLink.indexOf(')'));
+
+      let imageUrl = rows[i].values['Flyer'];
+      if (typeof imageUrl == 'string')
+        imageUrl = imageUrl.length != 0 ? imageUrl.replace(/```/gi, '') : null;
+      else if (Array.isArray(imageUrl)) {
+        if (imageUrl.length != 0) imageUrl = imageUrl[0]['url'];
+        else imageUrl = null;
+      } else imageUrl = imageUrl['url'];
+
+      let slideLink = rows[i].values['Slides Link'];
+      if (typeof slideLink == 'string')
+        slideLink = slideLink.length != 0 ? slideLink.replace(/```/gi, '') : null;
+      else if (Array.isArray(slideLink)) {
+        if (slideLink.length != 0) slideLink = slideLink[0]['url'];
+        else slideLink = null;
+      } else slideLink = slideLink['url'];
+
+      const eventToAdd: Event = {
+        id: rows[i].values['Shortened Event Title'].replace(/```/gi, ''),
+        title: rows[i].values['Event Title'].replace(/```/gi, ''),
+        description: rows[i].values['Description'].replace(/```/gi, ''),
+        presenters: eventPresenters,
+        location: rows[i].values['Platform'].replace(/```/gi, ''),
+        eventType: rows[i].values['Event Type'].replace(/```/gi, ''),
+        joinLink: revLink,
+        startDate: rows[i].values['Event Date'].replace(/```/gi, ''),
+        endDate: rows[i].values['Event End Date'].replace(/```/gi, ''),
+        tags: eventTags,
+        image: imageUrl,
+        slides: slideLink,
+        lastUpdated: new Date().toISOString(),
+        supplements: [],
+      };
+      //console.log(rows[i].values);
+      EVENTS_MAP[eventToAdd['id']] = eventToAdd;
     }
-    let revLink: string;
-    if (typeof rows[i].values['Link / Room No.'] == 'string')
-      revLink = rows[i].values['Link / Room No.'].replace(/```/gi, '');
-    else revLink = rows[i].values['Link / Room No.']['url'];
-
-    if (revLink.search('\\)') != -1)
-      revLink = revLink.substring(revLink.indexOf('(') + 1, revLink.indexOf(')'));
-
-    let imageUrl = rows[i].values['Flyer'];
-    if (typeof imageUrl == 'string')
-      imageUrl = imageUrl.length != 0 ? imageUrl.replace(/```/gi, '') : null;
-    else if (Array.isArray(imageUrl)) {
-      if (imageUrl.length != 0) imageUrl = imageUrl[0]['url'];
-      else imageUrl = null;
-    } else imageUrl = imageUrl['url'];
-
-    let slideLink = rows[i].values['Slides Link'];
-    if (typeof slideLink == 'string')
-      slideLink = slideLink.length != 0 ? slideLink.replace(/```/gi, '') : null;
-    else if (Array.isArray(slideLink)) {
-      if (slideLink.length != 0) slideLink = slideLink[0]['url'];
-      else slideLink = null;
-    } else slideLink = slideLink['url'];
-
-    const eventToAdd: Event = {
-      id: rows[i].values['Shortened Event Title'].replace(/```/gi, ''),
-      title: rows[i].values['Event Title'].replace(/```/gi, ''),
-      description: rows[i].values['Description'].replace(/```/gi, ''),
-      presenters: eventPresenters,
-      location: rows[i].values['Platform'].replace(/```/gi, ''),
-      eventType: rows[i].values['Event Type'].replace(/```/gi, ''),
-      joinLink: revLink,
-      startDate: rows[i].values['Event Date'].replace(/```/gi, ''),
-      endDate: rows[i].values['Event End Date'].replace(/```/gi, ''),
-      tags: eventTags,
-      image: imageUrl,
-      slides: slideLink,
-      lastUpdated: new Date().toISOString(),
-      supplements: [],
-    };
-    //console.log(rows[i].values);
-    EVENTS_MAP[eventToAdd['id']] = eventToAdd;
+  } catch (error) {
+    console.log('Error No: ' + error.errno);
+    console.log('Error Code: ' + error.code);
   }
   return Object.values(EVENTS_MAP);
 };

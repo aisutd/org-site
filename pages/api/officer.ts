@@ -36,62 +36,66 @@ export const getAllOfficers = async (fields?: string[]): Promise<Officer[]> => {
   if (prevOfficers.length != 0) {
     return Object.values(OFFICERS_MAP);
   }
+  try {
+    // AIS Personnel Doc: zWBpla6LLN
+    const doc = await CodaAPI.getDoc('zWBpla6LLN'); // Grab AIS Personnel Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
+    const table = await doc.getTable('Officers'); // Grab the actual table from the doc
+    const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the officer entries in the doc
 
-  // AIS Personnel Doc: zWBpla6LLN
-  const doc = await CodaAPI.getDoc('zWBpla6LLN'); // Grab AIS Personnel Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
-  const table = await doc.getTable('Officers'); // Grab the actual table from the doc
-  const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the officer entries in the doc
+    for (let i = 0; i < rows.length; i++) {
+      // For each officer in the table
+      let ofemail = rows[i].values['AIS Email'];
+      let linkedIn = rows[i].values['LinkedIn'];
+      let personal = rows[i].values['Personal Website'];
+      let imageUrl = rows[i].values['Headshot Photo (1:1 Aspect Ratio)'];
 
-  for (let i = 0; i < rows.length; i++) {
-    // For each officer in the table
-    let ofemail = rows[i].values['AIS Email'];
-    let linkedIn = rows[i].values['LinkedIn'];
-    let personal = rows[i].values['Personal Website'];
-    let imageUrl = rows[i].values['Headshot Photo (1:1 Aspect Ratio)'];
+      // Data Cleaning and Verifying
+      if (typeof ofemail == 'string')
+        ofemail = ofemail.length != 0 ? ofemail.replace(/```/gi, '') : null;
+      else ofemail = ofemail['url'];
 
-    // Data Cleaning and Verifying
-    if (typeof ofemail == 'string')
-      ofemail = ofemail.length != 0 ? ofemail.replace(/```/gi, '') : null;
-    else ofemail = ofemail['url'];
+      if (typeof linkedIn == 'string')
+        linkedIn = linkedIn.length != 0 ? linkedIn.replace(/```/gi, '') : null;
+      else linkedIn = linkedIn['url'];
 
-    if (typeof linkedIn == 'string')
-      linkedIn = linkedIn.length != 0 ? linkedIn.replace(/```/gi, '') : null;
-    else linkedIn = linkedIn['url'];
+      if (typeof personal == 'string')
+        personal = personal.length != 0 ? personal.replace(/```/gi, '') : null;
+      else personal = personal['url'];
 
-    if (typeof personal == 'string')
-      personal = personal.length != 0 ? personal.replace(/```/gi, '') : null;
-    else personal = personal['url'];
+      if (typeof imageUrl == 'string')
+        imageUrl = imageUrl.length != 0 ? imageUrl.replace(/```/gi, '') : null;
+      else if (Array.isArray(imageUrl)) {
+        if (imageUrl.length != 0) imageUrl = imageUrl[0]['url'];
+        else imageUrl = null;
+      } else imageUrl = imageUrl['url'];
 
-    if (typeof imageUrl == 'string')
-      imageUrl = imageUrl.length != 0 ? imageUrl.replace(/```/gi, '') : null;
-    else if (Array.isArray(imageUrl)) {
-      if (imageUrl.length != 0) imageUrl = imageUrl[0]['url'];
-      else imageUrl = null;
-    } else imageUrl = imageUrl['url'];
+      const officer: Officer = {
+        name:
+          rows[i].values['First Name'].replace(/```/gi, '') +
+          ' ' +
+          rows[i].values['Last Name'].replace(/```/gi, ''),
+        title: rows[i].values['Title'].replace(/```/gi, ''),
+        team: rows[i].values['Department'].replace(/```/gi, ''),
+        dateJoined: rows[i].values['Join Date'].length != 0 ? rows[i].values['Join Date'] : null,
+        email: ofemail,
+        github:
+          rows[i].values['GitHub Username'].length != 0
+            ? rows[i].values['GitHub Username'].replace(/```/gi, '')
+            : null,
+        linkedInUrl: linkedIn,
+        personalWeb: personal,
+        image: imageUrl,
+        quote:
+          rows[i].values['Short Bio/Quote'].length != 0
+            ? rows[i].values['Short Bio/Quote'].replace(/```/gi, '')
+            : null,
+      };
 
-    const officer: Officer = {
-      name:
-        rows[i].values['First Name'].replace(/```/gi, '') +
-        ' ' +
-        rows[i].values['Last Name'].replace(/```/gi, ''),
-      title: rows[i].values['Title'].replace(/```/gi, ''),
-      team: rows[i].values['Department'].replace(/```/gi, ''),
-      dateJoined: rows[i].values['Join Date'].length != 0 ? rows[i].values['Join Date'] : null,
-      email: ofemail,
-      github:
-        rows[i].values['GitHub Username'].length != 0
-          ? rows[i].values['GitHub Username'].replace(/```/gi, '')
-          : null,
-      linkedInUrl: linkedIn,
-      personalWeb: personal,
-      image: imageUrl,
-      quote:
-        rows[i].values['Short Bio/Quote'].length != 0
-          ? rows[i].values['Short Bio/Quote'].replace(/```/gi, '')
-          : null,
-    };
-
-    OFFICERS_MAP[officer.name] = officer;
+      OFFICERS_MAP[officer.name] = officer;
+    }
+  } catch (error) {
+    console.log('Error No: ' + error.errno);
+    console.log('Error Code: ' + error.code);
   }
   return Object.values(OFFICERS_MAP);
 };
