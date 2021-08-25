@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Subscribe from '../components/join/Subscribe';
+import KickoffModal from '../components/events/KickoffModal';
 
 /**
  * The root page for the organization website.
@@ -11,6 +12,7 @@ import Subscribe from '../components/join/Subscribe';
 export default function HomePage() {
   return (
     <div>
+      <KickoffModal />
       <Head>
         <title>Artificial Intelligence Society at UTD - Home</title>
       </Head>
