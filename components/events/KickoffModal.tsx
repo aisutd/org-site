@@ -10,9 +10,12 @@ interface ModalProps {
 export default function KickoffModal({ trigger }: ModalProps) {
   const [buttonPopup, setButtonPopup] = useState(true);
   return buttonPopup ? (
-    <div className="fixed inset-0 bg-ais-white bg-opacity-75 flex items-center justify-center">
+    <div
+      className="fixed inset-0 bg-ais-white bg-opacity-75 flex items-center justify-center"
+      onClick={() => setButtonPopup(false)}
+    >
       <div className="relative">
-        <button className="absolute right-0 -mr-10 -mt-10" onClick={() => setButtonPopup(false)}>
+        <button className="absolute right-0 sm:-mr-10 -mt-10">
           <CloseRoundedIcon fontSize="large" />
         </button>
         <Link href="/events">
