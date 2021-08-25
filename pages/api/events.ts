@@ -75,13 +75,13 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         else imageUrl = null;
       } else imageUrl = imageUrl['url'];
 
-      let slideLink = rows[i].values['Slides Link'];
-      if (typeof slideLink == 'string')
-        slideLink = slideLink.length != 0 ? slideLink.replace(/```/gi, '') : null;
-      else if (Array.isArray(slideLink)) {
-        if (slideLink.length != 0) slideLink = slideLink[0]['url'];
-        else slideLink = null;
-      } else slideLink = slideLink['url'];
+      let slideLink: string;
+      if (typeof rows[i].values['Slides Link'] == 'string')
+        slideLink = rows[i].values['Slides Link'].replace(/```/gi, '');
+      else slideLink = rows[i].values['Slides Link']['url'];
+
+      if (slideLink.search('\\)') != -1)
+        slideLink = slideLink.substring(slideLink.indexOf('(') + 1, slideLink.indexOf(')'));
 
       const eventToAdd: Event = {
         id: rows[i].values['Shortened Event Title'].replace(/```/gi, ''),
@@ -99,14 +99,14 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         lastUpdated: new Date().toISOString(),
         supplements: [],
       };
-      //console.log(rows[i].values);
+      // console.log(rows[i].values);
       if (eventToAdd['id'] === '') continue;
       EVENTS_MAP[eventToAdd['id']] = eventToAdd;
     }
     // Create an offline backup if necessary
     // storeEvents();
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     console.log('Error No: ' + error.errno);
     console.log('Error Code: ' + error.code);
     // Restore from an offline backup if necessary
