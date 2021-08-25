@@ -1,21 +1,12 @@
 import { Event } from '../../lib/types';
 import { Coda } from 'coda-js';
 import { Description } from '@material-ui/icons';
-
-/**
- * Coda API
- * How to get an API KEY:
- * 1. Go to https://coda.io/account and scroll down to "Coda API Tokens"
- * 2. Generate a new API key WITH RESTRICTIONS of read only access to this doc: https://coda.io/d/Event-Tracking_dluD4Jth4qA/Events_suqfB#All-Events_tuipI/r5
- * 3. Create a file ".env.local" in your project directory
- * 4. Add the following entry: "CODA_API_KEY='{Your API key}'"
- */
-const CodaAPI = new Coda(process.env.CODA_API_KEY);
+import * as fs from 'fs';
 
 /**
  * List of events
  */
-const EVENTS_MAP: { [key: string]: Event } = {};
+let EVENTS_MAP: { [key: string]: Event } = {};
 
 /**
  * Fetch event information.
@@ -43,6 +34,15 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
   // Real Event Tracking Doc: luD4Jth4qA
   // Test Event Tracking Doc: W46Lee3b8Q
   try {
+    /**
+     * Coda API
+     * How to get an API KEY:
+     * 1. Go to https://coda.io/account and scroll down to "Coda API Tokens"
+     * 2. Generate a new API key WITH RESTRICTIONS of read only access to this doc: https://coda.io/d/Event-Tracking_dluD4Jth4qA/Events_suqfB#All-Events_tuipI/r5
+     * 3. Create a file ".env.local" in your project directory
+     * 4. Add the following entry: "CODA_API_KEY='{Your API key}'"
+     */
+    const CodaAPI = new Coda(process.env.CODA_API_KEY);
     const doc = await CodaAPI.getDoc('W46Lee3b8Q'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
     const table = await doc.getTable('All Events'); // Grab the actual table from the doc
     const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the event entries in the doc
@@ -100,11 +100,17 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         supplements: [],
       };
       //console.log(rows[i].values);
+      if (eventToAdd['id'] === '') continue;
       EVENTS_MAP[eventToAdd['id']] = eventToAdd;
     }
+    // Create an offline backup if necessary
+    // storeEvents();
   } catch (error) {
+    // console.log(error);
     console.log('Error No: ' + error.errno);
     console.log('Error Code: ' + error.code);
+    // Restore from an offline backup if necessary
+    retrieveEvents();
   }
   return Object.values(EVENTS_MAP);
 };
@@ -118,3 +124,23 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
 export function getEventLink(hostname: string, slug: string): string {
   return `https://${hostname}/events/${slug}`;
 }
+
+function storeEvents(): void {
+  fs.writeFile('./pages/api/eventsBackup.json', JSON.stringify(EVENTS_MAP), function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+}
+
+function retrieveEvents(): void {
+  const events = fs.readFileSync('./pages/api/eventsBackup.json');
+  EVENTS_MAP = JSON.parse(events);
+}
+
+// async function retrieveEvents(): Promise<void> {
+//   fs.readFile('./pages/api/eventsBackup.json', (err, events) => {
+//     if (err) throw err;
+//     EVENTS_MAP = JSON.parse(events);
+//   });
+// }

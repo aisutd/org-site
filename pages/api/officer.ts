@@ -1,20 +1,11 @@
 import { Officer } from '../../lib/types';
 import { Coda } from 'coda-js';
-
-/**
- * Coda API
- * How to get an API KEY:
- * 1. Go to https://coda.io/account and scroll down to "Coda API Tokens"
- * 2. Generate a new API key WITH RESTRICTIONS of read only access to this doc: https://coda.io/d/AIS-Personnel_dzWBpla6LLN/AIS-Officers_sudo_#_lu0Yo
- * 3. Create a file ".env.local" in your project directory
- * 4. Add the following entry: "CODA_OFFICER_API_KEY='{Your API key}'"
- */
-const CodaAPI = new Coda(process.env.CODA_OFFICER_API_KEY);
+import * as fs from 'fs';
 
 /**
  * A HashMap of all the officers in org and their info.
  */
-const OFFICERS_MAP: { [key: string]: Officer } = {};
+let OFFICERS_MAP: { [key: string]: Officer } = {};
 
 /**
  * Fetch event information.
@@ -37,6 +28,16 @@ export const getAllOfficers = async (fields?: string[]): Promise<Officer[]> => {
     return Object.values(OFFICERS_MAP);
   }
   try {
+    /**
+     * Coda API
+     * How to get an API KEY:
+     * 1. Go to https://coda.io/account and scroll down to "Coda API Tokens"
+     * 2. Generate a new API key WITH RESTRICTIONS of read only access to this doc: https://coda.io/d/AIS-Personnel_dzWBpla6LLN/AIS-Officers_sudo_#_lu0Yo
+     * 3. Create a file ".env.local" in your project directory
+     * 4. Add the following entry: "CODA_OFFICER_API_KEY='{Your API key}'"
+     */
+    const CodaAPI = new Coda(process.env.CODA_OFFICER_API_KEY);
+
     // AIS Personnel Doc: zWBpla6LLN
     const doc = await CodaAPI.getDoc('zWBpla6LLN'); // Grab AIS Personnel Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
     const table = await doc.getTable('Officers'); // Grab the actual table from the doc
@@ -93,9 +94,34 @@ export const getAllOfficers = async (fields?: string[]): Promise<Officer[]> => {
 
       OFFICERS_MAP[officer.name] = officer;
     }
+    // Create an offline backup if necessary
+    // storeOfficers();
   } catch (error) {
+    // console.log(error);
     console.log('Error No: ' + error.errno);
     console.log('Error Code: ' + error.code);
+    // Restore from an offline backup if necessary
+    retrieveOfficers();
   }
   return Object.values(OFFICERS_MAP);
 };
+
+function storeOfficers(): void {
+  fs.writeFile('./pages/api/OfficersBackup.json', JSON.stringify(OFFICERS_MAP), function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+}
+
+function retrieveOfficers(): void {
+  const officers = fs.readFileSync('./pages/api/OfficersBackup.json');
+  OFFICERS_MAP = JSON.parse(officers);
+}
+
+// async function retrieveEvents(): Promise<void> {
+//   fs.readFile('./pages/api/eventsBackup.json', (err, events) => {
+//     if (err) throw err;
+//     EVENTS_MAP = JSON.parse(events);
+//   });
+// }
