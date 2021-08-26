@@ -2,6 +2,12 @@ module.exports = {
   async redirects() {
     return [
       {
+        source: '/kickoff',
+        destination: '/events',
+        basePath: false,
+        permanent: true,
+      },
+      {
         source: '/dc',
         destination: 'https://discord.com/invite/7fZQZyP',
         basePath: false,

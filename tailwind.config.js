@@ -20,13 +20,12 @@ module.exports = {
         400: '4',
       },
       margin: {
-        '73': '18.75rem',
+        73: '18.75rem',
       },
     },
     fontFamily: {
       sans: ['IBM Plex Sans', 'sans-serif'],
     },
-    
   },
   variants: {
     extend: {},

@@ -3,11 +3,7 @@ import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import { useState } from 'react';
 import { ToggleOff } from '@material-ui/icons';
 
-interface ModalProps {
-  trigger: boolean;
-}
-
-export default function KickoffModal({ trigger }: ModalProps) {
+export default function KickoffModal() {
   const [buttonPopup, setButtonPopup] = useState(true);
   return buttonPopup ? (
     <div

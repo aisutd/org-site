@@ -57,6 +57,7 @@ export default function EventPage({
     location,
     detailedLocation,
     joinLink,
+    roomNo,
     tags,
     startDate,
     endDate,
@@ -98,18 +99,8 @@ export default function EventPage({
   const eventTime = Moment(eventStart).format('MMM D, YYYY @ h:mm a') + ' CST';
 
   let eventLink = joinLink;
-  const locationText = location;
+  let locationText = location;
   const utdMap = 'https://map.concept3d.com/?id=1772#!s/';
-  let locIcon;
-  if (location == 'In-person') {
-    locIcon = <RoomIcon />;
-    eventLink = utdMap + joinLink;
-    linkText = 'Get Directions';
-  } else if (location === 'Google Meet') locIcon = <DuoIcon />;
-  else if (location === 'Zoom') locIcon = <VideocamIcon />;
-  else if (location === 'Discord')
-    locIcon = <img src="/discord.svg" className="transform scale-90" />;
-  else locIcon = <YouTubeIcon />;
 
   let presenterCards;
   if (eventType !== 'Social') {
@@ -154,6 +145,45 @@ export default function EventPage({
     );
   }
 
+  let hybridButton;
+  if (location === 'Hybrid') {
+    if (!inFuture && !inPast) {
+      hybridButton = (
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold relative">
+          <a target="_blank" href={eventLink} rel="noreferrer">
+            {linkText}
+            <div className="absolute top-0 right-0 -my-1 -mx-1">
+              <span className="flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+              </span>
+            </div>
+          </a>
+        </button>
+      );
+    } else {
+      hybridButton = (
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+          <a target="_blank" href={eventLink} rel="noreferrer">
+            {linkText}
+          </a>
+        </button>
+      );
+    }
+  }
+
+  let locIcon;
+  if (location == 'In-person' || location == 'Hybrid') {
+    locIcon = <RoomIcon />;
+    eventLink = utdMap + roomNo;
+    locationText = roomNo;
+    linkText = 'Get Directions';
+  } else if (location === 'Google Meet') locIcon = <DuoIcon />;
+  else if (location === 'Zoom') locIcon = <VideocamIcon />;
+  else if (location === 'Discord')
+    locIcon = <img src="/discord.svg" className="transform scale-90" />;
+  else locIcon = <YouTubeIcon />;
+
   let buttons;
   if (!inFuture && !inPast) {
     buttons = (
@@ -169,6 +199,7 @@ export default function EventPage({
             </div>
           </a>
         </button>
+        {hybridButton}
         {slidesButton}
       </div>
     );
@@ -180,6 +211,7 @@ export default function EventPage({
             {linkText}
           </a>
         </button>
+        {hybridButton}
         {slidesButton}
         <Menu as="div" className="relative">
           <Menu.Button className="inline-flex w-full transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
@@ -232,6 +264,7 @@ export default function EventPage({
             {linkText}
           </a>
         </button>
+        {hybridButton}
         {slidesButton}
       </div>
     );

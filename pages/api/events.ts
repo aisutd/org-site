@@ -60,9 +60,9 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         });
       }
       let revLink: string;
-      if (typeof rows[i].values['Link / Room No.'] == 'string')
-        revLink = rows[i].values['Link / Room No.'].replace(/```/gi, '');
-      else revLink = rows[i].values['Link / Room No.']['url'];
+      if (typeof rows[i].values['Watch Link'] == 'string')
+        revLink = rows[i].values['Watch Link'].replace(/```/gi, '');
+      else revLink = rows[i].values['Watch Link']['url'];
 
       if (revLink.search('\\)') != -1)
         revLink = revLink.substring(revLink.indexOf('(') + 1, revLink.indexOf(')'));
@@ -91,6 +91,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         location: rows[i].values['Platform'].replace(/```/gi, ''),
         eventType: rows[i].values['Event Type'].replace(/```/gi, ''),
         joinLink: revLink,
+        roomNo: rows[i].values['Room No.'].replace(/```/gi, ''),
         startDate: rows[i].values['Event Date'].replace(/```/gi, ''),
         endDate: rows[i].values['Event End Date'].replace(/```/gi, ''),
         tags: eventTags,
@@ -99,14 +100,14 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         lastUpdated: new Date().toISOString(),
         supplements: [],
       };
-      // console.log(rows[i].values);
+      //console.log(rows[i].values);
       if (eventToAdd['id'] === '') continue;
       EVENTS_MAP[eventToAdd['id']] = eventToAdd;
     }
     // Create an offline backup if necessary
     // storeEvents();
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     console.log('Error No: ' + error.errno);
     console.log('Error Code: ' + error.code);
     // Restore from an offline backup if necessary

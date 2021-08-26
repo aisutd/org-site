@@ -90,6 +90,11 @@ export interface Event {
   joinLink?: string;
 
   /**
+   * The room no. in which the event will take place if its in-person or hybrid
+   */
+  roomNo?: string;
+
+  /**
    * A direct link to google slides presentation of an event
    */
   slides?: string;
