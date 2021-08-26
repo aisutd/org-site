@@ -11,9 +11,11 @@ import Subscribe from '../components/join/Subscribe';
 
 export default function JoinPage() {
   const appDivs = (
-    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start gap-2 py-8">
-      <div className="bg-gradient-to-r from-blue-700 to-blue-600 rounded-md shadow-sm transition duration-400 hover:shadow-xl">
-        {/* <img src="/hackai-3.jpg" className="rounded-t-md" /> */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-2 py-8">
+      {' '}
+      {/*xl:grid-cols-3*/}
+      {/*<div className="bg-gradient-to-r from-blue-700 to-blue-600 rounded-md shadow-sm transition duration-400 hover:shadow-xl">
+         <img src="/hackai-3.jpg" className="rounded-t-md" /> 
         <div className="text-white text-3xl font-semibold px-4 py-4">Membership</div>
         <div className="font-light text-white text-l px-4 ">
           Apply to be an official AIS member. Perks include ...
@@ -21,8 +23,8 @@ export default function JoinPage() {
         <div className="underline text-md text-right text-white px-4 py-2 rounded-b-md">
           <Link href="https://hackai.org/">Apply</Link>
         </div>
-      </div>
-      <div className="bg-gradient-to-r from-indigo-700 to-indigo-600 rounded-md shadow-md transition duration-400 hover:shadow-2xl">
+      </div>*/}
+      <div className="bg-gradient-to-r from-indigo-700 to-indigo-600 transition duration-400 hover:from-indigo-900 hoverto-indigo-800 rounded-md shadow-md  hover:shadow-2xl">
         {/* <img src="/workshops.jpg" className="rounded-t-md" /> */}
         <div className="text-white text-3xl font-semibold px-4 py-4">Officer Apps</div>
         <div className="font-light text-white text-l px-4 ">
@@ -32,11 +34,12 @@ export default function JoinPage() {
           <Link href="/events">Apply</Link>
         </div>
       </div>
-      <div className="bg-gradient-to-r from-purple-700 to-purple-600 rounded-md shadow-sm transition duration-400 hover:shadow-xl">
+      <div className="bg-gradient-to-r from-purple-700 to-purple-600 transition duration-400 hover:from-purple-900 hover:to-purple-800 rounded-md shadow-sm  hover:shadow-xl">
         {/* <img src="/socials.jpg" className="rounded-t-md" /> */}
         <div className="text-white text-3xl font-semibold px-4 py-4">AI Mentorship</div>
         <div className="font-light text-white text-l px-4 ">
-          Apply as mentor/mentee and get a chance to ...
+          Apply as a mentee and get a chance to learn foundational concepts in ML and to work on AI
+          projects of your interest, guided by experienced mentors.
         </div>
         <div className="underline text-md text-right text-white px-4 py-2">
           <Link href="/events">Apply</Link>
@@ -59,13 +62,15 @@ export default function JoinPage() {
               We host workshops, seminars, and social events to help students learn about artificial
               intelligence.
             </div>
-            <div className="text-xl">See upcoming events and look through event archives here.</div>
+            <div className="text-xl">
+              Consider subscribing to our mailing list or joining the AIS team
+            </div>
           </div>
         </section>
         <section className="bg-ais-light-gray py-8">
           <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-2">
             <div className="text-3xl font-bold">Mailing List</div>
-            <div className="text-lg py-2">
+            <div className="text-lg pt-2 pb-4">
               Join our mailing list to get email reminders about our upcoming events
             </div>
             {Subscribe()}

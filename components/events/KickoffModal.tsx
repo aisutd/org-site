@@ -20,7 +20,7 @@ export default function KickoffModal({ trigger }: ModalProps) {
         </button>
         <Link href="/events">
           <button>
-            <img src="AISocial.gif" />
+            <img src="AISKickoff.gif" className="max-w-xs md:max-w-lg lg:max-w-2xl" />
           </button>
         </Link>
       </div>
