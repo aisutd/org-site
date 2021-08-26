@@ -43,7 +43,7 @@ export default function FeatureEvent({ event, onGoing }: EventItemProps) {
 
   const tagElements = tags.map((tag) => {
     return (
-      <div key={tag} className="bg-ais-blue-gray rounded-xl p-2 text-xs font-bold">
+      <div key={tag} className="bg-ais-dark-blue text-white rounded-xl p-2 text-xs font-bold">
         {tag.toLowerCase()}
       </div>
     );
@@ -64,7 +64,7 @@ export default function FeatureEvent({ event, onGoing }: EventItemProps) {
       key={id}
       className={
         pulsingBG +
-        'inline-block max-w-full p-4 m-2 bg-white shadow-sm transition duration-400 hover:shadow-md focus:shadow-md rounded-md relative'
+        'inline-block max-w-full p-4 m-2 bg-white shadow-sm transition duration-400 hover:shadow-md focus:shadow-md rounded-md hover:bg-ais-blue-gray relative'
       }
     >
       {pulsingDiv}
