@@ -43,12 +43,13 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
      * 4. Add the following entry: "CODA_API_KEY='{Your API key}'"
      */
     const CodaAPI = new Coda(process.env.CODA_API_KEY);
-    const doc = await CodaAPI.getDoc('W46Lee3b8Q'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
+    const doc = await CodaAPI.getDoc('luD4Jth4qA'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
     const table = await doc.getTable('All Events'); // Grab the actual table from the doc
     const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the event entries in the doc
 
     for (let i = 0; i < rows.length; i++) {
       // For each event in the table
+      //console.log(rows[i].values);
       const eventTags: string[] = rows[i].values['Keywords'].replace(/```/gi, '').split(', ');
       const eventPresenters: { name: string; link: string }[] = [];
       for (const presenterName of rows[i].values['Presenter Names']
@@ -107,7 +108,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
     // Create an offline backup if necessary
     // storeEvents();
   } catch (error) {
-    //console.log(error);
+    console.log(error);
     console.log('Error No: ' + error.errno);
     console.log('Error Code: ' + error.code);
     // Restore from an offline backup if necessary
