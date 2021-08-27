@@ -30,8 +30,8 @@ export default function AboutPage() {
           <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-8 px-2">
             <div className="mt-2 mb-8 text-5xl font-bold">About Us</div>
             <div className="text-xl">
-              A brief history of the Artficial Intelligence Society at UTD and how we've grown over
-              the years.
+              A brief history of the Artficial Intelligence Society at UTD and how we&apos;ve grown
+              over the years.
             </div>
           </div>
         </section>
@@ -59,7 +59,7 @@ export default function AboutPage() {
                 Since 2019, AIS has hosted at least 9 workshops, 6 talks, and 3 iterations of
                 HackAI, a full day of learning about the field of AI with over 400 participants.
                 Regardless of age, major, or occupation, we believe that AI is for everyone, as it
-                has become more common in much of our everyday activities, whether it's YouTube
+                has become more common in much of our everyday activities, whether it&apos;s YouTube
                 recommendations or facial recognition. At AIS, we hope to delve into the nuts and
                 bolts of artificial intelligence, as well as showcasing its massive potential.
               </div>

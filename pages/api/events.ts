@@ -65,6 +65,11 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         revLink = rows[i].values['Watch Link'].replace(/```/gi, '');
       else revLink = rows[i].values['Watch Link']['url'];
 
+      let signUpLink: string;
+      if (typeof rows[i].values['Sign-up Link'] == 'string')
+        signUpLink = rows[i].values['Sign-up Link'].replace(/```/gi, '');
+      else signUpLink = rows[i].values['Sign-up Link']['url'];
+
       if (revLink.search('\\)') != -1)
         revLink = revLink.substring(revLink.indexOf('(') + 1, revLink.indexOf(')'));
 
@@ -93,7 +98,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         eventType: rows[i].values['Event Type'].replace(/```/gi, ''),
         joinLink: revLink,
         roomNo: rows[i].values['Room No.'].replace(/```/gi, ''),
-        signup: rows[i].values['Sign-up Link'].replace(/```/gi, ''),
+        signup: signUpLink,
         startDate: rows[i].values['Event Date'].replace(/```/gi, ''),
         endDate: rows[i].values['Event End Date'].replace(/```/gi, ''),
         tags: eventTags,
@@ -107,7 +112,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
       EVENTS_MAP[eventToAdd['id']] = eventToAdd;
     }
     // Create an offline backup if necessary
-    // storeEvents();
+    storeEvents();
   } catch (error) {
     console.log(error);
     console.log('Error No: ' + error.errno);
@@ -138,7 +143,7 @@ function storeEvents(): void {
 
 function retrieveEvents(): void {
   const events = fs.readFileSync('./pages/api/eventsBackup.json');
-  EVENTS_MAP = JSON.parse(events);
+  EVENTS_MAP = JSON.parse(events.toString());
 }
 
 // async function retrieveEvents(): Promise<void> {

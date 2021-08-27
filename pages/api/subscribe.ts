@@ -1,4 +1,5 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
+import { Status } from '@mailchimp/mailchimp_marketing';
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
@@ -17,7 +18,7 @@ export default async (req, res) => {
   try {
     await mailchimp.lists.addListMember(process.env.MAILCHIMP_AUDIENCE_ID, {
       email_address: email,
-      status: 'subscribed',
+      status: Status.subscribed,
       merge_fields: {
         FNAME: first,
         LNAME: last,

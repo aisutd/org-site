@@ -88,6 +88,7 @@ function personalQuote(officer: Officer) {
     const handleMouseOut = () => {
       setIsHovering(false);
     };
+    // eslint-disable-next-line react/prop-types
     const QuoteIcon = ({ handleMouseOver, handleMouseOut }) => {
       return (
         <div className="px-2">
