@@ -93,6 +93,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         eventType: rows[i].values['Event Type'].replace(/```/gi, ''),
         joinLink: revLink,
         roomNo: rows[i].values['Room No.'].replace(/```/gi, ''),
+        signup: rows[i].values['Sign-up Link'].replace(/```/gi, ''),
         startDate: rows[i].values['Event Date'].replace(/```/gi, ''),
         endDate: rows[i].values['Event End Date'].replace(/```/gi, ''),
         tags: eventTags,

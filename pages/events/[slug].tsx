@@ -65,6 +65,7 @@ export default function EventPage({
     supplements,
     image,
     slides,
+    signup,
   } = event;
 
   const calEvent = {
@@ -145,6 +146,16 @@ export default function EventPage({
     );
   }
 
+  let signUpButton;
+  if (signup != '' && !inPast) {
+    signUpButton = (
+      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+        <a target="_blank" href={signup} rel="noreferrer">
+          Sign-up for In-person Attendance
+        </a>
+      </button>
+    );
+  }
   let hybridButton;
   if (location === 'Hybrid') {
     if (!inFuture && !inPast) {
@@ -188,6 +199,7 @@ export default function EventPage({
   if (!inFuture && !inPast) {
     buttons = (
       <div className="flex flex-wrap gap-4">
+        {signUpButton}
         <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold relative">
           <a target="_blank" href={eventLink} rel="noreferrer">
             {linkText}
@@ -206,6 +218,7 @@ export default function EventPage({
   } else if (inFuture) {
     buttons = (
       <div className="flex flex-wrap gap-4">
+        {signUpButton}
         <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
           <a target="_blank" href={eventLink} rel="noreferrer">
             {linkText}
@@ -259,6 +272,7 @@ export default function EventPage({
   } else if (inPast && location === 'YouTube') {
     buttons = (
       <div className="flex flex-wrap gap-4">
+        {signUpButton}
         <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
           <a target="_blank" href={eventLink} rel="noreferrer">
             {linkText}

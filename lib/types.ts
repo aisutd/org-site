@@ -95,6 +95,10 @@ export interface Event {
   roomNo?: string;
 
   /**
+   * A link to a sign-up for in-person attendance of hybrid events
+   */
+  signup?: string;
+  /**
    * A direct link to google slides presentation of an event
    */
   slides?: string;

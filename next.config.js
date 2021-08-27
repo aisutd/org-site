@@ -3,7 +3,7 @@ module.exports = {
     return [
       {
         source: '/kickoff',
-        destination: '/events',
+        destination: '/events/kickoff-f21',
         basePath: false,
         permanent: true,
       },

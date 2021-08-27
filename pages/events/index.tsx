@@ -66,8 +66,8 @@ export default function EventsPage({ events }: EventsPageProps) {
     upComingEventDiv = <div>No upcoming events as of yet, Please check back again!</div>;
   } else {
     upComingEventDiv = (
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-        {futureEventCards.reverse()}
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start">
+        {futureEventCards}
       </div>
     );
   }
