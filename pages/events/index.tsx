@@ -53,10 +53,10 @@ export default function EventsPage({ events }: EventsPageProps) {
     pastEventsDiv = <div>There are no past events</div>;
   } else {
     pastEventsDiv = (
-      <div className="flex flex-row">
-        <div className="flex flex-col w-1/3">{pastEventsCols[0]}</div>
-        <div className="flex flex-col w-1/3">{pastEventsCols[1]}</div>
-        <div className="flex flex-col w-1/3">{pastEventsCols[2]}</div>
+      <div className="flex flex-row flex-wrap">
+        <div className="flex flex-col w-1/3 min-w-full xl:min-w-0">{pastEventsCols[0]}</div>
+        <div className="flex flex-col w-1/3 min-w-full xl:min-w-0">{pastEventsCols[1]}</div>
+        <div className="flex flex-col w-1/3 min-w-full xl:min-w-0">{pastEventsCols[2]}</div>
       </div>
     );
   }
@@ -66,7 +66,9 @@ export default function EventsPage({ events }: EventsPageProps) {
     upComingEventDiv = <div>No upcoming events as of yet, Please check back again!</div>;
   } else {
     upComingEventDiv = (
-      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">{futureEventCards}</div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+        {futureEventCards.reverse()}
+      </div>
     );
   }
 
