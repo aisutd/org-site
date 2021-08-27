@@ -78,7 +78,7 @@ ReactDOM.render(
         path="/aim"
         component={() => {
           window.location =
-            "https://coda.io/form/AIM-Spring-2021-Application_dKXcOiiNxUf";
+            "https://coda.io/form/AIM-Fall-2021-Mentee-Application_dDlWrs9O7kG";
         }}
       />
       <Route
