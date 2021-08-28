@@ -31,7 +31,9 @@ export default function JoinPage() {
           Apply to the team. Get an opportunity to organize events, network and more.
         </div>
         <div className="underline text-md text-right text-white px-4 py-2">
-          <Link href="/events">Apply</Link>
+          <a target="_blank" href="/events" rel="noreferrer">
+            Apply
+          </a>
         </div>
       </div>
       <div className="bg-gradient-to-r from-purple-700 to-purple-600 transition duration-400 hover:from-purple-900 hover:to-purple-800 rounded-md shadow-sm  hover:shadow-xl">
@@ -42,7 +44,13 @@ export default function JoinPage() {
           projects of your interest, guided by experienced mentors.
         </div>
         <div className="underline text-md text-right text-white px-4 py-2">
-          <Link href="/events">Apply</Link>
+          <a
+            target="_blank"
+            href="https://coda.io/form/AIM-Fall-2021-Mentee-Application_dDlWrs9O7kG"
+            rel="noreferrer"
+          >
+            Apply
+          </a>
         </div>
       </div>
     </div>
