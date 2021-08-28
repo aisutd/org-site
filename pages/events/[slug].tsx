@@ -8,7 +8,7 @@ import YouTubeIcon from '@material-ui/icons/YouTube';
 import VideocamIcon from '@material-ui/icons/Videocam';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import AppleIcon from '@material-ui/icons/Apple';
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetServerSideProps, GetStaticPaths, InferGetServerSidePropsType } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import Moment from 'moment';
@@ -47,7 +47,7 @@ const ONLINE_MAPPINGS = {
 export default function EventPage({
   event,
   presenterOfficers,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const {
     id,
     title,
@@ -334,7 +334,7 @@ export default function EventPage({
   );
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   let { slug } = context.params;
   if (slug === undefined) {
     return {
@@ -367,19 +367,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const events = await getAllEvents(['id']);
+// export const getStaticPaths: GetStaticPaths = async () => {
+//   const events = await getAllEvents(['id']);
 
-  const paths = events.map((event) => {
-    return {
-      params: {
-        slug: event.id,
-      },
-    };
-  });
+//   const paths = events.map((event) => {
+//     return {
+//       params: {
+//         slug: event.id,
+//       },
+//     };
+//   });
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
