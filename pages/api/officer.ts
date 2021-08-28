@@ -95,7 +95,7 @@ export const getAllOfficers = async (fields?: string[]): Promise<Officer[]> => {
       OFFICERS_MAP[officer.name] = officer;
     }
     // Create an offline backup if necessary
-    storeOfficers();
+    // storeOfficers();
   } catch (error) {
     // console.log(error);
     console.log('Error No: ' + error.errno);

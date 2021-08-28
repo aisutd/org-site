@@ -112,7 +112,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
       EVENTS_MAP[eventToAdd['id']] = eventToAdd;
     }
     // Create an offline backup if necessary
-    storeEvents();
+    // storeEvents();
   } catch (error) {
     console.log(error);
     console.log('Error No: ' + error.errno);

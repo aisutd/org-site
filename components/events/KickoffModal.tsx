@@ -14,7 +14,7 @@ export default function KickoffModal() {
         <button className="absolute right-0 sm:-mr-10 -mt-10">
           <CloseRoundedIcon fontSize="large" />
         </button>
-        <Link href="/events">
+        <Link href="/events/kickoff-f21">
           <button>
             <img src="AISKickoff.gif" className="max-w-xs md:max-w-lg lg:max-w-2xl" />
           </button>
