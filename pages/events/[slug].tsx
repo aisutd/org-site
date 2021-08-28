@@ -88,7 +88,7 @@ export default function EventPage({
     const { title, caption, link, image, type } = supplement;
     return (
       <aside key={link} className="pb-4 rounded-md shadow-md bg-white">
-        <Image src={image} alt={title} layout="fill" />
+        <img src={image} alt={title} />
         <div className="mx-4">
           <div className="text-lg my-2">{title}</div>
           <div className="text-sm mb-2">{caption}</div>
