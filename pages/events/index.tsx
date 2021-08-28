@@ -5,7 +5,7 @@ import EventItem from '../../components/events/EventItem';
 import FeatureEvent from '../../components/events/FeatureEvent';
 import { Event } from '../../lib/types';
 import { getAllEvents } from '../api/events';
-import { GetStaticPaths } from 'next';
+import { GetServerSideProps } from 'next';
 
 interface EventsPageProps {
   events: Event[];
@@ -92,7 +92,7 @@ export default function EventsPage({ events }: EventsPageProps) {
       <main className="min-h-screen bg-ais-light-gray">
         <section className="py-8 bg-ais-blue-gray">
           {/* Hero */}
-          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-8 px-2">
+          <div className="mx-auto max-w-sm sm:max-w-md md:max-wgetStaticProps-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-8 px-2">
             <div className="mt-2 mb-8 text-5xl font-bold">Events</div>
             <div className="text-xl">
               We host workshops, seminars, and social events to help students learn about artificial
@@ -135,7 +135,7 @@ export default function EventsPage({ events }: EventsPageProps) {
 /**
  * Fetch event information for the EventsPage.
  */
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const allEvents = await getAllEvents();
   //   [
   //   'title',
