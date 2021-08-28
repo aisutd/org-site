@@ -14,7 +14,12 @@ export default function HomePage() {
     <div>
       <KickoffModal />
       <Head>
-        <title>Artificial Intelligence Society at UTD - Home</title>
+        <title>Home &ndash; AIS</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta
+          name="description"
+          content="Welcome to the Artificial Intelligence Society at UTD. We make AI understandable and accessible to everyone"
+        />
       </Head>
       <main className="min-h-screen bg-ais-light-gray">
         <section id="intro" className="bg-ais-black">

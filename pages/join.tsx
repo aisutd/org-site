@@ -11,11 +11,8 @@ import Subscribe from '../components/join/Subscribe';
 
 export default function JoinPage() {
   const appDivs = (
-    <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-2 py-8">
-      {' '}
-      {/*xl:grid-cols-3*/}
+    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start gap-2 py-8">
       {/*<div className="bg-gradient-to-r from-blue-700 to-blue-600 rounded-md shadow-sm transition duration-400 hover:shadow-xl">
-         <img src="/hackai-3.jpg" className="rounded-t-md" /> 
         <div className="text-white text-3xl font-semibold px-4 py-4">Membership</div>
         <div className="font-light text-white text-l px-4 ">
           Apply to be an official AIS member. Perks include ...
@@ -23,9 +20,8 @@ export default function JoinPage() {
         <div className="underline text-md text-right text-white px-4 py-2 rounded-b-md">
           <Link href="https://hackai.org/">Apply</Link>
         </div>
-      </div>*/}
+      </div>
       <div className="bg-gradient-to-r from-indigo-700 to-indigo-600 transition duration-400 hover:from-indigo-900 hoverto-indigo-800 rounded-md shadow-md  hover:shadow-2xl">
-        {/* <img src="/workshops.jpg" className="rounded-t-md" /> */}
         <div className="text-white text-3xl font-semibold px-4 py-4">Officer Apps</div>
         <div className="font-light text-white text-l px-4 ">
           Apply to the team. Get an opportunity to organize events, network and more.
@@ -35,9 +31,8 @@ export default function JoinPage() {
             Apply
           </a>
         </div>
-      </div>
+      </div>*/}
       <div className="bg-gradient-to-r from-purple-700 to-purple-600 transition duration-400 hover:from-purple-900 hover:to-purple-800 rounded-md shadow-sm  hover:shadow-xl">
-        {/* <img src="/socials.jpg" className="rounded-t-md" /> */}
         <div className="text-white text-3xl font-semibold px-4 py-4">AI Mentorship</div>
         <div className="font-light text-white text-l px-4 ">
           Apply as a mentee and get a chance to learn foundational concepts in ML and to work on AI
@@ -59,7 +54,12 @@ export default function JoinPage() {
   return (
     <div>
       <Head>
-        <title>Artificial Intelligence Society at UTD - Join</title>
+        <title>Join &ndash; AIS</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta
+          name="description"
+          content="Get involved in AIS by joining our mailing list and applying to our various programs."
+        />
       </Head>
       <main className="min-h-screen bg-ais-light-gray">
         <section className="py-8 bg-ais-blue-gray">

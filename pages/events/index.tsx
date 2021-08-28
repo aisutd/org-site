@@ -87,7 +87,13 @@ export default function EventsPage({ events }: EventsPageProps) {
   return (
     <div>
       <Head>
-        <title>Artificial Intelligence Society at UTD - Events</title>
+        <title>Events &ndash; AIS</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta
+          name="description"
+          content=" We host workshops, seminars, and social events to help students learn about artificial
+          intelligence. Take a look at our past, on-going or future events. "
+        />
       </Head>
       <main className="min-h-screen bg-ais-light-gray">
         <section className="py-8 bg-ais-blue-gray">

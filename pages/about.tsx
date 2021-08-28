@@ -18,7 +18,8 @@ export default function AboutPage() {
   return (
     <div>
       <Head>
-        <title>Artificial Intelligence Society - About Us</title>
+        <title>About &ndash; AIS</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta
           name="description"
           content="A brief history of the Artficial Intelligence Society at UTD and how we've grown over the years."

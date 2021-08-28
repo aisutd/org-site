@@ -1,4 +1,5 @@
 import { ArrowBack } from '@material-ui/icons';
+import Head from 'next/head';
 import NotesIcon from '@material-ui/icons/Notes';
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import RoomIcon from '@material-ui/icons/Room';
@@ -151,7 +152,7 @@ export default function EventPage({
     signUpButton = (
       <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
         <a target="_blank" href={signup} rel="noreferrer">
-          Sign-up for In-person Attendance
+          RSVP
         </a>
       </button>
     );
@@ -290,46 +291,52 @@ export default function EventPage({
   }
 
   return (
-    <div className="mt-8">
-      <main className="min-h-screen">
-        <section className="p-4 mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl">
-          <header className="">
-            <div className="flex items-center pb-16 -mx-2 md:pb-0 md:-mx-36">
-              <div
-                tabIndex={0}
-                className="p-2 hover:bg-gray-300 rounded-full focus:bg-gray-400 cursor-pointer"
-              >
-                <Link href="/events">
-                  <ArrowBack />
-                </Link>
+    <div>
+      <Head>
+        <title>{title} &ndash; AIS</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+      </Head>
+      <div className="mt-8">
+        <main className="min-h-screen">
+          <section className="p-4 mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl 2xl:max-w-4xl">
+            <header className="">
+              <div className="flex items-center pb-16 -mx-2 md:pb-0 md:-mx-36">
+                <div
+                  tabIndex={0}
+                  className="p-2 hover:bg-gray-300 rounded-full focus:bg-gray-400 cursor-pointer"
+                >
+                  <Link href="/events">
+                    <ArrowBack />
+                  </Link>
+                </div>
+                <div className="text-lg font-bold">Back</div>
               </div>
-              <div className="text-lg font-bold">Back</div>
+              <div className="font-bold text-ais-dark-blue text-2xl pb-8 -my-10">
+                {eventType.toUpperCase()}
+              </div>
+            </header>
+            <div className="text-4xl font-bold my-4">{title}</div>
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center">
+                {locIcon}
+                <div className="mx-2 text-xl">{locationText}</div>
+              </div>
+              <div className="flex items-center">
+                <ScheduleIcon />
+                <div className="mx-2 text-xl">{eventTime}</div>
+              </div>
             </div>
-            <div className="font-bold text-ais-dark-blue text-2xl pb-8 -my-10">
-              {eventType.toUpperCase()}
-            </div>
-          </header>
-          <div className="text-4xl font-bold my-4">{title}</div>
-          <div className="flex flex-wrap gap-4">
-            <div className="flex items-center">
-              {locIcon}
-              <div className="mx-2 text-xl">{locationText}</div>
-            </div>
-            <div className="flex items-center">
-              <ScheduleIcon />
-              <div className="mx-2 text-xl">{eventTime}</div>
-            </div>
-          </div>
-          <div>{buttons}</div>
-          <div className="text-xl text-justify">{description}</div>
-          {presenterDiv}
-          {imageBox}
-        </section>
-        {/* <section className="p-4 my-4 mx-auto max-w-4xl">
+            <div>{buttons}</div>
+            <div className="text-xl text-justify">{description}</div>
+            {presenterDiv}
+            {imageBox}
+          </section>
+          {/* <section className="p-4 my-4 mx-auto max-w-4xl">
         <div className="text-3xl font-bold">Supplementary Materials &amp; Resources</div>
         <div className="md:grid md:grid-cols-3">{supplementItems}</div>
       </section> */}
-      </main>
+        </main>
+      </div>
     </div>
   );
 }

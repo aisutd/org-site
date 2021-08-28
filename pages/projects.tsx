@@ -15,7 +15,8 @@ export default function ProjectsPage({ demos }: DemoPageProps) {
   return (
     <div>
       <Head>
-        <title>Artificial Intelligence Society - Projects</title>
+        <title>Projects &ndash; AIS</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />s
         <meta
           name="description"
           content="An overview of all our AI/ML projects, including explanations and interactive demos."

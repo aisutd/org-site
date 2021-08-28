@@ -35,7 +35,8 @@ export default function TeamPage({ officers }: TeamPageProps) {
   return (
     <div>
       <Head>
-        <title>Artificial Intelligence Society - Team</title>
+        <title>Team &ndash; AIS</title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta
           name="description"
           content="The past and present officers of the Artificial Intelligence Society - the people who make this all possible."
