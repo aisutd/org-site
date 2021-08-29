@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.0",
-    "@mailchimp/mailchimp_marketing": "^3.0.58",
+    "@mailchimp/mailchimp_marketing": "^3.0.59",
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@types/mailchimp__mailchimp_marketing": "^3.0.2",

@@ -1,10 +1,17 @@
 import mailchimp from '@mailchimp/mailchimp_marketing';
-import { Status } from '@mailchimp/mailchimp_marketing';
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
   server: process.env.MAILCHIMP_API_SERVER,
 });
+
+export enum Status {
+  'subscribed' = 'subscribed',
+  'unsubscribed' = 'unsubscribed',
+  'cleaned' = 'cleaned',
+  'pending' = 'pending',
+  'transactional' = 'transactional',
+}
 
 export default async (req, res) => {
   const { first, last, email } = req.body;
