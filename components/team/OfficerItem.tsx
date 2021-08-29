@@ -127,7 +127,9 @@ export default function OfficerItem({ officer }: OfficerItemProps) {
   let directorAtt;
   if (title.includes('Director') || title.includes('President') || title.includes('Founder'))
     directorAtt = ' order-first ';
-  else if (!title.includes('VP')) directorAtt = ' order-last ';
+  else if (title.includes('VP')) directorAtt = ' order-1 ';
+  else if (title.includes('Faculty')) directorAtt = ' order-last ';
+  else directorAtt = 'order-2 ';
   const officerImg = officerImage(officer);
   const officerEmail = emailLink(officer);
   const officerGitHub = githubLink(officer);
