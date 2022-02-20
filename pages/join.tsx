@@ -12,13 +12,58 @@ import Subscribe from '../components/join/Subscribe';
 export default function JoinPage() {
   const appDivs = (
     <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start gap-2 py-8">
-      {/*<div className="bg-gradient-to-r from-blue-700 to-blue-600 rounded-md shadow-sm transition duration-400 hover:shadow-xl">
+      <div className="bg-gradient-to-r from-purple-700 to-purple-600 transition duration-400 hover:from-purple-900 hover:to-purple-800 rounded-md shadow-sm  hover:shadow-xl">
+        <div className="text-white text-3xl font-semibold px-4 py-4">AI Mentorship</div>
+        <div className="font-light text-white text-l px-4 ">
+          Apply as a mentee and get a chance to learn foundational concepts in ML and to work on AI
+          projects of your interest, guided by experienced mentors.
+        </div>
+        <div className="flex flex-wrap justify-between underline text-md text-white py-2 gap-4 px-4">
+          <div className="">
+            <a
+              target="_blank"
+              href="https://docs.google.com/document/d/1i4GJzsLaxLYvmLwQsQOwaa5H3KxIqfvprCpW9cSw-JQ/edit?usp=sharing"
+              rel="noreferrer"
+            >
+              Learn More
+            </a>
+          </div>
+          <div className="">
+            <a
+              target="_blank"
+              href="https://coda.io/form/AIM-Mentee-Application_ddszWO_e7r4"
+              rel="noreferrer"
+            >
+              Apply
+            </a>
+          </div>
+        </div>
+      </div>
+      <div className="bg-gradient-to-r from-blue-700 to-blue-600 transition duration-400 hover:from-indigo-900 hoverto-indigo-800 rounded-md shadow-md  hover:shadow-2xl">
         <div className="text-white text-3xl font-semibold px-4 py-4">Membership</div>
         <div className="font-light text-white text-l px-4 ">
-          Apply to be an official AIS member. Perks include ...
+          Apply to be an official AIS member. Perks include member-only networks, access to
+          one-on-ones, and an invite to join an AIS committee.
         </div>
-        <div className="underline text-md text-right text-white px-4 py-2 rounded-b-md">
-          <Link href="https://hackai.org/">Apply</Link>
+        <div className="flex flex-wrap justify-between underline text-md text-white py-2 gap-4 px-4">
+          <div className="">
+            <a
+              target="_blank"
+              href="https://docs.google.com/document/d/1nHS3CIcXueuZG8hyNEQH4hkFkdmpL9WY2Q_RfiOXBO4/edit?usp=sharing"
+              rel="noreferrer"
+            >
+              Learn More
+            </a>
+          </div>
+          <div className="">
+            <a
+              target="_blank"
+              href="https://coda.io/form/AIS-Membership-Application_dNezXZc0_Z1"
+              rel="noreferrer"
+            >
+              Apply
+            </a>
+          </div>
         </div>
       </div>
       <div className="bg-gradient-to-r from-indigo-700 to-indigo-600 transition duration-400 hover:from-indigo-900 hoverto-indigo-800 rounded-md shadow-md  hover:shadow-2xl">
@@ -26,26 +71,25 @@ export default function JoinPage() {
         <div className="font-light text-white text-l px-4 ">
           Apply to the team. Get an opportunity to organize events, network and more.
         </div>
-        <div className="underline text-md text-right text-white px-4 py-2">
-          <a target="_blank" href="/events" rel="noreferrer">
-            Apply
-          </a>
-        </div>
-      </div>*/}
-      <div className="bg-gradient-to-r from-purple-700 to-purple-600 transition duration-400 hover:from-purple-900 hover:to-purple-800 rounded-md shadow-sm  hover:shadow-xl">
-        <div className="text-white text-3xl font-semibold px-4 py-4">AI Mentorship</div>
-        <div className="font-light text-white text-l px-4 ">
-          Apply as a mentee and get a chance to learn foundational concepts in ML and to work on AI
-          projects of your interest, guided by experienced mentors.
-        </div>
-        <div className="underline text-md text-right text-white px-4 py-2">
-          <a
-            target="_blank"
-            href="https://coda.io/form/AIM-Fall-2021-Mentee-Application_dDlWrs9O7kG"
-            rel="noreferrer"
-          >
-            Apply
-          </a>
+        <div className="flex flex-wrap justify-between underline text-md text-white py-2 gap-4 px-4">
+          <div className="">
+            <a
+              target="_blank"
+              href="https://docs.google.com/document/d/1RZRlCcmGRv19IZ5MP1_rltm9TeEZJa20uhEavVNzXDU/edit?usp=sharing"
+              rel="noreferrer"
+            >
+              Learn More
+            </a>
+          </div>
+          <div className="">
+            <a
+              target="_blank"
+              href="https://coda.io/form/Untitled-Form_d6uISJI-Cx0"
+              rel="noreferrer"
+            >
+              Apply
+            </a>
+          </div>
         </div>
       </div>
     </div>

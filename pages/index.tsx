@@ -12,7 +12,7 @@ import KickoffModal from '../components/events/KickoffModal';
 export default function HomePage() {
   return (
     <div>
-      <KickoffModal />
+      {/*<KickoffModal />*/}
       <Head>
         <title>Home &ndash; AIS</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

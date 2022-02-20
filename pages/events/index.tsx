@@ -67,7 +67,7 @@ export default function EventsPage({ events }: EventsPageProps) {
   } else {
     upComingEventDiv = (
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 items-start">
-        {futureEventCards}
+        {futureEventCards.reverse()}
       </div>
     );
   }

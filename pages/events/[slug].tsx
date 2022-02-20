@@ -74,8 +74,8 @@ export default function EventPage({
     description: description,
     start: startDate,
     end: endDate,
-    location: location === 'In-person' ? joinLink : null,
-    url: location !== 'In-person' ? joinLink : null,
+    location: roomNo != '' ? roomNo : null,
+    url: joinLink != '' ? joinLink : null,
   };
   const eventStart = new Date(startDate);
   const eventEnd = new Date(endDate);
@@ -83,7 +83,7 @@ export default function EventPage({
   const inFuture = timeNow < eventStart;
   const inPast = timeNow > eventEnd;
 
-  let linkText = inPast ? 'Watch recording' : inFuture ? 'Get Link' : 'Join event';
+  let linkText = inPast ? 'Watch Recording' : inFuture ? 'Stream Link' : 'Join event';
 
   const supplementItems = supplements.map((supplement) => {
     const { title, caption, link, image, type } = supplement;
@@ -139,7 +139,7 @@ export default function EventPage({
   let slidesButton;
   if (slides) {
     slidesButton = (
-      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue  p-2 rounded-md text-white font-semibold">
         <a target="_blank" href={slides} rel="noreferrer">
           View Slides
         </a>
@@ -150,7 +150,7 @@ export default function EventPage({
   let signUpButton;
   if (signup != '' && !inPast) {
     signUpButton = (
-      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+      <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue  p-2 rounded-md text-white font-semibold">
         <a target="_blank" href={signup} rel="noreferrer">
           RSVP
         </a>
@@ -161,7 +161,7 @@ export default function EventPage({
   if (location === 'Hybrid') {
     if (!inFuture && !inPast) {
       hybridButton = (
-        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold relative">
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue  p-2 rounded-md text-white font-semibold relative">
           <a target="_blank" href={eventLink} rel="noreferrer">
             {linkText}
             <div className="absolute top-0 right-0 -my-1 -mx-1">
@@ -175,7 +175,7 @@ export default function EventPage({
       );
     } else {
       hybridButton = (
-        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue  p-2 rounded-md text-white font-semibold">
           <a target="_blank" href={eventLink} rel="noreferrer">
             {linkText}
           </a>
@@ -199,9 +199,9 @@ export default function EventPage({
   let buttons;
   if (!inFuture && !inPast) {
     buttons = (
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 my-4">
         {signUpButton}
-        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold relative">
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue  p-2 rounded-md text-white font-semibold relative">
           <a target="_blank" href={eventLink} rel="noreferrer">
             {linkText}
             <div className="absolute top-0 right-0 -my-1 -mx-1">
@@ -218,9 +218,9 @@ export default function EventPage({
     );
   } else if (inFuture) {
     buttons = (
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 my-4">
         {signUpButton}
-        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue  p-2 rounded-md text-white font-semibold">
           <a target="_blank" href={eventLink} rel="noreferrer">
             {linkText}
           </a>
@@ -228,7 +228,7 @@ export default function EventPage({
         {hybridButton}
         {slidesButton}
         <Menu as="div" className="relative">
-          <Menu.Button className="inline-flex w-full transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+          <Menu.Button className="inline-flex w-full transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue  p-2 rounded-md text-white font-semibold">
             Add To Calendar
             <KeyboardArrowDownIcon />
           </Menu.Button>
@@ -270,11 +270,11 @@ export default function EventPage({
         </Menu>
       </div>
     );
-  } else if (inPast && location === 'YouTube') {
+  } else if (inPast && (location === 'YouTube' || location === 'Hybrid')) {
     buttons = (
-      <div className="flex flex-wrap gap-4">
+      <div className="flex flex-wrap gap-4 my-4">
         {signUpButton}
-        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 p-2 rounded-md text-white font-semibold">
+        <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue  p-2 rounded-md text-white font-semibold">
           <a target="_blank" href={eventLink} rel="noreferrer">
             {linkText}
           </a>
