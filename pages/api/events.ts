@@ -46,10 +46,8 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
     const doc = await CodaAPI.getDoc('luD4Jth4qA'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
     const table = await doc.getTable('All Events'); // Grab the actual table from the doc
     const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the event entries in the doc
-
     for (let i = 0; i < rows.length; i++) {
       // For each event in the table
-      //console.log(rows[i].values);
       const eventTags: string[] = rows[i].values['Keywords'].replace(/```/gi, '').split(', ');
       const eventPresenters: { name: string; link: string }[] = [];
       for (const presenterName of rows[i].values['Presenter Names']
@@ -82,12 +80,12 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
       } else imageUrl = imageUrl['url'];
 
       let slideLink: string;
-      if (typeof rows[i].values['Slides Link'] == 'string')
+      if (typeof rows[i].values['Slides Link'] == 'string'){
         slideLink = rows[i].values['Slides Link'].replace(/```/gi, '');
-      else slideLink = rows[i].values['Slides Link']['url'];
-
-      if (slideLink.search('\\)') != -1)
         slideLink = slideLink.substring(slideLink.indexOf('(') + 1, slideLink.indexOf(')'));
+      }
+      else
+        slideLink = rows[i].values['Slides Link']['url'];
 
       const eventToAdd: Event = {
         id: rows[i].values['Shortened Event Title'].replace(/```/gi, ''),
@@ -152,3 +150,6 @@ function retrieveEvents(): void {
 //     EVENTS_MAP = JSON.parse(events);
 //   });
 // }
+
+// console.log(process.env.CODA_API_KEY)
+// getAllEvents()
