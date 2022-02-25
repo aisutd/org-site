@@ -84,8 +84,9 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
         slideLink = rows[i].values['Slides Link'].replace(/```/gi, '');
         slideLink = slideLink.substring(slideLink.indexOf('(') + 1, slideLink.indexOf(')'));
       }
-      else
+      else{
         slideLink = rows[i].values['Slides Link']['url'];
+      }
 
       const eventToAdd: Event = {
         id: rows[i].values['Shortened Event Title'].replace(/```/gi, ''),

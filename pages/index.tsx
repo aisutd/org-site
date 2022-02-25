@@ -23,21 +23,21 @@ export default function HomePage() {
       </Head>
       <main className="min-h-screen bg-ais-light-gray">
         <section id="intro" className="bg-ais-black">
-          <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-10 sm:py-20 md:py-30 lg:py-40">
-            <div className="text-white text-5xl font-semibold">
+          <div className="container mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-10 sm:py-20 md:py-30 lg:py-40">
+            <div className=" text-white text-5xl font-semibold mx-sm-auto p-2 p-sm-3 p-md-5">
               We are the Artificial Intelligence Society.
             </div>
-            <div className="text-white text-2xl font-thin py-5">
+            <div className="text-white text-2xl font-thin py-5 m-2">
               Our mission: make AI understandable and accessible to everyone.
             </div>
-            <div className="text-white font-bold underline">
+            <div className="text-white font-bold underline m-2">
               <Link href="/join">Join us.</Link>
             </div>
           </div>
         </section>
         <section id="about" className="bg-ais-blue-gray">
           <div className="mx-auto max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-20 md:py-40 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12">
-            <div className="">
+            <div className="mx-5">
               <div className="text-4xl font-medium">Projects</div>
               <div className="text-l font-bold py-2">
                 AIS is an incubator for cool self-guided AI projects.
@@ -53,7 +53,7 @@ export default function HomePage() {
                 {'>'} <Link href="/join"> Join the team</Link>
               </div>
             </div>
-            <div className="">
+            <div className="mx-5">
               <div className="text-4xl font-medium">Mentorship</div>
               <div className="text-l font-bold py-2">
                 AIM is our semester-long guided AI mentorship experience.
@@ -129,7 +129,7 @@ export default function HomePage() {
               <div className="text-2xl font-semibold">
                 Join the team
                 <div className="flex justify-end">
-                  <button className="transition duration-400 ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 px-6 py-4 rounded-full text-lg font-semibold">
+                  <button className="transition duration-400 mx-auto ease-in-out bg-blue-400 hover:bg-ais-dark-blue my-4 px-6 py-4 rounded-full text-lg font-semibold">
                     <Link href="/join">Join</Link>
                   </button>
                 </div>

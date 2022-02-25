@@ -4,12 +4,12 @@ export default function SiteFooterAlt() {
   return (
     <footer className="bg-ais-black text-white">
       <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl flex justify-around gap-4 p-4 ">
-        <div className="grid grid-col-1 grid-flow-row place-items-center">
+        <div className="grid grid-col-1 grid-flow-row place-items-center py-5">
           <img src="/ais_dark.svg" className="h-20" />
-          <div className="">© Copyright 2021 AIS UTD, All Rights Reserved</div>
+          <div className="py-5">© Copyright 2021 AIS UTD, All Rights Reserved</div>
         </div>
         <div>
-          <div className="text-lg font-bold">Sitemap</div>
+          <div className="text-lg font-bold py-5">Sitemap</div>
           <div>
             <div className="block">
               <Link href="/">Home</Link>
@@ -29,7 +29,7 @@ export default function SiteFooterAlt() {
           </div>
         </div>
         <div>
-          <div className="text-lg font-bold">Socials</div>
+          <div className="text-lg font-bold py-5">Socials</div>
           <ul>
             <div>
               <div className="">
