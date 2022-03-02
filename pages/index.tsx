@@ -116,7 +116,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        <section id="callToAction" className=" bg-ais-dark-gray text-white mt-16 py-10">
+        <section id="callToAction" className=" bg-ais-dark-gray text-white mt-16 py-10 px-2">
           <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl">
             <div className="text-4xl font-medium ">Get Involved</div>
             <div className="py-2 flex gap-16 justify-between items-start">
