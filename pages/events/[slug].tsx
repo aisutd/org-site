@@ -68,7 +68,7 @@ export default function EventPage({
     slides,
     signup,
   } = event;
-
+  // console.log(event)
   const calEvent = {
     title: title,
     description: description,

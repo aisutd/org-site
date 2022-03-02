@@ -121,13 +121,13 @@ export default function EventsPage({ events }: EventsPageProps) {
           </div>
         </section>
         {onGoingEventDiv}
-        <section className="bg-ais-light-gray py-8">
+        <section className="bg-ais-light-gray py-8 px-2">
           <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-2">
             <div className="text-3xl font-bold mb-4">Upcoming Events</div>
             {upComingEventDiv}
           </div>
         </section>
-        <section className="bg-ais-light-gray py-8">
+        <section className="bg-ais-light-gray py-8 px-2">
           <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl py-2">
             <div className="text-3xl font-bold mb-4">Event Archive</div>
             {pastEventsDiv}
