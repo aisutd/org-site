@@ -19,7 +19,7 @@ export default function SiteHeader() {
           <div className="flex-1 text-2xl ml-4 text-center md:text-left font-bold">
             <div className="flex gap-4 items-center">
               <img src="/ais_light.svg" className="h-8" />
-              <Link href="/">Artifical Intelligence Society</Link>
+              <Link href="/">Artificial Intelligence Society</Link>
             </div>
           </div>
           <div className="hidden xl:flex mt-2 ml-2 md:ml-0 md:mt-0 md:mr-4">
