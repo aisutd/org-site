@@ -80,11 +80,10 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
       } else imageUrl = imageUrl['url'];
 
       let slideLink: string;
-      if (typeof rows[i].values['Slides Link'] == 'string'){
+      if (typeof rows[i].values['Slides Link'] == 'string') {
         slideLink = rows[i].values['Slides Link'].replace(/```/gi, '');
         slideLink = slideLink.substring(slideLink.indexOf('(') + 1, slideLink.indexOf(')'));
-      }
-      else{
+      } else {
         slideLink = rows[i].values['Slides Link']['url'];
       }
 
