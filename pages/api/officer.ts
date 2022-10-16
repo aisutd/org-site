@@ -102,7 +102,7 @@ export const getAllOfficers = async (fields?: string[]): Promise<Officer[]> => {
     console.log('Error No: ' + error.errno);
     console.log('Error Code: ' + error.code);
     // Restore from an offline backup if necessary
-    //retrieveOfficers();
+    retrieveOfficers();
   }
   return Object.values(OFFICERS_MAP);
 };
