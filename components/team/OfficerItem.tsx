@@ -56,7 +56,7 @@ function linkedInLink(officer: Officer) {
     return (
       <div className="px-2">
         <button className="transition duration-200 ease-in-out transform hover:-translate-y-1 hover:scale-110">
-          <a target="_blank" href={officer.linkedInUrl} rel="noreferrer">
+          <a target="_blank" href={'https://linkedin.com/in/' + officer.linkedInUrl + "/"} rel="noreferrer">
             <LinkedIn color="primary" />
           </a>
         </button>
