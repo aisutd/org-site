@@ -60,7 +60,6 @@ export default function TeamPage({ officers }: TeamPageProps) {
             <TeamItem officers={financeTeam} team={'Finance'} />
             <TeamItem officers={techTeam} team={'Technology'} />
             <TeamItem officers={outreachTeam} team={'Outreach'} />
-            
             <TeamItem officers={marketingTeam} team={'Marketing'} />
             <TeamItem officers={industryTeam} team={'Industry'} />
             {/* <TeamItem officers={projectsTeam} team={'Projects'} /> */}
