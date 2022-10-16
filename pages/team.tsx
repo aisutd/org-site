@@ -18,6 +18,7 @@ export default function TeamPage({ officers }: TeamPageProps) {
   const marketingTeam: Officer[] = [];
   const operationsTeam: Officer[] = [];
   const projectsTeam: Officer[] = [];
+  const outreachTeam: Officer[] = [];
   const AIMTeam: Officer[] = [];
   const execTeam: Officer[] = [];
 
@@ -30,6 +31,7 @@ export default function TeamPage({ officers }: TeamPageProps) {
     else if (off['team'] == 'Projects Team') projectsTeam.push(off);
     else if (off['team'] == 'Technology Team') techTeam.push(off);
     else if (off['team'] == 'AIM') AIMTeam.push(off);
+    else if (off['team'] == 'Outreach Team') outreachTeam.push(off);
   }
 
   return (
@@ -57,10 +59,12 @@ export default function TeamPage({ officers }: TeamPageProps) {
             <TeamItem officers={operationsTeam} team={'Operations'} />
             <TeamItem officers={financeTeam} team={'Finance'} />
             <TeamItem officers={techTeam} team={'Technology'} />
-            <TeamItem officers={AIMTeam} team={'AIM'} />
+            <TeamItem officers={outreachTeam} team={'Outreach'} />
+            
             <TeamItem officers={marketingTeam} team={'Marketing'} />
             <TeamItem officers={industryTeam} team={'Industry'} />
-            <TeamItem officers={projectsTeam} team={'Projects'} />
+            {/* <TeamItem officers={projectsTeam} team={'Projects'} /> */}
+            <TeamItem officers={AIMTeam} team={'AIM'} />
           </div>
         </section>
       </main>

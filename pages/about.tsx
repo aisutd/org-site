@@ -84,7 +84,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl xl:max-w-4xl 2xl:max-w-6xl">
             <div className="text-4xl font-bold">Our Founder</div>
             <div className="flex flex-wrap gap-8 items-center mt-8">
-              <OfficerItem key={founder.name} officer={founder} />
+              <OfficerItem officer={founder} />
               <div className="flex md:max-w-3xl gap-2">
                 <FormatQuoteIcon className="self-start transform rotate-180" />
                 <div className="text-xl text-justify">

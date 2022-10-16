@@ -36,11 +36,11 @@ export const getAllOfficers = async (fields?: string[]): Promise<Officer[]> => {
      * 3. Create a file ".env.local" in your project directory
      * 4. Add the following entry: "CODA_OFFICER_API_KEY='{Your API key}'"
      */
-    const CodaAPI = new Coda(process.env.CODA_OFFICER_API_KEY);
 
+    const CodaAPI = new Coda(process.env.CODA_OFFICER_API_KEY);
     // AIS Personnel Doc: zWBpla6LLN
     const doc = await CodaAPI.getDoc('zWBpla6LLN'); // Grab AIS Personnel Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
-    const table = await doc.getTable('Officers'); // Grab the actual table from the doc
+    const table = await doc.getTable('Officers 2022'); // Grab the actual table from the doc
     const rows = await table.listRows({ useColumnNames: true, valueFormat: 'rich' }); // Grab all the officer entries in the doc
 
     for (let i = 0; i < rows.length; i++) {
@@ -93,6 +93,7 @@ export const getAllOfficers = async (fields?: string[]): Promise<Officer[]> => {
       };
 
       OFFICERS_MAP[officer.name] = officer;
+      //storeOfficers();
     }
     // Create an offline backup if necessary
     // storeOfficers();
@@ -101,7 +102,7 @@ export const getAllOfficers = async (fields?: string[]): Promise<Officer[]> => {
     console.log('Error No: ' + error.errno);
     console.log('Error Code: ' + error.code);
     // Restore from an offline backup if necessary
-    retrieveOfficers();
+    //retrieveOfficers();
   }
   return Object.values(OFFICERS_MAP);
 };

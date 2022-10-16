@@ -42,6 +42,7 @@ export const getAllEvents = async (fields?: string[]): Promise<Event[]> => {
      * 3. Create a file ".env.local" in your project directory
      * 4. Add the following entry: "CODA_API_KEY='{Your API key}'"
      */
+
     const CodaAPI = new Coda(process.env.CODA_API_KEY);
     const doc = await CodaAPI.getDoc('luD4Jth4qA'); // Grab Event Tracking Doc from Coda API using the Doc ID at https://coda.io/developers/apis/v1
     const table = await doc.getTable('All Events'); // Grab the actual table from the doc
