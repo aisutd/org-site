@@ -158,4 +158,3 @@ export default function OfficerItem({ officer }: OfficerItemProps) {
     </div>
   );
 }
-
