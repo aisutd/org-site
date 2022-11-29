@@ -8,7 +8,7 @@ import SiteFooterAlt from './SiteFooterAlt';
 export default function SiteLayout({ children }: React.PropsWithChildren<unknown>) {
   return (
     <div>
-      <SiteHeader />
+      <SiteHeader/>
       {children}
       <SiteFooterAlt />
     </div>

@@ -124,6 +124,7 @@ export default function SiteHeader() {
                         <YouTubeIcon style={{ fontSize: 29 }} />
                       </a>
                     </Link>
+                    
                     <Link href="/dc">
                       <a>
                         <img src="/discord_light.svg" className="h-6 -mb-1 text-ais-dark-blue" />
